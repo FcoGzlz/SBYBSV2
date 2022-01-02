@@ -16,7 +16,7 @@ class CreateDetalleSolicitudTable extends Migration
         Schema::create('detalle_solicitud', function (Blueprint $table) {
             $table->id();
             $table->string('detalle', '500');
-            $table->timestamp('fecha');
+            $table->dateTime('fecha');
             $table->unsignedBigInteger('solicitud');
             $table->timestamps();
         });

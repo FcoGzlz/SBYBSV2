@@ -26,8 +26,8 @@ class CreateSolicitudTable extends Migration
             $table->integer('prioridad');
             $table->unsignedBigInteger('categoria');
             $table->unsignedBigInteger('responsable')->nullable();
-            $table->timestamp('fechaIngreso');
-            $table->timestamp('fechaCierre')->nullable();
+            $table->dateTime('fechaIngreso');
+            $table->dateTime('fechaCierre')->nullable();
             $table->integer('estado');
             $table->timestamps();
         });

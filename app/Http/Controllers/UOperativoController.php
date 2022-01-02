@@ -2,9 +2,11 @@
 
 namespace App\Http\Controllers;
 
+use App\Http\Requests\DetalleEditFormRequest;
 use App\Http\Requests\DetalleFormRequest;
 use App\Models\DetalleSolicitud;
 use App\Models\Solicitud;
+use Carbon\Carbon;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 
@@ -13,40 +15,51 @@ class UOperativoController extends Controller
     public function solicitudesPendientes()
     {
         $usuario = Auth::user();
-
-        $solicitudes = Solicitud::where('responsable', '=', $usuario->id)->where('estado', '=', 1)->get();
+        $solicitudes = $usuario->solicitudes->where('estado', '=', 1);
+        // $solicitudes = Solicitud::where('responsable', '=', $usuario->id)->where('estado', '=', 1)->get();
 
         return view('usuarioOperativo.solicitudesPendientes', compact('solicitudes'));
     }
 
-    public function detalleSolicitud(Request $request)
+    public function detalleSolicitud($id)
     {
-        $solicitud = Solicitud::findOrFail($request->id);
-
+        $solicitud = Solicitud::findOrFail($id);
         return view('usuarioOperativo.detalleSolicitud', compact('solicitud'));
     }
 
-    public function agregarDetalle(DetalleFormRequest $request)
+    public function agregarDetalle(DetalleFormRequest $request, $id)
     {
+        // dd($request->get('detalle'));
         $detalle = DetalleSolicitud::create(
             [
                 'detalle' => $request->get('detalle'),
-                'solicitud' => $request->get('solicitud'),
+                'fecha' => Carbon::now(),
+                'solicitud' => $id,
             ]
         );
         $detalle->save();
-        $id = $request->get('id');
-        return redirect()->action('UOperativoController@detalleSolicitud', compact('id'));
+        // $id1 = $id;
+        return redirect(url('/detalle_solicitud/' . $id));
     }
 
-    public function guardarDetalle(DetalleFormRequest $request)
+    public function guardarDetalle(DetalleEditFormRequest $request, $idS, $idD)
     {
-        $detalle = DetalleSolicitud::findOrFail($request->get('idDetalle'));
-        $detalle->detalle = $request->get('detalleEdit');
-        $detalle->save();
-        $id = $request->get('id');
+        // dd($idD);
+        $detalle = DetalleSolicitud::findOrFail($idD);
+        $detalle->detalle = $request->get('detalleEdit' . $idD);
 
-        return redirect()->action('UOperativoController@detalleSolicitud', compact('id'));
+        $detalle->save();
+        // $id = $request->get('id');
+
+        return redirect(url('/detalle_solicitud/' . $idS));
+    }
+
+    public function eliminarDetalle($idS, $idD)
+    {
+        $detalle = DetalleSolicitud::findOrFail($idD);
+        $detalle->delete();
+
+        return redirect(url('/detalle_solicitud/'. $idS));
     }
 
     public function finalizarSolicitud(Request $request)
@@ -56,7 +69,7 @@ class UOperativoController extends Controller
         $solicitud->estado = 2;
 
         $solicitud->save();
-        return redirect()->action('UOperativoController@solicitudesFinalizadas');
+        return redirect()->action([UOperativoController::class, 'solicitudesFinalizadas']);
     }
 
     public function solicitudesFinalizadas()
@@ -66,10 +79,11 @@ class UOperativoController extends Controller
         return view("usuarioOperativo.solicitudesFInalizadas", compact('solicitudes'));
     }
 
-    public function resumenSolicitud(Request $request)
+    public function resumenSolicitud($id)
     {
-        $solicitud = Solicitud::findOrFail($request->get('id'));
+        $solicitud = Solicitud::findOrFail($id);
 
         return view('usuarioOperativo.resumen', compact('solicitud'));
     }
+
 }

@@ -18,6 +18,6 @@ class Categoria extends Model
     ];
 
     public function solicitudes() {
-        return $this->belongToMany(Solicitud::class);
+        return $this->hasMany(Solicitud::class);
     }
 }

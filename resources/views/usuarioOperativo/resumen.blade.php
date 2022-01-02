@@ -5,10 +5,10 @@
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, shrink-to-fit=no">
     <title>Detalle Tecnico Operativo - final</title>
-    <link rel="stylesheet" href="assetsOperativo/detalle/bootstrap/css/bootstrap.min.css">
+    <link rel="stylesheet" href="\assetsOperativo/detalle/bootstrap/css/bootstrap.min.css">
     <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto">
-    <link rel="stylesheet" href="assetsOperativo/detalle/fonts/font-awesome.min.css">
-    <link rel="stylesheet" href="assetsOperativo/detalle/css/styles.min.css">
+    <link rel="stylesheet" href="\assetsOperativo/detalle/fonts/font-awesome.min.css">
+    <link rel="stylesheet" href="\assetsOperativo/detalle/css/styles.min.css">
 </head>
 
 <body>
@@ -207,8 +207,8 @@
                                                     @if ($solicitud->detalles == null)
 
                                                     @else
-                                                    @foreach ($solicitud->detalles->get() as $detalle)
-                                                    <form method="POST" action="{{route('guardarDetalle')}}">
+                                                    @foreach ($solicitud->detalles as $detalle)
+                                                    <form method="POST" action="">
                                                      @csrf
                                                      <div class="form-row">
                                                          <div class="col-lg-12 col-xl-12">
@@ -243,9 +243,9 @@
             </div>
         </div>
     </div>
-    <script src="assetsOperativo/detalle/js/jquery.min.js"></script>
-    <script src="assetsOperativo/detalle/bootstrap/js/bootstrap.min.js"></script>
-    <script src="assetsOperativo/detalle/js/script.min.js"></script>
+    <script src="\assetsOperativo/detalle/js/jquery.min.js"></script>
+    <script src="\assetsOperativo/detalle/bootstrap/js/bootstrap.min.js"></script>
+    <script src="\assetsOperativo/detalle/js/script.min.js"></script>
 
 </body>
 

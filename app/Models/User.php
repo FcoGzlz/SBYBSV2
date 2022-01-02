@@ -43,7 +43,7 @@ class User extends Authenticatable
         'email_verified_at' => 'datetime',
     ];
 
-    public function solicitud() {
-        return $this->belongsToMany(Solicitud::class);
+    public function solicitudes() {
+        return $this->hasMany(Solicitud::class, 'responsable', 'id');
     }
 }

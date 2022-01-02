@@ -8,9 +8,10 @@
                     <h4 class="card-title" style="color: #009cde;">Editar Solicitud N° {{$solicitud->id}}</h4>
                     <h6 class="text-muted card-subtitle mb-2">Por favor ingrese los datos
                         correctamente</h6>
-                    <form method="POST" action="{{route('guardarSolicitud')}}">
+                    <form method="POST" action="{{ url('/guardar_solicitud/'.$solicitud->id) }}">
                         @csrf
-                        <input hidden name="id" value="{{$solicitud->id}}">
+                        {{ method_field('POST') }}
+                        {{-- <input hidden name="id" value="{{$solicitud->id}}"> --}}
                         <div class="form-group"><label>Nombre</label><input
                                 class="form-control form-colorbyb @error('nombreCliente') is-invalid @enderror" type="text" name="nombreCliente" value="{{$solicitud->nombreCliente}}">
                                 @error('nombreCliente')
@@ -110,7 +111,7 @@
                             </div>
                         </div>
                         <div class="form-row">
-                            <div class="col-lg-9 col-xl-10">
+                            <div class="col-lg-9 col-xl-12">
                                 <div class="form-group"><label>Descripcion</label><textarea
                                         class="form-control form-colorbyb @error('descripcion') is-invalid
                                         @enderror" name="descripcion" value="dasdsd">{{$solicitud->descripcion}}</textarea>
@@ -120,38 +121,70 @@
                                         </span>
                                         @enderror</div>
                             </div>
-                            <div class="col-lg-3 col-xl-2 text-right align-self-center margindropdown">
-                                <label for="dropPriori">Prioridad definida</label><select
-                                    class="form-control" name="prioridad">
-                                    @if ($solicitud->prioridad == 1)
-                                    <optgroup label="Prioridad">
-                                        <option value="">Selecciona</option>
-                                        <option value="1" selected>Alta</option>
-                                        <option value="2">Media</option>
-                                        <option value="3">Baja</option>
-                                    </optgroup>
-                                    @endif
 
-                                    @if ($solicitud->prioridad == 2)
-                                    <optgroup label="Prioridad">
-                                        <option value="">Selecciona</option>
-                                        <option value="1" >Alta</option>
-                                        <option value="2" selected>Media</option>
-                                        <option value="3">Baja</option>
-                                    </optgroup>
-                                    @endif
+                        </div>
 
-                                    @if ($solicitud->prioridad == 3)
-                                    <optgroup label="Prioridad">
-                                        <option value="">Selecciona</option>
-                                        <option value="1" >Alta</option>
-                                        <option value="2" >Media</option>
-                                        <option value="3"selected>Baja</option>
-                                    </optgroup>
-                                    @endif
-                                </select>
+                        <div class="form-row">
+                            <div class="col-lg-6 col-xl-6">
+                                <div class="form-group"><label>Categoría del problema</label><select
+                                        class="form-control form-colorbyb @error('categoria') is-invalid
+                                @enderror" name="categoria">
+                                        <optgroup label="Categoría">
+                                            <option value="{{ $solicitud->categoria}}">{{App\Models\Categoria::findOrFail($solicitud->categoria)->nombre }}</option>
+
+                                            @foreach ($categorias->except($solicitud->categoria) as $categoria)
+                                                <option value="{{ $categoria->id }}">{{ $categoria->nombre }}</option>
+                                            @endforeach
+                                        </optgroup>
+                                    </select>
+                                    @error('categoria')
+                                        <span class="invalid-feedback" role="alert">
+                                            <strong>{{ $message }}</strong>
+                                        </span>
+                                    @enderror
+                                </div>
+                            </div>
+                            <div class="col-lg-6 col-xl-6">
+                                <div class="form-group"><label>Prioridad</label>
+                                    <select
+                                        class="form-control form-colorbyb @error('prioridad') is-invalid
+                                @enderror" name="prioridad">
+                                        @if ($solicitud->prioridad == 1)
+                                <optgroup label="Prioridad">
+                                    <option value="">Selecciona</option>
+                                    <option value="1" selected>Alta</option>
+                                    <option value="2">Media</option>
+                                    <option value="3">Baja</option>
+                                </optgroup>
+                                @endif
+
+                                @if ($solicitud->prioridad == 2)
+                                <optgroup label="Prioridad">
+                                    <option value="">Selecciona</option>
+                                    <option value="1" >Alta</option>
+                                    <option value="2" selected>Media</option>
+                                    <option value="3">Baja</option>
+                                </optgroup>
+                                @endif
+
+                                @if ($solicitud->prioridad == 3)
+                                <optgroup label="Prioridad">
+                                    <option value="">Selecciona</option>
+                                    <option value="1" >Alta</option>
+                                    <option value="2" >Media</option>
+                                    <option value="3"selected>Baja</option>
+                                </optgroup>
+                                @endif
+                                    </select>
+                                    @error('prioridad')
+                                        <span class="invalid-feedback" role="alert">
+                                            <strong>{{ $message }}</strong>
+                                        </span>
+                                    @enderror
+                                </div>
                             </div>
                         </div>
+
 
                         <div class="form-row">
                             <div class="col">

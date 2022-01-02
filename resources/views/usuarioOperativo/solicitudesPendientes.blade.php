@@ -126,7 +126,7 @@
 
                     <td class="text-center">{{ $solicitud->telefono }}</td>
                     <td class="text-center">
-                        {{ Carbon\Carbon::parse($solicitud->fechaIngreso)->isoFormat('dddd, D MMMM, YYYY, HH:MM') }}
+                        {{ Carbon\Carbon::parse($solicitud->fechaIngreso)->isoFormat('dddd, D MMMM YYYY - HH:mm') }}
                         hrs</td>
 
 
@@ -134,9 +134,9 @@
                         <td style="width:90px;">
                             <div class="col">
                                 <div class="row">
-                                    <form method="POST" action="{{ route('detalle')}}">
+                                    <form method="POST" action="{{ url('/detalle_solicitud/'.$solicitud->id)}}">
                                         @csrf
-                                        <input type="hidden" value="{{$solicitud->id}}" name="id">
+                                        {{-- <input type="hidden" value="{{$solicitud->id}}" name="id"> --}}
                                     <button class="btn btn-primary" id="btnEditarDetalle" type="submit"><i class="fa fa-pencil"></i>
                                     </button>
                                 </form>

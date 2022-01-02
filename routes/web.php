@@ -1,6 +1,8 @@
 <?php
 
-use App\Http\Controllers\UAdminitradorController;
+use App\Http\Controllers\CCOntroller;
+use App\Http\Controllers\UAdministradorController;
+use App\Http\Controllers\UOperativoController;
 use Illuminate\Support\Facades\Route;
 use Illuminate\Support\Facades\Auth;
 
@@ -23,23 +25,27 @@ Auth::routes();
 
 Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
 
-Route::get('/solicitudes_clientes', [App\Http\Controllers\UAdminitradorController::class, 'SolicitudesClientes'])->name('solicitudesClientes');
+Route::get('/solicitudes_clientes', [UAdministradorController::class, 'SolicitudesClientes'])->name('solicitudesClientes');
 
-Route::match(['get', 'post'], '/definir_prioridad', [App\Http\Controllers\UAdminitradorController::class,'definirPrioridad'])->name('definirPrioridad');
-    Route::match(['get', 'post'], '/ingresar_solicitud', [App\Http\Controllers\UAdminitradorController::class,'ingresarSolicitud'])->name('ingresarSolicitud');
-    Route::get('/solicitudes_ingresadas',[ App\Http\Controllers\UAdminitradorController::class,'solicitudesIngresadas'])->name('solicitudesIngresadas');
-    Route::get('/nueva-solicitud', [App\Http\Controllers\UAdminitradorController::class,'nuevaSolicitud'])->name('nuevaSolicitud');
-    Route::POST('/agregar-solicitud', [App\Http\Controllers\UAdminitradorController::class,'agregarSolicitud'])->name('agregarSolicitud');
-    Route::POST('/detalle-solicitud', [App\Http\Controllers\UAdminitradorController::class,'detalleSolicitud'])->name('detalleSolicitud');
-    Route::POST('/editar-solicitud', [App\Http\Controllers\UAdminitradorController::class,'editarSolicitud'])->name('editarSolicitud');
-    Route::any('/guardar-solicitud', [App\Http\Controllers\UAdminitradorController::class,'guardarSolicitud'])->name('guardarSolicitud');
-    Route::POST('/eliminar-solicitud', [App\Http\Controllers\UAdminitradorController::class,'eliminarSolicitud'])->name('eliminarSolicitud');
+Route::match(['get', 'post'], '/definir_prioridad', [UAdministradorController::class,'definirPrioridad'])->name('definirPrioridad');
+    Route::match(['get', 'post'], '/ingresar_solicitud', [UAdminitradorController::class,'ingresarSolicitud'])->name('ingresarSolicitud');
+    Route::get('/solicitudes_ingresadas',[UAdministradorController::class,'solicitudesIngresadas'])->name('solicitudesIngresadas');
+    Route::get('/nueva_solicitud', [UAdministradorController::class,'nuevaSolicitud'])->name('nuevaSolicitud');
+    Route::POST('/agregar_solicitud', [UAdministradorController::class,'agregarSolicitud'])->name('agregarSolicitud');
+    Route::POST('/detalle_solicitud', [UAdministradorController::class,'detalleSolicitud'])->name('detalleSolicitud');
+    Route::GET('/editar_solicitud/{solicitud}', [UAdministradorController::class,'editarSolicitud']);
+    Route::POST('/guardar_solicitud/{solicitud}', [UAdministradorController::class,'guardarSolicitud']);
+    Route::POST('/eliminar_solicitud', [UAdministradorController::class,'eliminarSolicitud'])->name('eliminarSolicitud');
+    Route::GET('/reporte', [UAdministradorController::class, 'reporte']);
 
 
-    Route::get('/solicitudes-pendientes', [App\Http\Controllers\UAdminitradorController::class,'solicitudesPendientes'])->name('solicitudesPendientes');
-    Route::match(['get', 'post'],'/detalle-solicitud', [App\Http\Controllers\UAdminitradorController::class,'detalleSolicitud'])->name('detalle');
-    Route::POST('/agregar-detalle', [App\Http\Controllers\UAdminitradorController::class,'agregarDetalle'])->name('agregarDetalle');
-    Route::POST('/guardar-detalle', [App\Http\Controllers\UAdminitradorController::class,'guardarDetalle'])->name('guardarDetalle');
-    Route::get('/finalizar-solicitud', [App\Http\Controllers\UAdminitradorController::class,'finalizarSolicitud'])->name('finalizarSolicitud');
-    Route::get('/solicitudes-finalizadas', [App\Http\Controllers\UAdminitradorController::class,'solicitudesFinalizadas'])->name('solicitudesFinalizadas');
-    Route::POST('/resumen-solicitud', [App\Http\Controllers\UAdminitradorController::class,'resumenSolicitud'])->name('resumen');
+    Route::get('/solicitudes_pendientes', [UOperativoController::class,'solicitudesPendientes'])->name('solicitudesPendientes');
+    Route::match(['get', 'post'],'/detalle_solicitud/{solicitud}', [UOperativoController::class,'detalleSolicitud'])->name('detalle');
+    Route::POST('/detalle_solicitud/{solicitud}/agregar_detalle', [UOperativoController::class,'agregarDetalle'])->name('agregarDetalle');
+    Route::PATCH('/detalle_solicitud/{solicitud}/guardar_detalle/{detalle}', [UOperativoController::class,'guardarDetalle'])->name('guardarDetalle');
+    Route::DELETE('/detalle_solicitud/{solicitud}/eliminar_detalle/{detalle}', [UOperativoController::class, 'eliminarDetalle']);
+    Route::POST('/finalizar_solicitud/{solicitud}', [UOperativoController::class,'finalizarSolicitud'])->name('finalizarSolicitud');
+    Route::get('/solicitudes_finalizadas', [UOperativoController::class,'solicitudesFinalizadas'])->name('solicitudesFinalizadas');
+    Route::POST('/resumen_solicitud/{solicitud}', [UOperativoController::class,'resumenSolicitud'])->name('resumen');
+
+    Route::get('/formulario_ingreso_solicitud', [CCOntroller::class, 'index']);

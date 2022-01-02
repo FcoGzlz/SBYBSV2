@@ -12,9 +12,10 @@ class DetalleSolicitud extends Model
     protected $table = 'detalle_solicitud';
     protected $prymaryKey = 'id';
 
-    protected $filable = [
+    protected $fillable = [
         'detalle',
         'fecha',
+        'solicitud'
     ];
 
     public function solicitud() {

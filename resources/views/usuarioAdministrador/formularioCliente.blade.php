@@ -1,5 +1,4 @@
-@extends('layouts.menu')
-@section('content')
+
     <div class="row no-gutters">
         <div class="col">
             <div class="container containerCard" style="margin-top: 25px;margin-bottom: 25px;">
@@ -122,45 +121,6 @@
                             </div>
 
                             <div class="form-row">
-                                <div class="col-lg-6 col-xl-6">
-                                    <div class="form-group"><label>Categoría del problema</label><select
-                                            class="form-control form-colorbyb @error('categoria') is-invalid
-                                    @enderror" name="categoria">
-                                            <optgroup label="Categoría">
-                                                <option value=" ">Seleccionar</option>
-                                                @foreach ($categorias as $categoria)
-                                                    <option value="{{ $categoria->id }}">{{ $categoria->nombre }}</option>
-                                                @endforeach
-                                            </optgroup>
-                                        </select>
-                                        @error('categoria')
-                                            <span class="invalid-feedback" role="alert">
-                                                <strong>{{ $message }}</strong>
-                                            </span>
-                                        @enderror
-                                    </div>
-                                </div>
-                                <div class="col-lg-6 col-xl-6">
-                                    <div class="form-group"><label>Prioridad</label><select
-                                            class="form-control form-colorbyb @error('prioridad') is-invalid
-                                    @enderror" name="prioridad">
-                                            <optgroup label="Prioridad">
-                                                <option value=" ">Seleccionar</option>
-                                                <option value="1">Alta</option>
-                                                <option value="2">Media</option>
-                                                <option value="3">Baja</option>
-                                            </optgroup>
-                                        </select>
-                                        @error('prioridad')
-                                            <span class="invalid-feedback" role="alert">
-                                                <strong>{{ $message }}</strong>
-                                            </span>
-                                        @enderror
-                                    </div>
-                                </div>
-                            </div>
-
-                            <div class="form-row">
                                 <div class="col text-right"><button class="btn btn-primary" id="btnEnviarDetalles"
                                         type="submit">Enviar</button></div>
                             </div>
@@ -170,4 +130,4 @@
             </div>
         </div>
     </div>
-@endsection
+

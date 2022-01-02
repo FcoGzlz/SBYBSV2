@@ -1,13 +1,15 @@
 <?php
 
 namespace App\Http\Controllers;
-
 use App\Http\Requests\SolicitudFormRequest;
 use App\Models\Categoria;
 use App\Models\Solicitud;
+use App\Models\User;
+use Carbon\Carbon;
 use Illuminate\Http\Request;
 
-class UAdminitradorController extends Controller
+
+class UAdministradorController extends Controller
 {
     public function SolicitudesClientes(Request $request)
     {
@@ -46,7 +48,7 @@ class UAdminitradorController extends Controller
         $solicitud->prioridad = $request->get('prioridad');
         $solicitud->estado = 1;
         $solicitud->save();
-        return redirect()->action('UAdministradorController@solicitudesClientes');
+        return redirect()->action([UAdministradorController::class, 'solicitudesClientes']);
     }
 
     public function definirPrioridad(Request $request)
@@ -56,7 +58,7 @@ class UAdminitradorController extends Controller
         return view('usuarioAdministrador/ingresarSolicitud', compact("solicitud", "busqueda"));
     }
 
-    public function SolicitudesIngresadas(Request $request)
+    public function solicitudesIngresadas(Request $request)
     {
         $busqueda = $request->get('busqueda');
         $separado = explode(" ", $busqueda, 4);
@@ -75,7 +77,7 @@ class UAdminitradorController extends Controller
         }
 
 
-        return view('usuarioAdministrador/solicitudesIngresadas', compact("solicitudesIngresadas", 'busqueda'));
+        return view('usuarioAdministrador.solicitudesIngresadas', compact("solicitudesIngresadas", 'busqueda'));
     }
 
     public function nuevaSolicitud()
@@ -89,8 +91,6 @@ class UAdminitradorController extends Controller
     public function agregarSolicitud(SolicitudFormRequest $request)
     {
 
-
-
         $solicitud = Solicitud::create(
             [
                 'rut' => $request->get('rut'),
@@ -103,19 +103,21 @@ class UAdminitradorController extends Controller
                 'descripcion' => $request->get('descripcion'),
                 'prioridad' => $request->get('prioridad'),
                 'categoria' => $request->get('categoria'),
+                'fechaIngreso' => Carbon::now(),
                 'estado' => (1),
+
             ]
 
         );
         $solicitud->save();
 
-        return redirect()->action('UAdministradorController@solicitudesIngresadas');
+        return redirect()->action([UAdministradorController::class, 'solicitudesIngresadas']);
     }
 
-    public function guardarSolicitud(SolicitudFormRequest $request)
+    public function guardarSolicitud(SolicitudFormRequest $request, $id)
     {
 
-        $solicitud = Solicitud::findOrFail($request->get('id'));
+        $solicitud = Solicitud::findOrFail($id);
         $solicitud->rut = $request->get('rut');
         $solicitud->nombreCliente = $request->get('nombreCliente');
         $solicitud->apellidoCliente = $request->get('apellidoCliente');
@@ -125,17 +127,50 @@ class UAdminitradorController extends Controller
         $solicitud->direccion = $request->get('direccion');
         $solicitud->descripcion = $request->get('descripcion');
         $solicitud->prioridad = $request->get('prioridad');
+        $solicitud->categoria = $request->get('categoria');
         $solicitud->responsable = $request->get('responsable');
         $solicitud->estado = (1);
         $solicitud->save();
 
-        return redirect()->action('UAdministradorController@solicitudesIngresadas');
+        return redirect()->action([UAdministradorController::class, 'solicitudesIngresadas']);
     }
 
     public function eliminarSolicitud(Request $request)
     {
         $solicitud = Solicitud::findOrFail($request->get('id'));
         $solicitud->delete();
-        return redirect()->action('UAdministradorController@solicitudesIngresadas');
+        return redirect()->action([UAdministradorController::class, 'solicitudesIngresadas']);
+    }
+
+    public function detalleSolicitud(Request $request){
+        $solicitud = Solicitud::findOrFail($request->get('detalle'));
+        $busqueda = "0";
+        return view('usuarioAdministrador.prueba', compact("solicitud", "busqueda"));
+
+    }
+
+    public function editarSolicitud($id){
+        $solicitud = Solicitud::findOrFail($id);
+        $busqueda = "0";
+        $categoriaActual =  $solicitud->categoria();
+        // dd($categoriaActual);
+        $categorias = Categoria::All();
+        $tecnicosOperativos = User::role('UOperativo')->get();
+        return view('usuarioAdministrador.editarSolicitud', compact("solicitud", "busqueda", "tecnicosOperativos", "categorias"));
+    }
+
+    public function reporte()
+    {
+        $fechaHoy = Carbon::now()->isoFormat('YYYY-MM-DD');
+        $solicitudes = Solicitud::reporteDiario($fechaHoy)->get();
+
+
+        // $prioridadAlta = $solicitudes->where('prioridad', '=', 1)->get();
+        // $prioridadMedia = $solicitudes->where('prioridad', '=', 2)->get();
+        // $prioridadBaja = $solicitudes->where('prioridad', '=', 3)->get();
+
+        // dd(Carbon::now()->isoFormat('YYYY-MM-DD'));
+        // dd($solicitudes->where('prioridad', '=', 2)->count());
+        return view('usuarioAdministrador.reporte', compact("solicitudes"));
     }
 }

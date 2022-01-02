@@ -50,7 +50,7 @@
                                             <div class="row">
                                                 <form method="POST" action="{{ route('definirPrioridad')}}">
                                                     @csrf
-                                                    <input type="hidden" value="{{$solicitud->id}}" name="id">
+                                                    {{-- <input type="hidden" value="{{$solicitud->id}}" name="id"> --}}
                                                 <button class="btn btn-primary" id="btnEditarDetalle" type="submit"><i class="fa fa-pencil"></i>
                                                 </button>
                                             </form>

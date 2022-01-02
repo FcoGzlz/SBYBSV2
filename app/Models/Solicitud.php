@@ -29,15 +29,15 @@ class Solicitud extends Model
     ];
 
     public function responsable() {
-        return $this->hasone(User::class);
+        return $this->belongsTo(User::class);
     }
 
     public function categoria() {
-        return $this->hasOne(Categoria::class);
+        return $this->belongsTo(Categoria::class);
     }
 
     public function detalles() {
-        return $this->hasMany(DetalleSolicitud::class);
+        return $this->hasMany(DetalleSolicitud::class, 'solicitud', 'id');
     }
 
     public function scopeBusqueda($query, $busqueda){
@@ -57,6 +57,13 @@ class Solicitud extends Model
     public function scopeApellido($query, $apellido){
         if ($apellido) {
             return $query->where('apellidoCliente', 'like', "%$apellido%");
+        }
+    }
+
+    public function scopeReporteDiario($query, $reporte)
+    {
+        if ($reporte) {
+            return $query->where('fechaIngreso', 'like', "%$reporte%");
         }
     }
 }

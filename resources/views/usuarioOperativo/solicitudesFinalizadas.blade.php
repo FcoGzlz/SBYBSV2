@@ -143,7 +143,7 @@
                                                 <td style="width:90px;">
                                                     <div class="col">
                                                         <div class="row">
-                                                            <form method="POST" action="{{ route('resumen') }}">
+                                                            <form method="POST" action="{{ url('/resumen_solicitud/'.$solicitud->id) }}">
                                                                 @csrf
                                                                 <input type="hidden" value="{{ $solicitud->id }}"
                                                                     name="id">

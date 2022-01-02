@@ -1,7 +1,4 @@
 @extends('layouts.menu')
-
-
-
 @section('content')
 <div id="contenidoRowTByCR">
     <div class="col"></div>
@@ -61,7 +58,7 @@
                                 <td class="text-center">No asignado</td>
                                 @else
 
-                                <td class="text-center">{{App\User::findOrFail($solicitud->responsable)->nombre}} {{App\User::findOrFail($solicitud->responsable)->apellido}}</td>
+                                <td class="text-center">{{ $solicitud->responsable}}</td>
                                 @endif
 
                                 <td class="text-center">
@@ -73,9 +70,9 @@
                                     <td style="width:90px;">
                                         <div class="col">
                                             <div class="row">
-                                                <form method="POST" action="{{ route('editarSolicitud')}}">
+                                                <form method="GET" action="{{ url('/editar_solicitud/'.$solicitud->id) }}">
                                                     @csrf
-                                                    <input type="hidden" value="{{$solicitud->id}}" name="id">
+                                                    {{-- <input type="hidden" value="{{$solicitud->id}}" name="id"> --}}
                                                 <button class="btn btn-primary" id="btnEditarDetalle" type="submit"><i class="fa fa-pencil"></i>
                                                 </button>
                                             </form>
