@@ -58,7 +58,7 @@
                                 <td class="text-center">No asignado</td>
                                 @else
 
-                                <td class="text-center">{{ $solicitud->responsable}}</td>
+                                <td class="text-center">{{ App\Models\User::findOrFail($solicitud->responsable)->nombre}} {{ App\Models\User::findOrFail($solicitud->responsable)->apellido}}</td>
                                 @endif
 
                                 <td class="text-center">

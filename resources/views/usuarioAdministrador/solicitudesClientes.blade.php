@@ -1,7 +1,5 @@
 @extends('layouts.menu')
 
-
-
 @section('content')
 <div id="contenidoRowTByCR">
     <div class="col"></div>

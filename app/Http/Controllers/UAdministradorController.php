@@ -62,6 +62,7 @@ class UAdministradorController extends Controller
     {
         $busqueda = $request->get('busqueda');
         $separado = explode(" ", $busqueda, 4);
+        $responsable = User::all();
 
         if (count($separado) > 1) {
 
@@ -77,14 +78,14 @@ class UAdministradorController extends Controller
         }
 
 
-        return view('usuarioAdministrador.solicitudesIngresadas', compact("solicitudesIngresadas", 'busqueda'));
+        return view('usuarioAdministrador.solicitudesIngresadas', compact("solicitudesIngresadas", 'busqueda', 'responsable'));
     }
 
     public function nuevaSolicitud()
     {
         $busqueda = "0";
         $categorias = Categoria::all();
-        return view('usuarioAdministrador.agregarSolicitud', compact('busqueda', 'categorias'));
+        return view('usuarioAdministrador.agregarSolicitud', compact('busqueda', 'categorias',));
     }
 
 
@@ -163,6 +164,7 @@ class UAdministradorController extends Controller
     {
         $fechaHoy = Carbon::now()->isoFormat('YYYY-MM-DD');
         $solicitudes = Solicitud::reporteDiario($fechaHoy)->get();
+        $categorias = Categoria::all();
 
 
         // $prioridadAlta = $solicitudes->where('prioridad', '=', 1)->get();
@@ -171,6 +173,6 @@ class UAdministradorController extends Controller
 
         // dd(Carbon::now()->isoFormat('YYYY-MM-DD'));
         // dd($solicitudes->where('prioridad', '=', 2)->count());
-        return view('usuarioAdministrador.reporte', compact("solicitudes"));
+        return view('usuarioAdministrador.reporte', compact("solicitudes", "categorias"));
     }
 }

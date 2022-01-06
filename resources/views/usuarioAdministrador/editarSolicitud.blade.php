@@ -112,7 +112,7 @@
                         </div>
                         <div class="form-row">
                             <div class="col-lg-9 col-xl-12">
-                                <div class="form-group"><label>Descripcion</label><textarea
+                                <div class="form-group"><label>Descripción</label><textarea
                                         class="form-control form-colorbyb @error('descripcion') is-invalid
                                         @enderror" name="descripcion" value="dasdsd">{{$solicitud->descripcion}}</textarea>
                                         @error('descripcion')
@@ -194,13 +194,16 @@
                                         class="form-control form-colorbyb @error('responsable') is-invalid
                                         @enderror" id="selectEoP"
                                         name="responsable">
-
-                                        <optgroup>
-                                                  <option value="" selected id="hogar">
-                                                Asigne un responsable</option>
+                                            <optgroup>
+                                                @if ($solicitud->responsable == null)
+                                                <option value="" selected>
+                                                   Selecione un responsable</option>
+                                                @else
+                                                  <option value="{{ $solicitud->responsable }}" selected>
+                                                {{ App\Models\User::findOrFail($solicitud->responsable)->nombre }} {{ App\Models\User::findOrFail($solicitud->responsable)->apellido }}</option>
+                                                @endif
                                             </option>
-
-                                            @foreach ($tecnicosOperativos as $tecnico)
+                                            @foreach ($tecnicosOperativos->except($solicitud->responsable) as $tecnico)
                                             <option value="{{$tecnico->id}}" id="empresa">{{$tecnico->nombre}} {{$tecnico->apellido}}
                                             </option>
                                             @endforeach

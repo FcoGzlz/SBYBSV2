@@ -5,6 +5,7 @@ use App\Http\Controllers\UAdministradorController;
 use App\Http\Controllers\UOperativoController;
 use Illuminate\Support\Facades\Route;
 use Illuminate\Support\Facades\Auth;
+use Spatie\Permission\Contracts\Role;
 
 /*
 |--------------------------------------------------------------------------
@@ -27,7 +28,8 @@ Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name
 
 Route::get('/solicitudes_clientes', [UAdministradorController::class, 'SolicitudesClientes'])->name('solicitudesClientes');
 
-Route::match(['get', 'post'], '/definir_prioridad', [UAdministradorController::class,'definirPrioridad'])->name('definirPrioridad');
+Route::group(['middleware' => ['role:UAdministrador']], function(){
+    Route::match(['get', 'post'], '/definir_prioridad', [UAdministradorController::class,'definirPrioridad'])->name('definirPrioridad');
     Route::match(['get', 'post'], '/ingresar_solicitud', [UAdminitradorController::class,'ingresarSolicitud'])->name('ingresarSolicitud');
     Route::get('/solicitudes_ingresadas',[UAdministradorController::class,'solicitudesIngresadas'])->name('solicitudesIngresadas');
     Route::get('/nueva_solicitud', [UAdministradorController::class,'nuevaSolicitud'])->name('nuevaSolicitud');
@@ -36,9 +38,12 @@ Route::match(['get', 'post'], '/definir_prioridad', [UAdministradorController::c
     Route::GET('/editar_solicitud/{solicitud}', [UAdministradorController::class,'editarSolicitud']);
     Route::POST('/guardar_solicitud/{solicitud}', [UAdministradorController::class,'guardarSolicitud']);
     Route::POST('/eliminar_solicitud', [UAdministradorController::class,'eliminarSolicitud'])->name('eliminarSolicitud');
-    Route::GET('/reporte', [UAdministradorController::class, 'reporte']);
+    Route::GET('/reporte', [UAdministradorController::class, 'reporte'])->name('reporte');
+});
 
 
+
+Route::group(['middleware' => ['role:UOperativo']], function(){
     Route::get('/solicitudes_pendientes', [UOperativoController::class,'solicitudesPendientes'])->name('solicitudesPendientes');
     Route::match(['get', 'post'],'/detalle_solicitud/{solicitud}', [UOperativoController::class,'detalleSolicitud'])->name('detalle');
     Route::POST('/detalle_solicitud/{solicitud}/agregar_detalle', [UOperativoController::class,'agregarDetalle'])->name('agregarDetalle');
@@ -47,5 +52,8 @@ Route::match(['get', 'post'], '/definir_prioridad', [UAdministradorController::c
     Route::POST('/finalizar_solicitud/{solicitud}', [UOperativoController::class,'finalizarSolicitud'])->name('finalizarSolicitud');
     Route::get('/solicitudes_finalizadas', [UOperativoController::class,'solicitudesFinalizadas'])->name('solicitudesFinalizadas');
     Route::POST('/resumen_solicitud/{solicitud}', [UOperativoController::class,'resumenSolicitud'])->name('resumen');
+    Route::POST('/emitir_reporte/{solicitud}', [UOperativoController::class, 'generarReporte'])->name('generarReporte');
+});
+
 
     Route::get('/formulario_ingreso_solicitud', [CCOntroller::class, 'index']);

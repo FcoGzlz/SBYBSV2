@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en" style="height: 100%; min-height: 100%;">
+<html lang="es" style="height: 100%; min-height: 100%;">
 
 <head>
     <meta charset="utf-8">
@@ -24,28 +24,6 @@
                 </div>
                 <div
                     class="col-10 col-sm-10 col-md-10 col-lg-4 col-xl-3 offset-1 offset-sm-1 offset-md-1 offset-lg-0 offset-xl-0 order-sm-2 order-lg-1 orderBuscaTicket">
-                    <form class="d-inline search-form">
-
-                       @if($busqueda != "0")
-                       @if($busqueda == '')
-                       <div class="input-group d-flex"><input class="form-control buscaTicketinput" type="text"
-                               placeholder="Buscar por nombre, apellido o RUT" name="busqueda">
-                           <div class="input-group-append"><button class="btn btn-link" type="submit"
-                                   id="btnBuscaTicket"><i class="fa fa-search"></i></button></div>
-                       </div>
-                   @else
-                       <div class="input-group d-flex"><input class="form-control buscaTicketinput" type="text"
-                               value="{{ $busqueda }}" name="busqueda">
-                           <div class="input-group-append"><button class="btn btn-link" type="submit"
-                                   id="btnBuscaTicket"><i class="fa fa-search"></i></button></div>
-                       </div>
-                   @endif
-                       @endif
-
-
-
-
-                    </form>
                 </div>
                 <div
                     class="col-md-8 col-lg-4 col-xl-4 offset-md-2 offset-lg-0 offset-xl-0 order-sm-1 order-lg-2 orderLabelTitulo">
@@ -126,6 +104,7 @@
     </div>
     <script src="/assets/js/jquery.min.js"></script>
     <script src="/assets/js/script.min.js"></script>
+
 </body>
 
 </html>

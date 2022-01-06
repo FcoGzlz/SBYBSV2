@@ -9,16 +9,43 @@ use App\Models\Solicitud;
 use Carbon\Carbon;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
+use App;
+use Illuminate\Support\Facades\App as FacadesApp;
+use Barryvdh\DomPDF\PDF;
+use Dompdf\Dompdf;
 
 class UOperativoController extends Controller
 {
-    public function solicitudesPendientes()
+    public function solicitudesPendientes(Request $request)
     {
+
+        $busqueda = $request->get('busqueda');
+        $separado = explode(" ", $busqueda, 4);
         $usuario = Auth::user();
+        $sol = Solicitud::where('responsable');
+
+        if (count($separado) > 1) {
+            // $nombre= "$separado[0] $separado[1]";
+            // $apellido= "$separado[2] $separado[3]";
+
+            if (count($separado) == 4) {
+                $nombre = "$separado[0] $separado[1]";
+                $apellido = "$separado[2] $separado[3]";
+                $solicitudes = $usuario->solicitudes->nombre($nombre)->apellido($apellido)->where('estado', 0)->orderBy('fechaIngreso', 'DESC')->get();
+            } else {
+                $solicitudes = $usuario->solicitudes->nombre($separado[0])->apellido($separado[1])->where('estado', 0)->orderBy('fechaIngreso', 'DESC')->get();
+            }
+        } else {
+            // $solicitudes = $usuario->solicitudes->busqueda($busqueda)->where('estado', 1)->orderBy('fechaIngreso', 'DESC')->get();
+        }
+
+
+
+
         $solicitudes = $usuario->solicitudes->where('estado', '=', 1);
         // $solicitudes = Solicitud::where('responsable', '=', $usuario->id)->where('estado', '=', 1)->get();
 
-        return view('usuarioOperativo.solicitudesPendientes', compact('solicitudes'));
+        return view('usuarioOperativo.solicitudesPendientes', compact('solicitudes', 'busqueda'));
     }
 
     public function detalleSolicitud($id)
@@ -62,21 +89,40 @@ class UOperativoController extends Controller
         return redirect(url('/detalle_solicitud/'. $idS));
     }
 
-    public function finalizarSolicitud(Request $request)
+    public function finalizarSolicitud($id)
     {
-        $solicitud = Solicitud::findOrFail($request->get('id'));
+        $solicitud = Solicitud::findOrFail($id);
 
         $solicitud->estado = 2;
 
         $solicitud->save();
-        return redirect()->action([UOperativoController::class, 'solicitudesFinalizadas']);
+        return redirect(url('/solicitudes_pendientes/'));
     }
 
-    public function solicitudesFinalizadas()
+    public function solicitudesFinalizadas(Request $request)
     {
+
+        $busqueda = $request->get('busqueda');
+        $separado = explode(" ", $busqueda, 4);
         $usuario = Auth::user();
-        $solicitudes = Solicitud::where('responsable', '=', $usuario->id)->where('estado', '=', 2)->get();
-        return view("usuarioOperativo.solicitudesFInalizadas", compact('solicitudes'));
+
+        $sol = Solicitud::where('responsable', '=', $usuario->id)->where('estado', '=', 2);
+
+        if (count($separado) > 1) {
+
+            if (count($separado) == 4) {
+                $nombre = "$separado[0] $separado[1]";
+                $apellido = "$separado[2] $separado[3]";
+                $solicitudes = $sol->nombre($nombre)->apellido($apellido)->orderBy('fechaIngreso', 'DESC')->get();
+            } else {
+                $solicitudes = $sol->nombre($separado[0])->apellido($separado[1])->orderBy('fechaIngreso', 'DESC')->get();
+            }
+        } else {
+            $solicitudes = $sol->busqueda($busqueda)->orderBy('fechaIngreso', 'DESC')->get();
+        }
+
+        // $solicitudes = $sol->busqueda("20317")->get();
+        return view("usuarioOperativo.solicitudesFInalizadas", compact('solicitudes', 'busqueda'));
     }
 
     public function resumenSolicitud($id)
@@ -84,6 +130,19 @@ class UOperativoController extends Controller
         $solicitud = Solicitud::findOrFail($id);
 
         return view('usuarioOperativo.resumen', compact('solicitud'));
+    }
+
+    public function generarReporte($id){
+
+        $solicitud = Solicitud::findOrFail($id);
+        $pdf = FacadesApp::make('dompdf.wrapper');
+        $pdf->loadView('UsuarioOperativo.index', ['solicitud' => $solicitud])->setPaper('A4');
+        $pdf->setOptions(['defaultFont' => 'sans-serif']);
+        return $pdf->stream();
+
+
+
+
     }
 
 }
