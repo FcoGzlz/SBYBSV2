@@ -109,7 +109,7 @@
                                                     </form>
 
                                                 </li>
-                                    </ol>
+                                            </ol>
                                 </div>
                             </div>
                             <div class="row no-gutters rowSidebarLogo">
@@ -124,8 +124,8 @@
             </div>
         </div>
     </div>
-    <script src="/assets/js/jquery.min.js"></script>
-    <script src="/assets/js/script.min.js"></script>
+    <script src="assetsAdministrador/assets/js/jquery.min.js"></script>
+    <script src="assetsAdministrador/assets/js/script.min.js"></script>
 </body>
 
 </html>
