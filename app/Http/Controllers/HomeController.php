@@ -26,19 +26,19 @@ class HomeController extends Controller
         $usuario = Auth::user();
         $rol = $usuario->roles->implode('name', ', ');
 
-        switch ($rol) {
-            case 'superAdmin':
-                # code...
-                break;
+        // switch ($rol) {
+        //     case 'superAdmin':
+        //         # code...
+        //         break;
 
-            case 'UAdministrador':
-                return redirect()->route('solicitudesClientes');
-                break;
-            case 'UOperativo':
-                return redirect()->route('solicitudesPendientes');
-                break;
+        //     case 'UAdministrador':
+        //         return redirect()->route('solicitudesClientes');
+        //         break;
+        //     case 'UOperativo':
+        //         return redirect()->route('solicitudesPendientes');
+        //         break;
 
-        }
-        return view('home');
+        // }
+        return view('test.index');
     }
 }
