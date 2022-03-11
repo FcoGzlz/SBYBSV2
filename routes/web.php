@@ -18,9 +18,11 @@ use Spatie\Permission\Contracts\Role;
 |
 */
 
-Route::get('/', function () {
-    return view('auth.login');
-});
+// Route::get('/', function () {
+//     return view('auth.login');
+// });
+
+Route::get('/', [App\Http\Controllers\TestCntroller::class, 'index']);
 
 Auth::routes();
 
