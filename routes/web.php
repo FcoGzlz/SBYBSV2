@@ -1,6 +1,7 @@
 <?php
 
 use App\Http\Controllers\CCOntroller;
+use App\Http\Controllers\CentralController;
 use App\Http\Controllers\UAdministradorController;
 use App\Http\Controllers\UOperativoController;
 use Illuminate\Support\Facades\Route;
@@ -22,7 +23,9 @@ use Spatie\Permission\Contracts\Role;
 //     return view('auth.login');
 // });
 
-Route::get('/', [App\Http\Controllers\TestCntroller::class, 'index']);
+Route::get('/', function (){
+    return view('layouts.navbar_principal');
+});
 
 Auth::routes();
 
@@ -59,3 +62,13 @@ Route::group(['middleware' => ['role:UOperativo']], function(){
 
 
     Route::get('/formulario_ingreso_solicitud', [CCOntroller::class, 'index']);
+
+//Rutas Sistema Centralizado SByB
+
+Route::get('/reporte_turno', [CentralController::class, 'reporteTurno'])->name('reporte_turno');
+
+Route::get('/clientes', [CentralController::class, 'clientes'])->name('clientes');
+
+Route::post('/datos_reporte',[CentralController::class, 'datosReporte'])->name('datos_reporte');
+
+Route::get('enviar_mail', [CentralController::class, 'index'])->name('enviar_mail');

@@ -11,7 +11,11 @@ class TestCntroller extends Controller
 {
     public function index(){
         $clientes = Cliente::all();
+
+
+    }
+
+    public function enviarEmail(){
         Mail::to('franciscogzlz533@gmail.com')->send(new TestMail);
-        return view('test.mail_test', compact('clientes'));
     }
 }

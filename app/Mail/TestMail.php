@@ -28,6 +28,12 @@ class TestMail extends Mailable
      */
     public function build()
     {
-        return $this->view('test.mail_test')->subject("You have been hacked");
+        return $this->view('test.mail_test')
+        ->subject("Prueba envío de correos con archivo adjunto desde laravel desde Laravel")
+        ->attach('../storage/archivos/Reporte 3.pdf',
+    [
+        'as' => 'Reporte 3.pdf',
+    ]
+    );
     }
 }

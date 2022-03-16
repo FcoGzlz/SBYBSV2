@@ -1,0 +1,49 @@
+.btnMonitor {
+  width: 66.625px;
+  height: 47px;
+  margin: 14px;
+}
+
+.tableMonitor.td {
+  border-color: var(--bs-blue);
+}
+
+.botonesMonitor {
+  margin-right: 73px;
+  margin-left: 73px;
+}
+
+.col-pills-tab {
+  margin-right: 20%;
+  margin-left: 15%;
+}
+
+.paneles-monitores .nav-link {
+  display: block;
+  padding: 20px 40px;
+  color: #00a2ff;
+  text-decoration: none;
+  transition: color .15s ease-in-out,background-color .15s ease-in-out,border-color .15s ease-in-out;
+  border-width: 1px;
+  border-color: #00a2ff;
+  border-style: solid;
+}
+
+.paneles-monitores .nav-link:focus, .nav-link:hover {
+  color: #00a2ff;
+}
+
+.paneles-monitores .nav-link.active {
+  background-color: #00a2ff;
+  color: white;
+}
+
+.tableMonitor .tr .td {
+  text-align: center;
+}
+
+.tableMonitor td {
+  background-color: inherit;
+  text-align: center;
+}
+
