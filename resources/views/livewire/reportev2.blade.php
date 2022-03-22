@@ -512,7 +512,7 @@
         </div>
         <div class="row g-0">
             <div class="col">
-                <div class="table-responsive">
+                <div class="table-responsive tabla-comentarios">
                     <table class="table table-striped table-borderless tabla-comentarios">
                         <thead>
                             <tr>
@@ -528,8 +528,8 @@
                                     <td>
                                         <div class="row g-0">
                                             <div class="col align-self-center"><label
-                                                    class="col-form-label label-comentario"><br> {{ explode('-', (string)$comentario)[1] }}
-                                                    <br></label></div>
+                                                    class="col-form-label label-comentario"> {{ explode('-', (string)$comentario)[1] }}
+                                                    </label></div>
                                             <div class="col-auto align-self-center ms-auto">
                                                 <div class="row g-0">
                                                     <div class="col-auto"><button class="btn btn-primary btnSbyb"
@@ -546,17 +546,7 @@
                                     </td>
                                 </tr>
                             @endforeach
-                            <tr>
-                                <th>Cell 1</th>
-                                <td><label class="form-label">Label</label></td>
-                            </tr>
-                            <tr>
-                                <th>Cell 1</th>
-                                <td><label class="form-label">Label</label></td>
-                            </tr>
-                            <tr>
 
-                            </tr>
                         </tbody>
                     </table>
                 </div>
