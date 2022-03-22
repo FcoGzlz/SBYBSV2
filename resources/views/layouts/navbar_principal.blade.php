@@ -8,11 +8,13 @@
     <link rel="stylesheet" href="assetsAdministrador/assets/css/navbar_principal.css">
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/boxicons@latest/css/boxicons.min.css">
 
-    <link rel="stylesheet" href="/assetsAdministrador/assets/bootstrap/css/bootstrap.min.css">
+    <link rel="stylesheet" href="assetsAdministrador/assets/bootstrap/css/bootstrap.min.css">
+    <link rel="stylesheet" href="assetsAdministrador/assets/bootstrap/css/bootstrap2.min.css">
     <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto">
-    <link rel="stylesheet" href="/assetsAdministrador/assets/fonts/font-awesome.min.css">
-    <link rel="stylesheet" href="/assetsAdministrador/assets/css/styles.min.css">
-    <link rel="stylesheet" href="/assetsAdministrador/assets/css/reporteDeTurno.css">
+    <link rel="stylesheet" href="assetsAdministrador/assets/fonts/font-awesome.min.css">
+    <link rel="stylesheet" href="assetsAdministrador/assets/css/styles.min.css">
+    <link rel="stylesheet" href="assetsAdministrador/assets/css/reporteDeTurno.css">
+    <link rel="stylesheet" href="assetsAdministrador/assets/fonts/fontawesome-all.min.css">
     @livewireStyles
     <title>Document</title>
 </head>
@@ -53,6 +55,7 @@
     <script src="assetsAdministrador/assets/js/navbar_principal.js"></script>
     <script src="assetsAdministrador/assets/js/jquery.min.js"></script>
     <script src="assetsAdministrador/assets/js/script.min.js"></script>
+    <script src="assetsAdministrador/assets/js/bootstrap.min.js"></script>
     @livewireScripts
 </body>
 

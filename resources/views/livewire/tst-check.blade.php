@@ -20,11 +20,12 @@
                                     $hora = Carbon\Carbon::create('03:00');
                                     $countCamaras = 0;
                                 @endphp
-                                @for ($i = 4; $i <= 12; $i++)
-                                    <tr>
+                                @for ($i = 1; $i <= 12; $i++)
+
                                         <td>{{ $hora->addHour()->isoFormat('hh:mm') }}
                                         </td>
                                         @for ($y = 1; $y <= 16; $y++)
+                                        <tr>
                                             <td>
 
                                                 <input type="checkbox"
@@ -33,8 +34,9 @@
                                                     name="check[]"
                                                     value="{{ $y }}-{{ $hora->isoFormat('hh:mm') }}">
                                             </td>
+                                        </tr>
                                         @endfor
-                                    </tr>
+
                                 @endfor
 
                             </form>

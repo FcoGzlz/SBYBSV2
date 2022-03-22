@@ -1,49 +1,151 @@
+.datos-turno {
+    padding-top: 5px;
+    padding-bottom: 5px;
+    font-size: 20px;
+    border-radius: 5px;
+    margin-top: 0px;
+    margin-bottom: 0px;
+}
+
+.paneles-monitores {
+    margin-top: 15px;
+}
+
 .btnMonitor {
-  width: 66.625px;
-  height: 47px;
-  margin: 14px;
+    width: 66.625px;
+    height: 47px;
+    margin: 14px;
 }
 
 .tableMonitor.td {
-  border-color: var(--bs-blue);
+    border-color: var(--bs-blue);
 }
 
 .botonesMonitor {
-  margin-right: 73px;
-  margin-left: 73px;
-}
-
-.col-pills-tab {
-  margin-right: 20%;
-  margin-left: 15%;
+    margin-right: 73px;
+    margin-left: 73px;
 }
 
 .paneles-monitores .nav-link {
-  display: block;
-  padding: 20px 40px;
-  color: #00a2ff;
-  text-decoration: none;
-  transition: color .15s ease-in-out,background-color .15s ease-in-out,border-color .15s ease-in-out;
-  border-width: 1px;
-  border-color: #00a2ff;
-  border-style: solid;
+    display: block;
+    padding: 20px 40px;
+    color: #00a2ff;
+    text-decoration: none;
+    transition: color .15s ease-in-out, background-color .15s ease-in-out, border-color .15s ease-in-out;
+    border-width: 1px;
+    border-color: #00a2ff;
+    border-style: solid;
 }
 
-.paneles-monitores .nav-link:focus, .nav-link:hover {
-  color: #00a2ff;
+.paneles-monitores .nav-link:focus,
+.nav-link:hover {
+    color: #00a2ff;
 }
 
 .paneles-monitores .nav-link.active {
-  background-color: #00a2ff;
-  color: white;
+    background-color: #00a2ff;
+    color: white;
 }
 
 .tableMonitor .tr .td {
-  text-align: center;
+    text-align: center;
+}
+
+div.tableMonitor {
+    overflow: auto;
 }
 
 .tableMonitor td {
-  background-color: inherit;
-  text-align: center;
+    background-color: inherit;
+    text-align: center;
 }
 
+select.datos-turno {
+    padding-top: 7px;
+    padding-bottom: 7px;
+    padding-left: 10px;
+    padding-right: 5px;
+    font-weight: bold;
+}
+
+.datos-turno.label-turno {
+    margin-left: 20px;
+    margin-right: 20px;
+}
+
+div.datos-turno {
+    margin-right: 20px;
+    margin-left: 20px;
+}
+
+@media (max-width: 580px) {
+    select.datos-turno {
+        margin-bottom: 5px;
+    }
+}
+
+@media (max-width: 580px) {
+    input.datos-turno {
+        margin-bottom: 5px;
+    }
+}
+
+div.formulario-comentarios {
+    margin-right: 30px;
+    margin-left: 30px;
+    margin-bottom: 10px;
+    margin-top: 10px;
+}
+
+button.btnSbyb {
+    background-color: #00a2ff;
+    color: #ffffff;
+    box-shadow: none;
+}
+
+button.btnSbyb:hover {
+    background-color: #41b8fc;
+    color: #ffffff;
+}
+
+button.btnSbyb:active {
+    background-color: #69d3ff;
+    color: #ffffff;
+}
+
+button.btnSbyb:focus {
+    box-shadow: none;
+}
+
+@media (max-width: 830px) {
+    div.datos-turno-invisible {
+        display: none!important;
+    }
+}
+
+th.th-hora {
+    width: 200px;
+}
+
+table.tabla-comentarios {
+    table-layout: fixed;
+    word-wrap: break-word;
+    overflow: hidden;
+}
+
+label.label-comentario {
+    display: inherit;
+}
+
+.tabla-comentarios th {
+    text-align: center;
+    vertical-align: middle;
+}
+
+.tabla-comentarios td {
+    text-align: start;
+}
+
+.col-finalizar-turno {
+    margin: 10px;
+}
