@@ -286,10 +286,13 @@
 <!DOCTYPE html>
 
 <head>
+    <link rel="stylesheet" type="text/css" media="all" href="{{ public_path('/assetsAdministrador/assets/bootstrap/css/bootstrap2.min.css') }}">
+    <link rel="stylesheet" type="text/css" media="all" href="{{ public_path('/assetsAdministrador/assets/bootstrap/css/bootstrap.min.css') }}">
+
     <style>
         .element {
             display: inline-block;
-            width: 50%;
+            width: 30%;
 
             padding: 0px;
 
@@ -304,7 +307,8 @@
         }
 
         .tablePDFMonitors{
-            font-size: 23px;
+            font-size: 20px;
+
         }
 
 
@@ -313,7 +317,7 @@
 </head>
 
 <body>
-    <div class="row g-0">
+    <div class="row g-0" style="align-self: flex-start">
         <div class="col align-self-center"><img src="assets/img/logologin.png"></div>
         <div class="col text-end">
             <div class="row g-0">
@@ -327,12 +331,12 @@
             </div>
         </div>
     </div>
-   
-    <div class="row0">
-        <div class="element" style="margin-left: -60px">
-            <table border="solid" class="table tablePDFMonitors" >
+
+    <div class="col-12" style="display: flex; width: 100%">
+        <div class="col-5" style="float: left">
+            <table class="tablePDFMonitors" >
                 <thead>
-                    <tr style="width: 500px">
+                    <tr>
                         <th>Hora</th>
                         <th>01</th>
                         <th>02</th>
@@ -395,8 +399,8 @@
 
             </table>
         </div>
-        <div class="element" >
-            <table border="solid" class="table tablePDFMonitors" style="margin-left: 50px;">
+        <div class="col-5" style="float: right">
+            <table border="solid" class="tablePDFMonitors">
                 <thead>
                     <tr>
                         <th>Hora</th>
@@ -597,5 +601,5 @@
         </div>
     </div>
 </body>
-
+<script src="assetsAdministrador/assets/js/bootstrap.min.js"></script>
 </html>

@@ -116,6 +116,7 @@ class Turnos extends Component
             'checksM6' => $this->checksM6
         ]);
 
+
             echo $pdf->stream();
         }, 'tst.pdf');
 
