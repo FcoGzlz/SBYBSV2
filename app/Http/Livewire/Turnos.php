@@ -31,6 +31,14 @@ class Turnos extends Component
     public $nombrePDF = "";
 
 
+    protected $rules = [
+        'nombreMonitor' => 'required',
+    ];
+
+    protected $messages = [
+        'nombreMonitor.required' => 'Debe ingresar su nombre',
+    ];
+
 
     public function updatedTurno($turn)
     {
@@ -91,6 +99,7 @@ class Turnos extends Component
 
     public function finalizarReporte()
     {
+        $this->validate();
 
         return response()->streamDownload(function(){
             $fechaPDF = Carbon::now()->isoFormat('DD_MM_YYYY_HH_mm');
