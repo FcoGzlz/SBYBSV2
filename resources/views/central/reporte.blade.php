@@ -308,11 +308,26 @@
         }
 
 
+
     </style>
 </head>
 
 <body>
-
+    <div class="row g-0">
+        <div class="col align-self-center"><img src="assets/img/logologin.png"></div>
+        <div class="col text-end">
+            <div class="row g-0">
+                <div class="col"><label class="col-form-label">Nombre</label></div>
+            </div>
+            <div class="row g-0">
+                <div class="col"><label class="col-form-label">Turno</label></div>
+            </div>
+            <div class="row g-0">
+                <div class="col"><label class="col-form-label">Fecha</label></div>
+            </div>
+        </div>
+    </div>
+   
     <div class="row0">
         <div class="element" style="margin-left: -60px">
             <table border="solid" class="table tablePDFMonitors" >
