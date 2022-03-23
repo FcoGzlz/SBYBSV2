@@ -114,7 +114,7 @@
 
                                                             @for ($j = 1; $j <= 16; $j++)
                                                                 <td>
-                                                                    <input type="checkbox" value="{{ $hora->isoFormat('HH:mm') }}-{{ $j }}" wire:model="checksM1" name="checksM1">
+                                                                    <input type="checkbox" value="{{ $hora->isoFormat('HH:mm') }}-{{ $j }}" wire:model="checksM1">
                                                                 </td>
                                                             @endfor
 

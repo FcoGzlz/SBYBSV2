@@ -1,4 +1,4 @@
-{{--<!DOCTYPE html>
+{{-- <!DOCTYPE html>
 <html lang="en">
 
 <head>
@@ -27,7 +27,7 @@
 
                         <tr>
                             <td><input type="checkbox"
-                                @foreach ($checksM1 as $checkM1 )
+                                @foreach ($checksM1 as $checkM1)
                                     @if ($checkM1 == $i)
                                         checked
                                     @endif
@@ -104,7 +104,7 @@
  */
 <body> --}}
 
-<!DOCTYPE html>
+{{-- <!DOCTYPE html>
 <html lang="en">
 
 <head>
@@ -136,7 +136,7 @@
 
                                             <div class="tab-pane fade show active" role="tabpanel" id="pills-1"
                                             aria-labelledby="pills-1">
-                                            <p> @foreach ($checksM1 as $key=> $checkM1 )
+                                            <p> @foreach ($checksM1 as $key => $checkM1)
                                                 {{$key}} => {{$checkM1}}
                                             @endforeach</p>
                                             <div class="table-responsive tableMonitor">
@@ -191,7 +191,7 @@
                                                                     <td>
                                                                         <input type="checkbox"
                                                                             @foreach ($checksM1 as $checkM1)
-                                                                            @if ($checkM1 == $hora->isoFormat('HH:mm').'-'.$j)
+                                                                            @if ($checkM1 == $hora->isoFormat('HH:mm') . '-' . $j)
                                                                             checked
                                                                             @endif
                                                                             @endforeach
@@ -280,6 +280,307 @@
     <script src="assetsAdministrador/assets/js/bootstrap.min.js"></script>
 </body>
 
+</html> --}}
+
+
+<!DOCTYPE html>
+
+<head>
+    <style>
+        .element {
+            display: inline-block;
+            width: 50%;
+
+            padding: 0px;
+
+        }
+        .row0 {
+
+            align-items: flex-end;
+        }
+
+        .rd{
+            background-color: red;
+        }
+
+        .tablePDFMonitors{
+            font-size: 23px;
+        }
+
+
+    </style>
+</head>
+
+<body>
+
+    <div class="row0">
+        <div class="element" style="margin-left: -60px">
+            <table border="solid" class="table tablePDFMonitors" >
+                <thead>
+                    <tr style="width: 500px">
+                        <th>Hora</th>
+                        <th>01</th>
+                        <th>02</th>
+                        <th>03</th>
+                        <th>04</th>
+                        <th>05</th>
+                        <th>06</th>
+                        <th>07</th>
+                        <th>08</th>
+                        <th>09</th>
+                        <th>10</th>
+                        <th>11</th>
+                        <th>12</th>
+                        <th>13</th>
+                        <th>14</th>
+                        <th>15</th>
+                        <th>16</th>
+                    </tr>
+                </thead>
+
+                <tbody>
+
+                    @switch($turno)
+                    @case(1)
+                        @php
+                            $hora = Carbon\Carbon::create('23:00');
+                        @endphp
+                    @break
+
+                    @case(2)
+                        @php
+                            $hora = Carbon\Carbon::create('07:00');
+                        @endphp
+                    @break
+
+                    @case(3)
+                        @php
+                            $hora = Carbon\Carbon::create('15:00');
+                        @endphp
+                    @break
+                @endswitch
+
+                    @for ($i = 1; $i <= 9; $i++)
+
+                    <tr>
+                        <th> {{ $hora->addHour()->isoFormat('HH:mm') }}  </th>
+                        @for ($j = 1; $j <= 16; $j ++)
+                            <td @foreach ($checksM1 as $checkM1)
+                                    @if ($checkM1 == $hora->isoFormat('HH:mm') . '-' . $j)
+                                        class="rd"
+                                    @endif
+                                @endforeach
+                            >
+                            </td>
+                        @endfor
+                    </tr>
+                    @endfor
+
+                </tbody>
+
+            </table>
+        </div>
+        <div class="element" >
+            <table border="solid" class="table tablePDFMonitors" style="margin-left: 50px;">
+                <thead>
+                    <tr>
+                        <th>Hora</th>
+                        <th style="background-color: red">01</th>
+                        <th>02</th>
+                        <th>03</th>
+                        <th>04</th>
+                        <th>05</th>
+                        <th>06</th>
+                        <th>07</th>
+                        <th>08</th>
+                        <th>09</th>
+                        <th>10</th>
+                        <th>11</th>
+                        <th>12</th>
+                        <th>13</th>
+                        <th>14</th>
+                        <th>15</th>
+                        <th>16</th>
+                    </tr>
+                </thead>
+
+                <tbody>
+                    <tr>
+                        <td >hr</td>
+                        <td>a</td>
+                        <td>a</td>
+                        <td>a</td>
+                        <td>a</td>
+                        <td>a</td>
+                        <td>a</td>
+                        <td>a</td>
+                        <td>a</td>
+                        <td>a</td>
+                        <td>a</td>
+                        <td>a</td>
+                        <td>a</td>
+                        <td>a</td>
+                        <td>a</td>
+                        <td>a</td>
+                        <td>a</td>
+                    </tr>
+                    <tr>
+                        <td>hr</td>
+                        <td>a</td>
+                        <td>a</td>
+                        <td>a</td>
+                        <td>a</td>
+                        <td>a</td>
+                        <td>a</td>
+                        <td>a</td>
+                        <td>a</td>
+                        <td>a</td>
+                        <td>a</td>
+                        <td>a</td>
+                        <td>a</td>
+                        <td>a</td>
+                        <td>a</td>
+                        <td>a</td>
+                        <td>a</td>
+                    </tr>
+                    <tr>
+                        <td>hr</td>
+                        <td>a</td>
+                        <td>a</td>
+                        <td>a</td>
+                        <td>a</td>
+                        <td>a</td>
+                        <td>a</td>
+                        <td>a</td>
+                        <td>a</td>
+                        <td>a</td>
+                        <td>a</td>
+                        <td>a</td>
+                        <td>a</td>
+                        <td>a</td>
+                        <td>a</td>
+                        <td>a</td>
+                        <td>a</td>
+                    </tr>
+                    <tr>
+                        <td>hr</td>
+                        <td>a</td>
+                        <td>a</td>
+                        <td>a</td>
+                        <td>a</td>
+                        <td>a</td>
+                        <td>a</td>
+                        <td>a</td>
+                        <td>a</td>
+                        <td>a</td>
+                        <td>a</td>
+                        <td>a</td>
+                        <td>a</td>
+                        <td>a</td>
+                        <td>a</td>
+                        <td>a</td>
+                        <td>a</td>
+                    </tr>
+                    <tr>
+                        <td>hr</td>
+                        <td>a</td>
+                        <td>a</td>
+                        <td>a</td>
+                        <td>a</td>
+                        <td>a</td>
+                        <td>a</td>
+                        <td>a</td>
+                        <td>a</td>
+                        <td>a</td>
+                        <td>a</td>
+                        <td>a</td>
+                        <td>a</td>
+                        <td>a</td>
+                        <td>a</td>
+                        <td>a</td>
+                        <td>a</td>
+                    </tr>
+                    <tr>
+                        <td>hr</td>
+                        <td>a</td>
+                        <td>a</td>
+                        <td>a</td>
+                        <td>a</td>
+                        <td>a</td>
+                        <td>a</td>
+                        <td>a</td>
+                        <td>a</td>
+                        <td>a</td>
+                        <td>a</td>
+                        <td>a</td>
+                        <td>a</td>
+                        <td>a</td>
+                        <td>a</td>
+                        <td>a</td>
+                        <td>a</td>
+                    </tr>
+                    <tr>
+                        <td>hr</td>
+                        <td>a</td>
+                        <td>a</td>
+                        <td>a</td>
+                        <td>a</td>
+                        <td>a</td>
+                        <td>a</td>
+                        <td>a</td>
+                        <td>a</td>
+                        <td>a</td>
+                        <td>a</td>
+                        <td>a</td>
+                        <td>a</td>
+                        <td>a</td>
+                        <td>a</td>
+                        <td>a</td>
+                        <td>a</td>
+                    </tr>
+                    <tr>
+                        <td>hr</td>
+                        <td>a</td>
+                        <td>a</td>
+                        <td>a</td>
+                        <td>a</td>
+                        <td>a</td>
+                        <td>a</td>
+                        <td>a</td>
+                        <td>a</td>
+                        <td>a</td>
+                        <td>a</td>
+                        <td>a</td>
+                        <td>a</td>
+                        <td>a</td>
+                        <td>a</td>
+                        <td>a</td>
+                        <td>a</td>
+                    </tr>
+                    <tr>
+                        <td>hr</td>
+                        <td>a</td>
+                        <td>a</td>
+                        <td>a</td>
+                        <td>a</td>
+                        <td>a</td>
+                        <td>a</td>
+                        <td>a</td>
+                        <td>a</td>
+                        <td>a</td>
+                        <td>a</td>
+                        <td>a</td>
+                        <td>a</td>
+                        <td>a</td>
+                        <td>a</td>
+                        <td>a</td>
+                        <td>a</td>
+                    </tr>
+                </tbody>
+
+            </table>
+        </div>
+    </div>
+</body>
+
 </html>
-
-
