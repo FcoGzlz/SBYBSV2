@@ -21,7 +21,7 @@ class Turnos extends Component
     public $checksM5 = [];
     public $checksM6 = [];
     public $tab = "1";
-    public $turno = 1;
+    public $turno = 0;
     public $horaPrev = "";
     public $nombreMonitor;
     public $comentario = "";
@@ -29,6 +29,7 @@ class Turnos extends Component
     public $edit = false;
     public $editKey = "";
     public $nombrePDF = "";
+    public $fechaTurno = "";
 
 
     protected $rules = [
@@ -106,19 +107,20 @@ class Turnos extends Component
         $this->nombrePDF = $this->turno . "_" . $this->nombreMonitor . "_" . $fechaPDF . ".pdf";
         $pdf = PDF::loadView('central.reporte', [
             'comentarios' => $this->comentarios,
-            "monitor" => $this->nombreMonitor,
+            "nombreMonitor" => $this->nombreMonitor,
             "turno" => $this->turno,
+            'fechaTurno' => $this->fechaTurno,
             'checksM1' => $this->checksM1,
             'checksM2' => $this->checksM2,
             'checksM3' => $this->checksM3,
             'checksM4' => $this->checksM4,
             'checksM5' => $this->checksM5,
-            'checksM6' => $this->checksM6
+            'checksM6' => $this->checksM6,
         ]);
 
 
             echo $pdf->stream();
-        }, 'tst.pdf');
+        }, 'prueba.pdf');
 
         // $pdf->save('../public/archivos/' . $this->nombrePDF);
 
