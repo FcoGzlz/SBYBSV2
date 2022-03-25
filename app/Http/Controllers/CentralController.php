@@ -12,16 +12,21 @@ class CentralController extends Controller
     public function index()
     {
 
-        Mail::to('franciscogzlz533@gmail.com')->send(new TestMail);
+        return view('central.inicio_reporte');
     }
 
     public function reporteTurno(Request $request)
     {
-        return view('central.reporte_diario');
+
+        $nombreMonitor = $request->get("nombreMonitor");
+        $selecTurno = $request->get("turnoSeleccionado");
+
+        return view('central.reporte_diario', compact("nombreMonitor","selecTurno" ));
     }
 
     public function clientes()
     {
+       
         $clientes = Cliente::all();
         return view('central.clientes', compact("clientes"));
     }

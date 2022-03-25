@@ -2,7 +2,7 @@
 <div class="row g-0">
     <div class="col text-center">
 
-       @if ($turno != 0)
+       
        <div class="row g-0">
 
         <div class="col text-end col-finalizar-turno"><button class="btn btn-primary btn-lg btnSbyb"
@@ -62,9 +62,7 @@
                                     @case(1)
                                     <div class="tab-pane fade show active" role="tabpanel" id="pills-1"
                                     aria-labelledby="pills-1">
-                                    <p> @foreach ($checksM1 as $key=> $checkM1 )
-                                        {{$key}} => {{$checkM1}}
-                                    @endforeach</p>
+                                    <h4 style="background-color: #009cde; color:white">MONITOR {{$tab}}</h4>
                                     <div class="table-responsive tableMonitor">
                                         <table class="table table-bordered ">
                                             <thead>
@@ -129,9 +127,7 @@
                                         @case(2)
                                         <div class="tab-pane fade show active" role="tabpanel" id="pills-2"
                                         aria-labelledby="pills-2">
-                                        <p> @foreach ($checksM2 as $key=> $checkM2 )
-                                            {{$key}} => {{$checkM2}}
-                                        @endforeach</p>
+                                        <h4 style="background-color: #009cde; color:white">MONITOR {{$tab}}</h4>
                                         <div class="table-responsive tableMonitor">
                                             <table class="table table-bordered ">
                                                 <thead>
@@ -196,9 +192,7 @@
                                         @case(3)
                                         <div class="tab-pane fade show active" role="tabpanel" id="pills-3"
                                         aria-labelledby="pills-3">
-                                        <p> @foreach ($checksM3 as $key=> $checkM3 )
-                                            {{$key}} => {{$checkM3}}
-                                        @endforeach</p>
+                                        <h4 style="background-color: #009cde; color:white">MONITOR {{$tab}}</h4>
                                         <div class="table-responsive tableMonitor">
                                             <table class="table table-bordered ">
                                                 <thead>
@@ -263,9 +257,7 @@
                                         @case(4)
                                         <div class="tab-pane fade show active" role="tabpanel" id="pills-4"
                                         aria-labelledby="pills-4">
-                                        <p> @foreach ($checksM4 as $key=> $checkM4 )
-                                            {{$key}} => {{$checkM4}}
-                                        @endforeach</p>
+                                        <h4 style="background-color: #009cde; color:white">MONITOR {{$tab}}</h4>
                                         <div class="table-responsive tableMonitor">
                                             <table class="table table-bordered ">
                                                 <thead>
@@ -330,9 +322,7 @@
                                         @case(5)
                                         <div class="tab-pane fade show active" role="tabpanel" id="pills-5"
                                         aria-labelledby="pills-5">
-                                        <p> @foreach ($checksM5 as $key=> $checkM5 )
-                                            {{$key}} => {{$checkM5}}
-                                        @endforeach</p>
+                                        <h4 style="background-color: #009cde; color:white">MONITOR {{$tab}}</h4>
                                         <div class="table-responsive tableMonitor">
                                             <table class="table table-bordered ">
                                                 <thead>
@@ -397,9 +387,7 @@
                                         @case(6)
                                         <div class="tab-pane fade show active" role="tabpanel" id="pills-6"
                                         aria-labelledby="pills-6">
-                                        <p> @foreach ($checksM1 as $key=> $checkM6 )
-                                            {{$key}} => {{$checkM6}}
-                                        @endforeach</p>
+                                        <h4 style="background-color: #009cde; color:white">MONITOR {{$tab}}</h4>
                                         <div class="table-responsive tableMonitor">
                                             <table class="table table-bordered ">
                                                 <thead>
@@ -468,28 +456,44 @@
                 </div>
             </div>
         </div>
-       @endif
+       
+        <h4 style="background-color: #009cde; color:white; height:30px "></h4>
+ 
+        
+        <div class="container" style="width: ">
+            <div class="row datos-turno">
+                <div class="col">
+                    <div class="row">
+                        <div class="col align-self-center"><label
+                                class="form-label datos-turno label-turno">Nombre</label><input type="text"
+                                class="datos-turno" wire:model="nombreMonitor">
+                        </div>
 
-        <div class="row datos-turno">
-            <div class="col">
-                <div class="row">
-                    <div class="col align-self-center"><label
-                            class="form-label datos-turno label-turno">Nombre</label><input type="text"
-                            class="datos-turno" wire:model="nombreMonitor"></div>
-                    <div class="col align-self-center"><label class="form-label datos-turno label-turno">Turno:
-                            {{ $turno }}</label>
-                        <select class="datos-turno" wire:model="turno">
-                            <option value="0">Seleccione Turno</option>
-                            <option value="1">De 00:00 a 08:00</option>
-                            <option value="2">De 08:00 a 16:00</option>
-                            <option value="3">De 16:00 a 00:00</option>
-                        </select>
+                        <div class="col align-self-center">
+                            
+                            <label class="form-label datos-turno label-turno">Turno:
+                                </label>
+                            <label class="form-label datos-turno label-turno">
+                                @switch($turno)
+                                    @case(1)
+                                        Noche de 00:00 a 08:00 hrs.
+                                        @break
+                                    @case(2)
+                                        Mañana de 08:00 a 16:00 hrs.
+                                    @break
+                                    @case(3)
+                                        Tarde de 16:00 a 00:00 hrs.
+                                    @break
+                                        
+                                @endswitch
+                                </label>
+                        </div>
+    
+                        <div class="col text-center align-self-center"><label
+                                class="col-form-label datos-turno label-turno">{{ $this->fechaTurno = Carbon\Carbon::now()->isoFormat('dddd DD, MMMM YYYY') }}</label>
+                        </div>
+                        
                     </div>
-
-                    <div class="col text-center align-self-center"><label
-                            class="col-form-label datos-turno label-turno">{{ $this->fechaTurno = Carbon\Carbon::now()->isoFormat('dddd DD, MMMM YYYY') }}</label>
-                    </div>
-                    <div class="col datos-turno-invisible"></div>
                 </div>
             </div>
         </div>

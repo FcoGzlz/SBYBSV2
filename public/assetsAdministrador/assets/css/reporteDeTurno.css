@@ -68,8 +68,8 @@ div.tableMonitor {
 select.datos-turno {
     padding-top: 7px;
     padding-bottom: 7px;
-    padding-left: 10px;
-    padding-right: 5px;
+    padding-left: 25px;
+    padding-right: 25px;
     font-weight: bold;
 }
 
@@ -78,6 +78,9 @@ select.datos-turno {
     margin-right: 20px;
 }
 
+label.label-turno{
+    margin-top: 10px;
+}
 div.datos-turno {
     margin-right: 20px;
     margin-left: 20px;
@@ -140,6 +143,7 @@ table.tabla-comentarios {
 
 label.label-comentario {
     display: inherit;
+    
 }
 
 .tabla-comentarios th {
@@ -159,5 +163,15 @@ div.tabla-comentarios {
 
 .col-finalizar-turno {
     margin: 10px;
-    margin-top: 85px;
+    margin-top: 10px;
 }
+
+div.container-datos{
+    width: 350px;
+    background-color: white;
+    border-style: solid;
+    border-color: #00a2ff;
+    align-self: center;
+    margin-top: 250px;
+}
+

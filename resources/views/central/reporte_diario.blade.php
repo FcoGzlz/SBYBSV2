@@ -1,4 +1,7 @@
 @extends('layouts.navbar_principal')
 @section('content')
-<livewire:turnos />
+@livewire('turnos',[
+    'nombreMonitor' => $nombreMonitor,
+    'turno' => $selecTurno,
+])
 @endsection

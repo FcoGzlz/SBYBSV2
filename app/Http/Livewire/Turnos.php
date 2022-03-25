@@ -21,7 +21,7 @@ class Turnos extends Component
     public $checksM5 = [];
     public $checksM6 = [];
     public $tab = "1";
-    public $turno = 0;
+    public $turno = 1;
     public $horaPrev = "";
     public $nombreMonitor;
     public $comentario = "";
@@ -151,5 +151,7 @@ class Turnos extends Component
             $message->subject('Prueba de envío de reporte con PDF adjunto');
             $message->attach('../public/archivos/' . $this->nombrePDF);
         });
+
+        return redirect()->action([CentralController::class, 'index']);
     }
 }

@@ -24,7 +24,7 @@ use Spatie\Permission\Contracts\Role;
 // });
 
 Route::get('/', function () {
-    return view('layouts.navbar_principal');
+    return view('central.inicio_reporte');
 });
 
 Auth::routes();
@@ -65,7 +65,9 @@ Route::get('/formulario_ingreso_solicitud', [CCOntroller::class, 'index']);
 
 //Rutas Sistema Centralizado SByB
 
-Route::get('/reporte_turno', [CentralController::class, 'reporteTurno'])->name('reporte_turno');
+
+
+Route::match(['get', 'post'],'/reporte_turno', [CentralController::class, 'reporteTurno'])->name('reporte_turno');
 
 Route::get('/clientes', [CentralController::class, 'clientes'])->name('clientes');
 

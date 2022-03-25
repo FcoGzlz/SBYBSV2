@@ -7146,7 +7146,7 @@ button.bg-danger:hover {
 
 .bg-light {
     background-color: #f8f9fa;
-    transform: translate(10px, 70px);
+    
 }
 
 a.bg-light:focus,

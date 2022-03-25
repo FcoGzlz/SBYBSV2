@@ -47,7 +47,7 @@
     </div>
     <!--Container Main start-->
 
-    <div class="height-100% bg-light">
+    <div style="transform: translateY(70px)!important; height:100%">
         @yield('content')
     </div>
 

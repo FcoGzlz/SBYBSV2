@@ -8370,7 +8370,7 @@ fieldset:disabled .btn {
 .bg-light {
     --bs-bg-opacity: 1;
     background-color: rgba(var(--bs-light-rgb), var(--bs-bg-opacity));
-    transform: translateY(70px)!important
+    
 }
 
 .bg-dark {
