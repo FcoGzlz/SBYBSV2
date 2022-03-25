@@ -100,10 +100,30 @@ class Turnos extends Component
 
     public function finalizarReporte()
     {
+
         $this->validate();
 
-        return response()->streamDownload(function(){
-            $fechaPDF = Carbon::now()->isoFormat('DD_MM_YYYY_HH_mm');
+        // return response()->streamDownload(function(){
+        // $fechaPDF = Carbon::now()->isoFormat('DD_MM_YYYY_HH_mm');
+        // $this->nombrePDF = $this->turno . "_" . $this->nombreMonitor . "_" . $fechaPDF . ".pdf";
+        // $pdf = PDF::loadView('central.reporte', [
+        //     'comentarios' => $this->comentarios,
+        //     "nombreMonitor" => $this->nombreMonitor,
+        //     "turno" => $this->turno,
+        //     'fechaTurno' => $this->fechaTurno,
+        //     'checksM1' => $this->checksM1,
+        //     'checksM2' => $this->checksM2,
+        //     'checksM3' => $this->checksM3,
+        //     'checksM4' => $this->checksM4,
+        //     'checksM5' => $this->checksM5,
+        //     'checksM6' => $this->checksM6,
+        // ]);
+
+
+        //     echo $pdf->stream();
+        // }, 'prueba.pdf');
+
+        $fechaPDF = Carbon::now()->isoFormat('DD_MM_YYYY_HH_mm');
         $this->nombrePDF = $this->turno . "_" . $this->nombreMonitor . "_" . $fechaPDF . ".pdf";
         $pdf = PDF::loadView('central.reporte', [
             'comentarios' => $this->comentarios,
@@ -118,22 +138,18 @@ class Turnos extends Component
             'checksM6' => $this->checksM6,
         ]);
 
+        $pdf->save('../public/archivos/' . $this->nombrePDF);
 
-            echo $pdf->stream();
-        }, 'prueba.pdf');
-
-        // $pdf->save('../public/archivos/' . $this->nombrePDF);
-
-        // Mail::send('central.mail_test', [
-        //     'comentarios' => $this->comentarios,
-        //     'monitor' => $this->nombreMonitor
-        // ], function ($message) {
-        //     $message->from('franciscogonzalearin433@gmail.com', 'SBYB');
-        //     $message->sender('franciscogonzalearin433@gmail.com', 'SBYB');
-        //     $message->to('franciscogzlz533@gmail.com', 'Sr:');
-        //     // $message->cc('gabriel.pelle25@gmail.com', 'John Doe');
-        //     $message->subject('Prueba de envío de reporte adjunto');
-        //     $message->attach('../public/archivos/' . $this->nombrePDF);
-        // });
+        Mail::send('central.mail_test', [
+            'comentarios' => $this->comentarios,
+            'monitor' => $this->nombreMonitor
+        ], function ($message) {
+            $message->from('centralmonitoreo@seguridadbyb.cl', 'SBYB');
+            $message->sender('centralmonitoreo@seguridadbyb.cl', 'SBYB');
+            $message->to('franciscogzlz533@gmail.com', 'Sr:');
+            $message->cc('gabriel.pelle25@gmail.com', 'Gbriel Pelle');
+            $message->subject('Prueba de envío de reporte con PDF adjunto');
+            $message->attach('../public/archivos/' . $this->nombrePDF);
+        });
     }
 }

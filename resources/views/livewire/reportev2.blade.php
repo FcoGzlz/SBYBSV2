@@ -6,7 +6,7 @@
        <div class="row g-0">
 
         <div class="col text-end col-finalizar-turno"><button class="btn btn-primary btn-lg btnSbyb"
-                type="button" wire:click="finalizarReporte">Finalizar Turno</button></div>
+                type="submit" wire:click="finalizarReporte">Finalizar Turno</button></div>
     </div>
 
 
@@ -487,7 +487,7 @@
                     </div>
 
                     <div class="col text-center align-self-center"><label
-                            class="col-form-label datos-turno label-turno">{{ $fechaTurno = Carbon\Carbon::now()->isoFormat('dddd DD, MMMM YYYY') }}</label>
+                            class="col-form-label datos-turno label-turno">{{ $this->fechaTurno = Carbon\Carbon::now()->isoFormat('dddd DD, MMMM YYYY') }}</label>
                     </div>
                     <div class="col datos-turno-invisible"></div>
                 </div>
