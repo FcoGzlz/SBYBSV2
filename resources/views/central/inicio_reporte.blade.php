@@ -1,6 +1,6 @@
 @extends('layouts.navbar_principal')
 @section('content')
-    <div class="container container-datos">
+    <div class="container container-datos shadow p-3 mb-5 bg-white rounded">
         <div class="row datos-turno">
             <div class="col">
                 <div class="row">
@@ -24,17 +24,15 @@
 
                     </form>
 
-{{--
-            <div class="container container-datos" style="align-selft:center; color:black;">
-                <div style="align-self: center">
-                    <div class="col">
-                        <label class="form-label datos-turno label-turno">Guardando datos, por favor espere...</label>
+{{-- 
+            <div class="container container-loading">
+                <div class="row align-items-center">
+                    <div class="col-3 justify-content-center">
+                        <img class="loadingSbyb" src=assetsAdministrador\assets\img\LogologinSoloAzul.png alt="" width="100" height="100">
                     </div>
-                    <div class="col">
-                        <img class="loadingSbyb" src=assetsAdministrador\assets\img\LogologinSoloAzul.png alt="" width="120" height="120">
+                    <div class="col-9">
+                        <label class="form-label" style="font-size: 18px;">Guardando datos, por favor espere...</label>
                     </div>
-
-
                 </div>
             </div> --}}
 

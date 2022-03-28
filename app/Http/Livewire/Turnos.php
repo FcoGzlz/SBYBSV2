@@ -20,7 +20,7 @@ class Turnos extends Component
     public $checksM4 = [];
     public $checksM5 = [];
     public $checksM6 = [];
-    public $tab = "1";
+    public $tabMonitor = "1";
     public $turno = 1;
     public $horaPrev = "";
     public $nombreMonitor;

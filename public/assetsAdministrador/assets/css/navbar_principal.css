@@ -26,7 +26,7 @@ body {
 }
 
 a {
-    text-decoration: none
+    text-decoration: none!important
 }
 
 .header {
@@ -385,12 +385,12 @@ a {
 /* Prueba loading con imagen de empresa */
 
 .loadingSbyb {
-    position: absolute;
+    /* position: absolute; */
     top: 50%;
     left: 50%;
-    width: 120px;
-    height: 120px;
-    margin: -60px 0 0 -60px;
+    width: 50px;
+    height: 50px;
+    /* margin: -60px 0 0 -60px; */
     -webkit-animation: spin 1s linear infinite;
     -moz-animation: spin 1s linear infinite;
     animation: spin 1s linear infinite;
@@ -416,4 +416,19 @@ a {
         -webkit-transform: rotate(360deg);
         transform: rotate(360deg);
     }
+}
+
+/* color Seguridad ByB */
+
+.bg-byb{
+    background-color: #00a2ff!important
+}
+
+.container-loading{
+    width: 350px;
+    margin-top: 250px;
+    border: 3px;
+    border-style: solid;
+    border-color: #00a2ff;
+    border-radius: 7px;
 }

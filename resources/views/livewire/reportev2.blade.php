@@ -17,38 +17,27 @@
                         <div class="col">
                             <div class="row g-0">
                                 <div class="col col-pills-tab">
-                                    <ul class="nav nav-pills mb-3 justify-content-center paneles-monitores" id="pills-tab"
-                                        role="tablist">
+                                    <ul class="nav nav-pills mb-3 justify-content-center paneles-monitores" id="pills-tab" role="tablist">
+                                                                        
                                         <li class="nav-item" role="presentation">
-                                            <button class="nav-link" id="pills-1-tab" data-bs-toggle="pill" data-bs-target=""
-                                                type="button" role="tab" aria-controls="pills-1" {{ $tab == 1 ? 'active' : '' }}
-                                                wire:click="$set('tab', '1')">1</button>
+                                            <button class="nav-link {{ $tabMonitor == 1 ? 'active' : '' }}" id="pills-1-tab" data-bs-toggle="pill" data-bs-target="pills-1" type="button" role="tab" aria-controls="pills-1" aria-selected="true"   wire:click="$set('tabMonitor', '1')">1</button>
                                         </li>
                                         <li class="nav-item" role="presentation">
-                                            <button class="nav-link" id="pills-2-tab" data-bs-toggle="pill" data-bs-target=""
-                                                type="button" role="tab" aria-controls="pills-2" aria-selected="true"
-                                                {{ $tab == 2 ? 'active' : '' }} wire:click="$set('tab', '2')">2</button>
+                                            <button class="nav-link {{ $tabMonitor == 2 ? 'active' : '' }}" id="pills-2-tab" data-bs-toggle="pill" data-bs-target="pills-2" type="button" role="tab" aria-controls="pills-2" aria-selected="true"  wire:click="$set('tabMonitor', '2')">2</button>
                                         </li>
                                         <li class="nav-item" role="presentation">
-                                            <button class="nav-link" id="pills-3-tab" data-bs-toggle="pill" data-bs-target=""
-                                                type="button" role="tab" aria-controls="pills-3" aria-selected="false"
-                                                {{ $tab == 3 ? 'active' : '' }} wire:click="$set('tab', '3')">3</button>
+                                            <button class="nav-link {{ $tabMonitor == 3 ? 'active' : '' }}" id="pills-3-tab" data-bs-toggle="pill" data-bs-target="pills-3" type="button" role="tab" aria-controls="pills-3" aria-selected="false"  wire:click="$set('tabMonitor', '3')">3</button>
                                         </li>
                                         <li class="nav-item" role="presentation">
-                                            <button class="nav-link" id="pills-4-tab" data-bs-toggle="pill" data-bs-target=""
-                                                type="button" role="tab" aria-controls="pills-4" aria-selected="false"
-                                                {{ $tab == 4 ? 'active' : '' }} wire:click="$set('tab', '4')">4</button>
+                                            <button class="nav-link {{ $tabMonitor == 4 ? 'active' : '' }}" id="pills-4-tab" data-bs-toggle="pill" data-bs-target="pills-4" type="button" role="tab" aria-controls="pills-4" aria-selected="false"  wire:click="$set('tabMonitor', '4')">4</button>
                                         </li>
                                         <li class="nav-item" role="presentation">
-                                            <button class="nav-link" id="pills-5-tab" data-bs-toggle="pill" data-bs-target=""
-                                                type="button" role="tab" aria-controls="pills-5" aria-selected="false"
-                                                {{ $tab == 5 ? 'active' : '' }} wire:click="$set('tab', '5')">5</button>
+                                            <button class="nav-link {{ $tabMonitor == 5 ? 'active' : '' }} " id="pills-5-tab" data-bs-toggle="pill" data-bs-target="pills-5" type="button" role="tab" aria-controls="pills-5" aria-selected="false" wire:click="$set('tabMonitor', '5')">5</button>
                                         </li>
                                         <li class="nav-item" role="presentation">
-                                            <button class="nav-link" id="pills-6-tab" data-bs-toggle="pill" data-bs-target=""
-                                                type="button" role="tab" aria-controls="pills-6" aria-selected="false"
-                                                {{ $tab == 6 ? 'active' : '' }} wire:click="$set('tab', '6')">6</button>
+                                            <button class="nav-link {{ $tabMonitor == 6 ? 'active' : '' }}" id="pills-6-tab" data-bs-toggle="pill" data-bs-target="pills-6" type="button" role="tab" aria-controls="pills-6" aria-selected="false"  wire:click="$set('tabMonitor', '6')">6</button>
                                         </li>
+                                        
                                     </ul>
                                 </div>
                             </div>
@@ -61,10 +50,10 @@
                             <div>
                                 <ul class="nav nav-tabs " role="tablist"></ul>
                                 <div class="tab-content">
-                                    @switch($tab)
+                                    @switch($tabMonitor)
                                         @case(1)
-                                            <div class="tab-pane fade show active" role="tabpanel" id="pills-1" aria-labelledby="pills-1">
-                                                <h4 style="background-color: #009cde; color:white">MONITOR {{ $tab }}</h4>
+                                            <div class="tab-pane fade show active" role="tabpanel" id="pills-1" aria-labelledby="pills-1-tab">
+                                                <h4 style="background-color: #009cde; color:white">MONITOR {{ $tabMonitor }}</h4>
                                                 <div class="table-responsive tableMonitor">
                                                     <table class="table table-bordered ">
                                                         <thead>
@@ -130,8 +119,8 @@
                                         @break
 
                                         @case(2)
-                                            <div class="tab-pane fade show active" role="tabpanel" id="pills-2" aria-labelledby="pills-2">
-                                                <h4 style="background-color: #009cde; color:white">MONITOR {{ $tab }}</h4>
+                                            <div class="tab-pane fade show active" role="tabpanel" id="pills-2" aria-labelledby="pills-2-tab">
+                                                <h4 style="background-color: #009cde; color:white">MONITOR {{ $tabMonitor }}</h4>
                                                 <div class="table-responsive tableMonitor">
                                                     <table class="table table-bordered ">
                                                         <thead>
@@ -197,8 +186,8 @@
                                         @break
 
                                         @case(3)
-                                            <div class="tab-pane fade show active" role="tabpanel" id="pills-3" aria-labelledby="pills-3">
-                                                <h4 style="background-color: #009cde; color:white">MONITOR {{ $tab }}</h4>
+                                            <div class="tab-pane fade show active" role="tabpanel" id="pills-3" aria-labelledby="pills-3-tab">
+                                                <h4 style="background-color: #009cde; color:white">MONITOR {{ $tabMonitor }}</h4>
                                                 <div class="table-responsive tableMonitor">
                                                     <table class="table table-bordered ">
                                                         <thead>
@@ -264,8 +253,8 @@
                                         @break
 
                                         @case(4)
-                                            <div class="tab-pane fade show active" role="tabpanel" id="pills-4" aria-labelledby="pills-4">
-                                                <h4 style="background-color: #009cde; color:white">MONITOR {{ $tab }}</h4>
+                                            <div class="tab-pane fade show active" role="tabpanel" id="pills-4" aria-labelledby="pills-4-tab">
+                                                <h4 style="background-color: #009cde; color:white">MONITOR {{ $tabMonitor}}</h4>
                                                 <div class="table-responsive tableMonitor">
                                                     <table class="table table-bordered ">
                                                         <thead>
@@ -331,8 +320,8 @@
                                         @break
 
                                         @case(5)
-                                            <div class="tab-pane fade show active" role="tabpanel" id="pills-5" aria-labelledby="pills-5">
-                                                <h4 style="background-color: #009cde; color:white">MONITOR {{ $tab }}</h4>
+                                            <div class="tab-pane fade show active" role="tabpanel" id="pills-5" aria-labelledby="pills-5-tab">
+                                                <h4 style="background-color: #009cde; color:white">MONITOR {{ $tabMonitor }}</h4>
                                                 <div class="table-responsive tableMonitor">
                                                     <table class="table table-bordered ">
                                                         <thead>
@@ -398,8 +387,8 @@
                                         @break
 
                                         @case(6)
-                                            <div class="tab-pane fade show active" role="tabpanel" id="pills-6" aria-labelledby="pills-6">
-                                                <h4 style="background-color: #009cde; color:white">MONITOR {{ $tab }}</h4>
+                                            <div class="tab-pane fade show active" role="tabpanel" id="pills-6" aria-labelledby="pills-6-tab">
+                                                <h4 style="background-color: #009cde; color:white">MONITOR {{$tabMonitor}}</h4>
                                                 <div class="table-responsive tableMonitor">
                                                     <table class="table table-bordered ">
                                                         <thead>
