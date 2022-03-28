@@ -11,7 +11,6 @@ class CentralController extends Controller
 {
     public function index()
     {
-
         return view('central.inicio_reporte');
     }
 
@@ -26,7 +25,7 @@ class CentralController extends Controller
 
     public function clientes()
     {
-       
+
         $clientes = Cliente::all();
         return view('central.clientes', compact("clientes"));
     }

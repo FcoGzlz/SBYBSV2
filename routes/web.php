@@ -23,9 +23,7 @@ use Spatie\Permission\Contracts\Role;
 //     return view('auth.login');
 // });
 
-Route::get('/', function () {
-    return view('central.inicio_reporte');
-});
+Route::get('/', [CentralController::class, 'index'])->name('index');
 
 Auth::routes();
 

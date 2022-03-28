@@ -54,7 +54,7 @@ return [
     |
     */
 
-    'asset_url' => 'http://localhost/SBYBSV2/public',
+    'asset_url' => 'http://192.168.2.59/SBYBSV2/public',
 
     /*
     |--------------------------------------------------------------------------

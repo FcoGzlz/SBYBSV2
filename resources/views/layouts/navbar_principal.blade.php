@@ -16,7 +16,7 @@
     <link rel="stylesheet" href="assetsAdministrador/assets/css/reporteDeTurno.css">
     <link rel="stylesheet" href="assetsAdministrador/assets/fonts/fontawesome-all.min.css">
     @livewireStyles
-    <title>Document</title>
+    <title>Reporte de Turno</title>
 </head>
 
 <body id="body-pd">
@@ -28,21 +28,38 @@
         <nav class="nav">
             <div> <a href="#" class="nav_logo"> <img src="assetsAdministrador/assets/img/LogologinSolo.png"
                         width="25px" height="25px"></i> <span class="nav_logo-name">Seguridad ByB</span> </a>
-                <div class="nav_list"> <a href="#" class="nav_link active"> <i class='bx bx-grid-alt nav_icon'></i>
+                <div class="nav_list">
 
-                        <span class="nav_name">Dashboard</span> </a> <a href="{{ route('clientes') }}"
+                    {{-- <a href="#" class="nav_link active"> <i class='bx bx-grid-alt nav_icon'></i>
+
+                        <span class="nav_name">Dashboard</span> </a>
+
+                        <a href="{{ route('clientes') }}"
                         class="nav_link"> <i class='bx bx-user nav_icon'></i> <span
-                            class="nav_name">Clientes</span> </a> <a href="{{ route('enviar_mail') }}"
-                        class="nav_link"> <i class='bx bx-message-square-detail nav_icon'></i> <span
-                            class="nav_name">Messages</span> </a> <a href="{{ route('reporte_turno') }}"
-                        class="nav_link"> <i class='bx bx-bookmark nav_icon'></i> <span
-                            class="nav_name">Reporte Turno</span> </a> <a href="#" class="nav_link"> <i
-                            class='bx bx-folder nav_icon'></i> <span class="nav_name">Files</span> </a>
+                            class="nav_name">Clientes</span> </a>
+
+                            <a href="{{ route('enviar_mail') }}"
+                        class="nav_link"> <i class='bx bx-message-square-detail nav_icon'></i>
+
+                        <span class="nav_name">Messages</span> </a> --}}
+
+                            <a href="{{ route('index') }}"
+                        class="nav_link"> <i class='bx bx-file nav_icon'></i>
+
+                        <span
+                            class="nav_name">Reporte Turno</span> </a>
+
+                            {{-- <a href="{{ route('index') }}" class="nav_link"> <i
+                            class='bx bx-file nav_icon'></i>
+
+                            <span class="nav_name">Files</span> </a>
                     <a href="#" class="nav_link"> <i class='bx bx-bar-chart-alt-2 nav_icon'></i> <span
-                            class="nav_name">Stats</span> </a>
+                            class="nav_name">Stats</span> </a> --}}
                 </div>
-            </div> <a href="#" class="nav_link"> <i class='bx bx-log-out nav_icon'></i> <span
-                    class="nav_name">SignOut</span> </a>
+            </div>
+
+            {{-- <a href="#" class="nav_link"> <i class='bx bx-log-out nav_icon'></i> <span
+                    class="nav_name">SignOut</span> </a> --}}
         </nav>
     </div>
     <!--Container Main start-->

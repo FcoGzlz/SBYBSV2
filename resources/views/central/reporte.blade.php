@@ -25,7 +25,7 @@
 
         .tablePDFMonitors {
             border: 2px;
-            font-size: 23px;
+            font-size: 21px;
         }
         td, th {
             border: 2px;
@@ -73,12 +73,23 @@
         <div class="col-6" style="margin-left: -60px; float: left">
 
                 <div class="col" style="float: left; margin-left: -15px">
-                    <label class="col-form-label" style="font-weight: bold">Nombre:  </label> <label class="col-form-label" > {{ $nombreMonitor}} </label>
+                    <label class="col-form-label" style="font-weight: bold">Responsable de monitoreo:  </label> <label class="col-form-label" > {{ $nombreMonitor}} </label>
                 </div>
 
                     <div class="col-12" style="height: 40px"></div>
                 <div class="col" style="float: left; margin-left: -15px">
-                    <label class="col-form-label" style="font-weight: bold">Turno: </label> <label class="col-form-label" > {{ $turno}} </label>
+                    <label class="col-form-label" style="font-weight: bold">Turno: </label> <label class="col-form-label" > @switch($turno)
+                        @case(1)
+                            Noche, de 00:00 hasta las 08:00 hrs.
+                            @break
+                        @case(2)
+                            Mañana, de 08:00 hasta las 16:00 hrs.
+                        @break
+                        @case(3)
+                            Tarde, de 16:00 hasta las 00:00 hrs.
+                        @break
+
+                    @endswitch </label>
                 </div>
                     <div class="col-12" style="height: 40px"></div>
 
@@ -96,6 +107,11 @@
     <div class="col-12" style="margin-left: -15px; width: 100%">
         <h4>Monitores</h4>
     </div>
+    <div class="col-12" style="height: 30px"></div>
+    <div class="col-12" style="margin-left: -15px">
+        <label class="col-form-label" style="font-weight: bold; margin: -20px">Los recuadros marcados indican la hora y la cámara que presentaron alguna fallla.</label>
+    </div>
+    <div class="col-12" style="height: 40px"></div>
 
     <div class="col-12" style="display: flex; width: 100%; border-bottom: 20px">
         <div class="col-6" style="float: left; margin-left: -60px">
