@@ -131,6 +131,7 @@ class Turnos extends Component
             $message->to('dolivos@seguridadbyb.cl', 'Diego Olivos:');
             $message->cc('jbalboa@seguridadbyb.cl', 'Joel Balboa');
             $message->cc('gabriel.pelle25@gmail.com', 'Gabriel Pelle');
+            $message->cc('franciscogzlz533@gmail.com', 'Francisco González');
             $message->subject('Reporte de monitoreo'.'-'. $this->fechaTurno);
             $message->attach('../public/archivos/' .$this->nombrePDF);
         });

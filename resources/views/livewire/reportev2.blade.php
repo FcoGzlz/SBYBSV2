@@ -18,7 +18,7 @@
                             <div class="row g-0">
                                 <div class="col col-pills-tab">
                                     <ul class="nav nav-pills mb-3 justify-content-center paneles-monitores" id="pills-tab" role="tablist">
-                                                                        
+
                                         <li class="nav-item" role="presentation">
                                             <button class="nav-link {{ $tabMonitor == 1 ? 'active' : '' }}" id="pills-1-tab" data-bs-toggle="pill" data-bs-target="pills-1" type="button" role="tab" aria-controls="pills-1" aria-selected="true"   wire:click="$set('tabMonitor', '1')">1</button>
                                         </li>
@@ -37,7 +37,7 @@
                                         <li class="nav-item" role="presentation">
                                             <button class="nav-link {{ $tabMonitor == 6 ? 'active' : '' }}" id="pills-6-tab" data-bs-toggle="pill" data-bs-target="pills-6" type="button" role="tab" aria-controls="pills-6" aria-selected="false"  wire:click="$set('tabMonitor', '6')">6</button>
                                         </li>
-                                        
+
                                     </ul>
                                 </div>
                             </div>
