@@ -14,3 +14,4 @@ yarn-error.log
 /.idea
 /.vscode
 /config/livewire.php
+/public/archivos
