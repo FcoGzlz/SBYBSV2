@@ -103,8 +103,8 @@ class Turnos extends Component
         $this->validate();
 
 
-        $fechaPDF = Carbon::now()->isoFormat('DD_MM_YYYY_HH_mm');
-        $this->nombrePDF = $this->turno . "_" . $this->nombreMonitor . "_" . $fechaPDF . ".pdf";
+        $fechaPDF = Carbon::now()->isoFormat('DD-MM-YYYY-HH-mm');
+        $this->nombrePDF = $fechaPDF ."_".$this->nombreMonitor ."_".$this->turno.".pdf";
         $pdf = PDF::loadView('central.reporte', [
             'comentarios' => $this->comentarios,
             "nombreMonitor" => $this->nombreMonitor,
@@ -118,7 +118,7 @@ class Turnos extends Component
             'checksM6' => $this->checksM6,
         ]);
 
-        $pdf->save('../public/archivos/' . $this->nombrePDF);
+        $pdf->save('P:\Historial Reportes\\' . $this->nombrePDF);
 
         Mail::send('central.mail_test', [
             'comentarios' => $this->comentarios,
@@ -130,10 +130,8 @@ class Turnos extends Component
             $message->sender('centralmonitoreo@seguridadbyb.cl', 'Central de monitoreo, Seguridad ByB');
             $message->to('dolivos@seguridadbyb.cl', 'Diego Olivos:');
             $message->cc('jbalboa@seguridadbyb.cl', 'Joel Balboa');
-            $message->cc('gabriel.pelle25@gmail.com', 'Gabriel Pelle');
-            $message->cc('franciscogzlz533@gmail.com', 'Francisco González');
             $message->subject('Reporte de monitoreo'.'-'. $this->fechaTurno);
-            $message->attach('../public/archivos/' .$this->nombrePDF);
+            $message->attach('P:\Historial Reportes\\' .$this->nombrePDF);
         });
 
         return redirect(url('/'));
