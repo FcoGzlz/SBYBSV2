@@ -69,6 +69,8 @@ Route::match(['get', 'post'],'/reporte_turno', [CentralController::class, 'repor
 
 Route::get('/clientes', [CentralController::class, 'clientes'])->name('clientes');
 
+Route::get('/cliente_{cliente}_locaciones', [CentralController::class, 'sitiosCliente']);
+
 Route::post('/datos_reporte', [CentralController::class, 'datosReporte'])->name('datos_reporte');
 
 Route::get('enviar_mail', [CentralController::class, 'index'])->name('enviar_mail');

@@ -16,6 +16,8 @@
     <link rel="stylesheet" href="assetsAdministrador/assets/css/reporteDeTurno.css">
     <link rel="stylesheet" href="assetsAdministrador/assets/fonts/fontawesome-all.min.css">
     @livewireStyles
+    @include('sweetalert::alert')
+
     <title>Reporte de Turno</title>
 </head>
 
@@ -49,11 +51,11 @@
                         <span
                             class="nav_name">Reporte Turno</span> </a>
 
-                            {{-- <a href="{{ route('index') }}" class="nav_link"> <i
-                            class='bx bx-file nav_icon'></i>
+                            <a href="{{ route('clientes') }}" class="nav_link"> <i
+                            class='bx bx-user nav_icon'></i>
 
-                            <span class="nav_name">Files</span> </a>
-                    <a href="#" class="nav_link"> <i class='bx bx-bar-chart-alt-2 nav_icon'></i> <span
+                            <span class="nav_name">Clientes</span> </a>
+                    {{-- <a href="#" class="nav_link"> <i class='bx bx-bar-chart-alt-2 nav_icon'></i> <span
                             class="nav_name">Stats</span> </a> --}}
                 </div>
             </div>

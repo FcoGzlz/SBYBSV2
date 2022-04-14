@@ -2,17 +2,17 @@
             <div class="row g-0">
                 <div class="col text-center">
 
-
+                    <div wire:loading wire:target="finalizarReporte">
+                        <livewire:loading />
+                        </div>
+                        <div wire:loading.remove wire:target="finalizarReporte">
                     <div class="row g-0">
 
                         <div class="col text-end col-finalizar-turno"><button class="btn btn-primary btn-lg btnSbyb" type="submit"
                                 wire:click="finalizarReporte" >Finalizar Turno</button></div>
                     </div>
 
-                    <div wire:loading wire:target="finalizarReporte">
-                    <livewire:loading />
-                    </div>
-                    <div wire:loading.remove wire:target="finalizarReporte">
+
                     <div class="row g-0">
                         <div class="col">
                             <div class="row g-0">
@@ -104,9 +104,7 @@
 
                                                                     @for ($j = 1; $j <= 16; $j++)
                                                                         <td>
-                                                                            <input type="checkbox"
-                                                                                value="{{ $hora->isoFormat('HH:mm') }}-{{ $j }}"
-                                                                                wire:model="checksM1">
+                                                                            <input type="checkbox" value = "{{ $hora->isoFormat('HH:mm') }}-{{ $j }}" wire:model="checksM1">
                                                                         </td>
                                                                     @endfor
 
@@ -468,8 +466,7 @@
                             <div class="col">
                                 <div class="row">
                                     <div class="col align-self-center"><label
-                                            class="form-label datos-turno label-turno">Nombre</label><input type="text"
-                                            class="datos-turno" wire:model="nombreMonitor">
+                                            class="form-label datos-turno label-turno">Nombre:</label>{{ $nombreMonitor }}
                                     </div>
 
                                     <div class="col align-self-center">
@@ -494,7 +491,7 @@
                                     </div>
 
                                     <div class="col text-center align-self-center"><label
-                                            class="col-form-label datos-turno label-turno">{{ $this->fechaTurno = Carbon\Carbon::now()->isoFormat('dddd, DD MMMM YYYY') }}</label>
+                                            class="col-form-label datos-turno label-turno">{{ $this->fechaTurno = $turnoBD->fecha }}</label>
                                     </div>
 
                                 </div>
@@ -513,7 +510,7 @@
                             </div>
                             <div class="col-auto datos-turno">
                                 @if ($edit != true)
-                                    <button class="btn btn-lg btnSbyb" type="button" wire:click="uptdComentarios"
+                                    <button class="btn btn-lg btnSbyb" type="button" wire:click="agregarComentario"
                                         style="width: 100%;">Agregar Comentario</button>
                                 @else
                                     <button class="btn btn-lg btnSbyb" type="button" wire:click="guardarComentario"
@@ -534,31 +531,33 @@
                                         </thead>
                                         <tbody>
 
-                                            @foreach ($comentarios as $key => $comentario)
-                                                <tr>
-                                                    <th> {{ explode('-', (string) $comentario)[0] }} </th>
-                                                    <td>
-                                                        <div class="row g-0">
-                                                            <div class="col align-self-center"><label
-                                                                    class="col-form-label label-comentario">
-                                                                    {{ explode('-', (string) $comentario)[1] }}
-                                                                </label></div>
-                                                            <div class="col-auto align-self-center ms-auto">
-                                                                <div class="row g-0">
-                                                                    <div class="col-auto"><button
-                                                                            class="btn btn-primary btnSbyb" type="button"
-                                                                            wire:click="editarComentario({{ $key }})"><i
-                                                                                class="far fa-edit"></i></button></div>
-                                                                    <div class="col-auto"><button
-                                                                            class="btn btn-primary btnSbyb" type="button"
-                                                                            wire:click="eliminarComentario({{ $key }})"><i
-                                                                                class="fas fa-trash-alt"></i></button></div>
-                                                                </div>
+
+                                            @foreach (App\Models\Comentario::where('turno', '=', $turnoBD->id)->get() as $comentario)
+                                            <tr>
+                                                <th> {{ $comentario->hora}} </th>
+                                                <td>
+                                                    <div class="row g-0">
+                                                        <div class="col align-self-center"><label
+                                                                class="col-form-label label-comentario">
+                                                                {{ $comentario->comentario}}
+                                                            </label></div>
+                                                        <div class="col-auto align-self-center ms-auto">
+                                                            <div class="row g-0">
+                                                                <div class="col-auto"><button
+                                                                        class="btn btn-primary btnSbyb" type="button"
+                                                                        wire:click="editarComentario({{ $comentario->id }})"><i
+                                                                            class="far fa-edit"></i></button></div>
+                                                                <div class="col-auto"><button
+                                                                        class="btn btn-primary btnSbyb" type="button"
+                                                                        wire:click="eliminarComentario({{ $comentario->id }})"><i
+                                                                            class="fas fa-trash-alt"></i></button></div>
                                                             </div>
                                                         </div>
-                                                    </td>
-                                                </tr>
-                                            @endforeach
+                                                    </div>
+                                                </td>
+                                            </tr>
+                                        @endforeach
+
 
                                         </tbody>
                                     </table>

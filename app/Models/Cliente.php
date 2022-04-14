@@ -13,15 +13,13 @@ class Cliente extends Model
     protected $primarykey = 'id';
 
     protected $fillablle = [
-        'id_cctv',
-        'id_alarma',
         'nombre',
-        'apellido',
-        'rut',
-        'contacto',
-        'email',
-        'ciudad',
+        'rut_cliente',
     ];
+
+    public function locaciones(){
+        return $this->hasMany(Locacion::class, 'id_cliente', 'id');
+    }
 
     public function cctv() {
         return $this->hasMany(Cctv::class, 'id_cliente', 'id');

@@ -13,55 +13,25 @@
             <table class="table table-bordered table-sm">
                 <thead>
                     <tr>
-                        <th class="text-center">Nombre y apellido</th>
+                        <th class="text-center">Nombre de cliente</th>
                         <th class="text-center">Rut</th>
-                        <th class="text-center">Contacto</th>
-                        <th class="text-center">ciudad</th>
-                        <th class="text-center">Email</th>
-                        <th class="text-center">CCTV</th>
-                        <th class="text-center">Nat CCTV</th>
-                        <th class="text-center">Alarmas</th>
-                        <th class="text-center">Nat CCTV Alarma</th>
-                        <th class="text-center" style="width:100px">Acciones</th>
+                        <th class="text-center">Número de sitios</th>
+                        <th class="text-center">Acciones</th>
                     </tr>
                 </thead>
                 <tbody>
                     @foreach ($clientes as $cliente)
                         <tr>
                             <td>{{ $cliente->nombre }}
-                                {{ $cliente->apellido }}</td>
-                            <td>{{ $cliente->rut }}</td>
-                            <td>{{ $cliente->contacto }}</td>
-                            <td>{{ $cliente->ciudad }}</td>
-                            <td>{{ $cliente->email }}</td>
-                            <td>
-                            <ul>
-                            @foreach ($cliente->cctv as $cctv )
-                                <li>{{ $cctv->tipoCamara->nombre }}</li>
-                            @endforeach
-                        </ul>
-                    </td>
-                    <td>
-                        <ul>
-                            @foreach ($cliente->alarmas as $alarma )
-                                <li>{{ $alarma->tipoAlarma->nombre }}</li>
-                            @endforeach
-                        </ul>
-                    </td>
-                    <td>
-                        <ul>
-                    @foreach ($cliente->cctv as $cctv )
-                                <li>{{ $cctv->natCctv->nombre }}</li>
-                            @endforeach
-                        </ul>
-                    </td>
-                            <td>
-                                <ul>
-                            @foreach ($cliente->alarmas as $alarma )
-                                <li>{{ $alarma->NatCctvAlarma->nombre }}</li>
-                            @endforeach
-                                </ul>
-                            </td>
+                            <td>{{ $cliente->rut_cliente }}
+                            <td>{{ $cliente->locaciones->count() }}
+                           <td>
+                            <form action="{{ url('/cliente_'.$cliente->id.'_locaciones') }}">
+                                @csrf
+                                <button class="btn btn-info" type="submit">Ver Sitios</button>
+                            </form>
+                           </td>
+
                         </tr>
                     @endforeach
                 </tbody>

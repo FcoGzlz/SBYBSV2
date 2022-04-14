@@ -544,7 +544,7 @@
                                                 <div class="form-row align-items-center">
                                                     <div class="col">
                                                         <label style="color: #009cde; font-weight:bold"
-                                                            class="col-form-label">{{ explode('-', (string)$comentario)[0] }}
+                                                            class="col-form-label">{{ $comentario->hora}}
 
                                                         </label>
                                                     </div>
@@ -552,7 +552,7 @@
 
                                                 <textarea style="border-top: none; border-left:none; border-right:none; border-bottom:#009cde;"
                                                     class="form-control"
-                                                    >{{ explode('-', (string)$comentario)[1] }}</textarea>
+                                                    >{{ $comentario->comentario }}</textarea>
                                             </div>
                                         </div>
                                     </div>

@@ -16,19 +16,9 @@ class BuscarClientes extends Component
         if (strpos($this->buscar, " ") == false) {
             return view('livewire.buscar-clientes', [
                 'clientes' => Cliente::where('nombre', 'like', '%'.$this->buscar. '%')
-                ->orWhere('apellido', 'like', '%'.$this->buscar. '%')
-                ->orWhere('rut', 'like', '%'.$this->buscar.'%')->get(),
+                ->orWhere('rut_cliente', 'like', '%'.$this->buscar.'%')->get(),
             ]);
         }
-        else
-        {
-            $busqueda = explode(" ", $this->buscar, 2);
-            return view('livewire.buscar-clientes', [
-                'clientes' => Cliente::where('nombre', 'like', '%'.$busqueda[0]. '%')
-                ->where('apellido', 'like', '%'.$busqueda[1]. '%')->get(),
-            ]);
-        }
-
 
     }
 }

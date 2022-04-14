@@ -17,8 +17,8 @@ class Alarma extends Model
         'id_tipo_alarma',
     ];
 
-    public function cliente() {
-        return $this->belongsTo(Cliente::class, 'id_cliente', 'id');
+    public function locacion() {
+        return $this->belongsTo(Locacion::class, 'id_locacion', 'id');
     }
 
     public function NatCctvAlarma(){

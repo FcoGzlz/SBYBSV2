@@ -4,6 +4,9 @@ namespace App\Http\Controllers;
 
 use App\Mail\TestMail;
 use App\Models\Cliente;
+use App\Models\Locacion;
+use App\Models\Monitor;
+use App\Models\Turno;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Mail;
 
@@ -11,7 +14,15 @@ class CentralController extends Controller
 {
     public function index()
     {
-        return view('central.inicio_reporte');
+        $turnoBD = Turno::where('finalizado', '=', false)->first();
+
+        if ($turnoBD != null) {
+            return view('central.reporte_diario', compact("turnoBD"));
+        } else {
+            $monitores = Monitor::all();
+            return view('central.inicio_reporte', compact("monitores"));
+        }
+
     }
 
     public function reporteTurno(Request $request)
@@ -19,8 +30,22 @@ class CentralController extends Controller
 
         $nombreMonitor = $request->get("nombreMonitor");
         $selecTurno = $request->get("turnoSeleccionado");
+        $fechaT = $request->get("fechaT");
+        $turnoB = Turno::where('finalizado', '=', false);
 
-        return view('central.reporte_diario', compact("nombreMonitor","selecTurno" ));
+        if ($turnoB->first() == null) {
+            $turno = Turno::create([
+                'responsable' => $nombreMonitor,
+                'turno' => $selecTurno,
+                'fecha' => $fechaT,
+                'identificador' => $fechaT."_".$nombreMonitor."_".$selecTurno,
+                'finalizado' => false,
+            ]);
+
+        }
+        $turnoBD = Turno::where('finalizado', '=', false)->first();
+
+        return view('central.reporte_diario', compact("nombreMonitor","selecTurno", "turnoBD" ));
     }
 
     public function clientes()
@@ -28,6 +53,12 @@ class CentralController extends Controller
 
         $clientes = Cliente::all();
         return view('central.clientes', compact("clientes"));
+    }
+
+    public function sitiosCliente($id) {
+        $idCliente = $id;
+
+        return view('central.detalle_locacion', compact("idCliente"));
     }
 
     public function datosReporte(Request $request)
