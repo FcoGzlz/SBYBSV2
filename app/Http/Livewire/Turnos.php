@@ -74,13 +74,7 @@ class Turnos extends Component
 
         $this->reset('comentario');
     }
-    // public function uptdComentarios()
-    // {
-    //     if ($this->comentario != null) {
-    //         $this->comentarios[] = Carbon::now()->isoFormat('HH:mm') . "-" . $this->comentario;
-    //     }
-    //     $this->reset('comentario');
-    // }
+
 
     public function updatedNombreMonitor($nombre)
     {
