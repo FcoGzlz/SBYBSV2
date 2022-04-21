@@ -8,11 +8,12 @@
                     </div>
                 </div>
                 <div class="row">
-                    <div class="col d-flex align-items-center">
-                        <div class="dropdown"><button class="btn btn-primary dropdown-toggle" aria-expanded="false" data-bs-toggle="dropdown" type="button">Sitio</button>
-                            <div class="dropdown-menu"><a class="dropdown-item" href="#">First Item</a><a class="dropdown-item" href="#">Second Item</a><a class="dropdown-item" href="#">Third Item</a></div>
-                        </div>
-                    </div>
+                    <div class="col d-flex align-items-center"><select>
+                            <option value="undefined" selected="">Seleccione un sitio</option>
+                            <option value="1">item 1</option>
+                            <option value="2">item 2</option>
+                            <option value="3">item 3</option>
+                        </select></div>
                     <div class="col"><label class="col-form-label">Contacto</label></div>
                 </div>
                 <div class="row">
