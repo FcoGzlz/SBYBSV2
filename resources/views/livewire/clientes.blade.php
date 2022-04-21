@@ -8,64 +8,96 @@
                     </div>
                 </div>
                 <div class="row">
-                    <div class="col d-flex align-items-center"><select>
+                    <div class="col d-flex align-items-center"><select wire:model="idSitio">
                             <option value="undefined" selected="">Seleccione un sitio</option>
-                            <option value="1">item 1</option>
-                            <option value="2">item 2</option>
-                            <option value="3">item 3</option>
+                            @foreach ($locacionesCliente as $locacion)
+                                <option value="{{$locacion->id}}">{{ $locacion->nombre }}</option>
+                            @endforeach
                         </select></div>
-                    <div class="col"><label class="col-form-label">Contacto</label></div>
+
+                    <div class="col"><label class="col-form-label">Contacto:</label>
+                    @if ($sitio != null)
+                    <label class="col-form-label">{{$sitio->nombre_contacto}}</label>
+                    @endif
+                    </div>
+
                 </div>
-                <div class="row">
-                    <div class="col"><label class="col-form-label">Direccion</label></div>
-                    <div class="col"><label class="col-form-label">N° de Contacto</label></div>
+
+              <div class="row">
+                <div class="col"><label class="col-form-label">Dirección:</label>
+                    @if ($sitio != null)
+                    <label class="col-form-label">{{ $sitio->direccion }}</label>
+                    @endif
+
                 </div>
-                <div class="row">
-                    <div class="col columnSepararCards"></div>
+                <div class="col"><label class="col-form-label">N° de Contacto:</label>
+                    @if ($sitio != null)
+                        <label class="col-form-label">{{ $sitio->contacto_telefono }}</label>
+                    @endif
                 </div>
-                <div class="row">
-                    <div class="col">
-                        <div class="card">
-                            <div class="card-body">
-                                <h4 class="card-title">CCTV</h4>
-                                <div class="row">
-                                    <div class="col columnSepararCards"></div>
+            </div>
+            <div class="row">
+                <div class="col columnSepararCards"></div>
+            </div>
+            <div class="row">
+                <div class="col">
+                    <div class="card">
+                        <div class="card-body">
+                            <h4 class="card-title">CCTV</h4>
+                            <div class="row">
+                                <div class="col columnSepararCards"></div>
+                            </div>
+                            <div class="row">
+                                <div class="col"> <label class="col-form-label">Tipo de grabador:</label>
+                                    @if ($sitio && $sitio->cctv != null)
+                                        <label class="col-form-label">{{ $sitio->cctv->tipo_dvr }}</label>
+                                    @endif
                                 </div>
-                                <div class="row">
-                                    <div class="col"><label class="col-form-label">NVR / DVR</label></div>
-                                    <div class="col"><label class="col-form-label">Cámaras:</label></div>
+                                <div class="col"><label class="col-form-label">Cámaras:</label>
+                                    @if ($sitio && $sitio->cctv != null)
+                                        <label class="col-form-label">{{ $sitio->cctv->cantidad_camaras }}</label>
+                                    @endif
                                 </div>
-                                <div class="row">
-                                    <div class="col"><label class="col-form-label">Número de Serie:&nbsp;</label></div>
-                                    <div class="col"><label class="col-form-label">LabelCamaras</label></div>
+                            </div>
+                            <div class="row">
+                                <div class="col"><label class="col-form-label">Número de Serie:&nbsp;</label>
+                                    @if ($sitio && $sitio->cctv != null)
+                                        <label class="col-form-label">{{ $sitio->cctv->numero_serie }}</label>
+                                    @endif
                                 </div>
+                                <div class="col"><label class="col-form-label">LabelCamaras</label></div>
                             </div>
                         </div>
                     </div>
                 </div>
-                <div class="row">
-                    <div class="col columnSepararCards"></div>
-                </div>
-                <div class="row">
-                    <div class="col">
-                        <div class="card">
-                            <div class="card-body">
-                                <h4 class="card-title">Alarma</h4>
-                                <div class="row">
-                                    <div class="col columnSepararCards"></div>
+            </div>
+            <div class="row">
+                <div class="col columnSepararCards"></div>
+            </div>
+            <div class="row">
+                <div class="col">
+                    <div class="card">
+                        <div class="card-body">
+                            <h4 class="card-title">Alarma</h4>
+                            <div class="row">
+                                <div class="col columnSepararCards"></div>
+                            </div>
+                            <div class="row">
+                                <div class="col"><label class="col-form-label">Tipo de alarma:</label>
+                                    @if ($sitio && $sitio->alarmas)
+                                        <label class="col-form-label">{{ $sitio->alarmas->tipoAlarma->nombre }}</label>
+                                    @endif
                                 </div>
-                                <div class="row">
-                                    <div class="col"><label class="col-form-label">Risco</label></div>
-                                    <div class="col"><label class="col-form-label">ID:&nbsp;</label></div>
-                                </div>
-                                <div class="row">
-                                    <div class="col"><label class="col-form-label">GSM</label></div>
-                                    <div class="col"><label class="col-form-label">Número</label></div>
-                                </div>
+                                <div class="col"><label class="col-form-label">ID:&nbsp;</label></div>
+                            </div>
+                            <div class="row">
+                                <div class="col"><label class="col-form-label">GSM</label></div>
+                                <div class="col"><label class="col-form-label">Número</label></div>
                             </div>
                         </div>
                     </div>
                 </div>
+            </div>
             </div>
         </div>
     </div>

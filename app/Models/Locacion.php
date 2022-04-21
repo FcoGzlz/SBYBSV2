@@ -31,7 +31,7 @@ class Locacion extends Model
        return $this->hasOne(Cctv::class, 'id_locacion', 'id');
     }
 
-    public function alarma(){
+    public function alarmas(){
        return $this->hasOne(Alarma::class, 'id_locacion', 'id');
     }
 }
