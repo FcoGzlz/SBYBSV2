@@ -137,7 +137,7 @@ class Turnos extends Component
             'checksM6' => $this->checksM6,
         ]);
 
-        $pdf->save('../public/archivos/' . $this->nombrePDF);
+        $pdf->save('P:\Historial Reportes\\' . $this->nombrePDF);
 
         Mail::send('central.mail_test', [
             'comentarios' => $this->turnoBD->comentarios,
@@ -147,19 +147,15 @@ class Turnos extends Component
         ], function ($message) {
             $message->from('centralmonitoreo@seguridadbyb.cl', 'Central de monitoreo, Seguridad ByB');
             $message->sender('centralmonitoreo@seguridadbyb.cl', 'Central de monitoreo, Seguridad ByB');
-            // $message->to('dolivos@seguridadbyb.cl', 'Diego Olivos:');
-            // $message->cc('jbalboa@seguridadbyb.cl', 'Joel Balboa');
-            $message->to('franciscogzlz533@gmail.com', 'usted');
-            $message->cc('franciscogzlz533@gmail.com', 'usted');
+            $message->to('dolivos@seguridadbyb.cl', 'Diego Olivos:');
+            $message->cc('jbalboa@seguridadbyb.cl', 'Joel Balboa');
             $message->subject('Reporte de monitoreo' . '-' . $this->fechaTurno);
-            $message->attach('../public/archivos/' . $this->nombrePDF);
+            $message->attach('P:\Historial Reportes\\' . $this->nombrePDF);
         });
 
         $this->turnoBD->get();
         $this->turnoBD->finalizado = true;
         $this->turnoBD->save();
-
-        // example:
 
         toast('Los datos han sido guardados exitosamente', 'success')->position('bottom-right');
 
