@@ -1,0 +1,52 @@
+/* ColumSepararCards - Es para separar las los titulos de las cards de la vista de "Gestion de Clientes" */
+
+.columnSepararCards {
+    height: 20px;
+}
+
+
+/* CSS del buscador de Clientes */
+
+.search {
+    position: relative;
+    box-shadow: 0 0 40px rgba(51, 51, 51, .1);
+}
+
+.search input {
+    height: 43px;
+    text-indent: 25px;
+    border: 2px solid #d6d4d4;
+}
+
+.search input:focus {
+    box-shadow: none;
+    border: 2px solid #009cde;
+}
+
+.search .fa-search {
+    position: absolute;
+    top: 13px;
+    left: 13px;
+}
+
+.search button {
+    position: absolute;
+    top: 4px;
+    right: 5px;
+    height: 35px;
+    padding: 0px;
+    width: 121px;
+    background: #009cde;
+}
+
+.tablaClientes {
+    border-radius: 3px;
+}
+
+.tablaClientes tbody {}
+
+.tablaClientes thead {
+    border-bottom: 2px solid #009cde;
+    background: #009cde;
+    color: rgb(255, 255, 255);
+}

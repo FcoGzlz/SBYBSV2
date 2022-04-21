@@ -15,6 +15,7 @@
     <link rel="stylesheet" href="assetsAdministrador/assets/css/styles.min.css">
     <link rel="stylesheet" href="assetsAdministrador/assets/css/reporteDeTurno.css">
     <link rel="stylesheet" href="assetsAdministrador/assets/fonts/fontawesome-all.min.css">
+    <link rel="stylesheet" href="assetsAdministrador/assets/css/buscadorClientes.css">
     @livewireStyles
     @include('sweetalert::alert')
 
