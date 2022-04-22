@@ -56,8 +56,8 @@
                             class='bx bx-user nav_icon'></i>
 
                             <span class="nav_name">Clientes</span> </a>
-                    {{-- <a href="#" class="nav_link"> <i class='bx bx-bar-chart-alt-2 nav_icon'></i> <span
-                            class="nav_name">Stats</span> </a> --}}
+                        <a href="{{ route('historial_reportes') }}" class="nav_link"> <i class='bx bx-bar-chart-alt-2 nav_icon'></i> <span
+                            class="nav_name">Stats</span> </a>
                 </div>
             </div>
 

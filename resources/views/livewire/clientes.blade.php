@@ -4,7 +4,7 @@
             <div class="card-body">
                 <div class="row">
                     <div class="col">
-                        <h1>CLIENTE</h1>
+                        <h1>{{$cliente->nombre}}</h1>
                     </div>
                 </div>
                 <div class="row">
@@ -88,7 +88,25 @@
                                         <label class="col-form-label">{{ $sitio->alarmas->tipoAlarma->nombre }}</label>
                                     @endif
                                 </div>
-                                <div class="col"><label class="col-form-label">ID:&nbsp;</label></div>
+                                <div class="col">
+
+                                    @if ($sitio && $sitio->alarmas != null)
+                                        @switch($sitio->tipoAlarma->nombre)
+                                            @case("Instrusión GSM")
+                                                <label class="col-form-label">Número:&nbsp;</label>
+                                                <label class="col-form-label">{{ $sitio->alarmas->get()->id_o_numero}}</label>
+                                            @break
+                                            @case("Intrusión IP")
+                                                <label class="col-form-label">ID:&nbsp;</label>
+                                                <label class="col-form-label">{{ $sitio->alarmas->get()->id_o_numero}}</label>
+                                            @break
+                                        @default
+
+                                    @endswitch
+
+                                    @endif
+
+                                </div>
                             </div>
                             <div class="row">
                                 <div class="col"><label class="col-form-label">GSM</label></div>
