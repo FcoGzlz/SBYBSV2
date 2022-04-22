@@ -10,28 +10,8 @@
                 </div>
                 <div class="row g-0">
                     <div class="col">    <div class="row height d-flex justify-content-center align-items-center">
-    {{-- <div class="col-2">
-        <div class="search"> <i class="fa fa-search"></i> <input wire:model="buscar" type="text" class="form-control" placeholder="Filtrar por responsable">  </div>
-    </div> --}}
 
-    <div class="col">
-        <select wire:model="buscar">
-            <option selected value="">Todos</option>
-            @foreach ($monitores as $monitor)
-            <option value="{{ $monitor->nombre }}">{{$monitor->nombre}}</option>
-            @endforeach
 
-        </select>
-    </div>
-    <div class="col">
-        {{ $buscarTurno }}
-        <select wire:model="buscarTurno">
-            <option selected value="">Filtrar por turno</option>
-            <option value="1">Noche, de 00:00 a 08:00 hrs</option>
-            <option value="2">Mañana, de 08:00 a 16:00</option>
-            <option value="3">Tarde, de 16:00 a 00:00</option>
-        </select>
-    </div>
 </div>
 </div>
                 </div>
@@ -42,10 +22,28 @@
                             <table class="table table-striped table-sm">
                                 <thead class="tablaClientes">
                                     <tr>
-                                        <th>Reponsable</th>
+                                        <th>
+                                            <div class="col">
+                                                Reponsable
+                                            </div>
+                                            <div class="col">
+                                                <select wire:model="buscar">
+                                                    <option selected value="">Todos</option>
+                                                    @foreach ($monitores as $monitor)
+                                                    <option value="{{ $monitor->nombre }}">{{$monitor->nombre}}</option>
+                                                    @endforeach
+
+                                                </select>
+                                            </div>
+                                        </th>
                                         <th>Fecha</th>
-                                        <th> <div class="col">
-                                            Turno
+                                        <th>
+                                            <div class="col">
+                                                Turno
+                                            </div>
+
+                                            <div class="col">
+
                                             <select wire:model="buscarTurno">
                                                 <option selected value="">Todos</option>
                                                 <option value="1">Noche, de 00:00 a 08:00 hrs</option>
