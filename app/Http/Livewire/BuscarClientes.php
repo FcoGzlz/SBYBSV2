@@ -8,6 +8,8 @@ use Livewire\Component;
 class BuscarClientes extends Component
 {
     public $buscar;
+    public $buscarFecha;
+    public $buscarTurno;
 
     public function render()
     {

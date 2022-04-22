@@ -8,6 +8,7 @@ use App\Models\Locacion;
 use App\Models\Monitor;
 use App\Models\Turno;
 use Illuminate\Http\Request;
+use Barryvdh\DomPDF\Facade as PDF;
 use Illuminate\Support\Facades\Mail;
 
 class CentralController extends Controller
@@ -61,14 +62,19 @@ class CentralController extends Controller
         return view('central.detalle_locacion', compact("idCliente"));
     }
 
-    public function datosReporte(Request $request)
+    public function historialReportes(){
+
+        $reportes = Turno::all();
+
+        return view('central.historiaL_reportes', compact("reportes"));
+    }
+
+    public function reporte($id)
     {
-        // $sep = explode("-", $request->get('check[]'));
-        for ($i=0; $i < count($request->get('check')) ; $i++) {
-            $tst = explode('-', $request->get('check')[$i]);
-            echo $tst[0];
-        }
-        // dd($request->get('check')[1]);
+        $reporte = Turno::findOrFail($id);
+
+        // $pdf = PDF::load('../public/archivos/'.$reporte->nombre_pdf);
+        return response()->file('../public/archivos/'.$reporte->nombre_pdf);
 
 
     }

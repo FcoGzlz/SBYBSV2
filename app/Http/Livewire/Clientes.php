@@ -22,6 +22,7 @@ class Clientes extends Component
         [
             'locacionesCliente' => Locacion::where('id_cliente', '=', $this->idCliente)->get(),
             'sitio' => Locacion::where('id', $this->idSitio)->first(),
+            'cliente' => Cliente::findOrFail($this->idCliente),
         ]
     );
     }

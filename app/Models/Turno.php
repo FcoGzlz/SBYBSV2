@@ -18,6 +18,7 @@ class Turno extends Model
         'fecha',
         'identificador',
         'finalizado',
+        'nombre_pdf'
     ];
 
     public function comentarios(){
