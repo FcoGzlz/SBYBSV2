@@ -1,7 +1,7 @@
 
 <div class="row g-0">
     <div class="col">
-        <div class="card" style="margin-right: 5%;margin-left: 5%;margin-top: 25px;">
+        <div class="card shadow p-3 mb-5 bg-white rounded cardClientes">
             <div class="card-body">
                 <div class="row">
                     <div class="col">
@@ -11,7 +11,7 @@
                 <div class="row g-0">
                     <div class="col">    <div class="row height d-flex justify-content-center align-items-center">
     <div class="col">
-        <div class="search"> <i class="fa fa-search"></i> <input wire:model="buscar" type="text" class="form-control" placeholder="Buscar clientes"> <button class="btn btn-primary">Buscar</button> </div>
+        <div class="search"> <i class="fa fa-search"></i> <input wire:model="buscar" type="text" class="form-control" placeholder="Buscar clientes"> <button class="btn btnSbyb">Buscar</button> </div>
     </div>
 </div>
 </div>
@@ -19,14 +19,14 @@
                 <div class="row columnSepararCards"></div>
                 <div class="row">
                     <div class="col">
-                        <div class="table-responsive tablaClientes">
-                            <table class="table table-striped table-sm">
+                        <div class="table-responsive overflow-auto tablaClientes">
+                            <table class="table tablaClientes table-striped table-sm">
                                 <thead class="tablaClientes">
                                     <tr>
                                         <th>Nombre</th>
                                         <th>RUT</th>
                                         <th>Cantidad de sitios</th>
-                                        <th>Acciones</th>
+                                        <th class="text-end">Detalle</th>
                                     </tr>
                                 </thead>
                                 <tbody class="tablaClientes">
@@ -35,12 +35,19 @@
                             <td>{{ $cliente->nombre }}
                             <td>{{ $cliente->rut_cliente }}
                             <td>{{ $cliente->locaciones->count() }}
-                           <td>
+                            <td class="text-end">
+                                <form action="{{ url('/cliente_'.$cliente->id.'_locaciones') }}">
+                                    @csrf
+                                <button class="btn btnSbyb btnDetalleCliente" type="submit"><i class="fas fa-eye"></i></button>
+                            </form>
+                            </td>
+
+                           {{-- <td>
                             <form action="{{ url('/cliente_'.$cliente->id.'_locaciones') }}">
                                 @csrf
                                 <button class="btn btn-info" type="submit">Ver Sitios</button>
                             </form>
-                           </td>
+                           </td> --}}
 
                         </tr>
                     @endforeach

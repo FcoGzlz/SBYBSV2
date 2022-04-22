@@ -39,14 +39,59 @@
     background: #009cde;
 }
 
-.tablaClientes {
-    border-radius: 3px;
+.card.cardClientes{
+    margin-right: 5%;
+    margin-left: 5%;
+    margin-top: 25px;
 }
 
-.tablaClientes tbody {}
+.tablaClientes {
+    border-radius: 3px;
+    overflow: auto;
+    border: 2px solid #009cde ;
+    margin-bottom: 0px;
+  }
+  
+.table.tablaClientes{
+    margin-top: -1px;
+    margin-bottom: 0px;
+}
+
+.tablaClientes thead th{
+    border-bottom: none;
+}
+
+.tablaClientes tbody {
+border-radius: 0px;
+}
 
 .tablaClientes thead {
+    border-radius: 0px;
     border-bottom: 2px solid #009cde;
     background: #009cde;
     color: rgb(255, 255, 255);
 }
+
+.btnSbyb.btnDetalleCliente{
+    padding: 0px 12px;
+}
+
+select.selectByB{
+    
+    background-image:url("https://img.icons8.com/ios-filled/50/ffffff/expand-arrow--v1.png") !important;
+    background-size:20px;
+    background-repeat: no-repeat;
+    -webkit-appearance: none;
+    background-color: #009cde;
+    color: white!important;
+    box-shadow: none;
+    font-weight: bold;
+    
+}
+
+select.selectByB:active{
+    box-shadow: none;
+}
+
+
+

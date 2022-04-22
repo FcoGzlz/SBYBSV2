@@ -1,6 +1,6 @@
 <div class="row g-0">
     <div class="col">
-        <div class="card" style="margin-right: 25%;margin-left: 25%;margin-top: 25px;">
+        <div class="card cardClientes shadow p-3 mb-5 bg-white rounded">
             <div class="card-body">
                 <div class="row">
                     <div class="col">
@@ -8,7 +8,7 @@
                     </div>
                 </div>
                 <div class="row">
-                    <div class="col d-flex align-items-center"><select wire:model="idSitio">
+                    <div class="col d-flex align-items-center"><select class="form-select selectByB shadow-none" wire:model="idSitio">
                             <option value="undefined" selected="">Seleccione un sitio</option>
                             @foreach ($locacionesCliente as $locacion)
                                 <option value="{{$locacion->id}}">{{ $locacion->nombre }}</option>
