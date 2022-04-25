@@ -19,15 +19,15 @@
                 <div class="row">
                     <div class="col">
                         <div class="table-responsive tablaClientes">
-                            <table class="table table-striped table-sm">
+                            <table class="table table-striped table-sm tablaClientes">
                                 <thead class="tablaClientes">
                                     <tr>
                                         <th>
-                                            <div class="col">
+                                            <div class="col tablaHeadReportes">
                                                 Reponsable
                                             </div>
                                             <div class="col">
-                                                <select wire:model="buscar">
+                                                <select class="form-select selectByB shadow-none" wire:model="buscar">
                                                     <option selected value="">Todos</option>
                                                     @foreach ($monitores as $monitor)
                                                     <option value="{{ $monitor->nombre }}">{{$monitor->nombre}}</option>
@@ -44,14 +44,14 @@
 
                                             <div class="col">
 
-                                            <select wire:model="buscarTurno">
+                                            <select class="form-select selectByB shadow-none" wire:model="buscarTurno">
                                                 <option selected value="">Todos</option>
                                                 <option value="1">Noche, de 00:00 a 08:00 hrs</option>
                                                 <option value="2">Mañana, de 08:00 a 16:00</option>
                                                 <option value="3">Tarde, de 16:00 a 00:00</option>
                                             </select>
                                         </div></th>
-                                        <th>Acciones</th>
+                                        <th class="text-end">Acciones</th>
                                     </tr>
 
                                 </thead>
@@ -74,12 +74,21 @@
                                 @default
 
                             @endswitch
-                           <td>
+                           <td class="text-end">
+                            <form action="{{ url('/reporte_'.$reporte->id.'_locaciones') }}">
+                                @csrf
+                            <button title="Vista previa PDF" class="btn btnSbyb btnDetalleCliente" type="submit"><i class="far fa-file-pdf"></i></button>
+                        </form>
+                        </td>
+                        {{-- <td>
                             <form action="{{ url('/reporte_'.$reporte->id) }}">
                                 @csrf
                                 <button class="btn btn-info" type="submit">Ver PDF</button>
+                                <button class="btn btn-primary" type="button" style="padding: 0px 12px;"><i class="far fa-file-pdf"></i></button>
                             </form>
-                           </td>
+                           </td> --}}
+
+                           
 
                         </tr>
                     @endforeach

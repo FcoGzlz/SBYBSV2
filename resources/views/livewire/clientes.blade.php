@@ -3,19 +3,19 @@
         <div class="card cardClientes shadow p-3 mb-5 bg-white rounded">
             <div class="card-body">
                 <div class="row">
-                    <div class="col">
+                    <div class="col text-uppercase">
                         <h1>{{$cliente->nombre}}</h1>
                     </div>
                 </div>
                 <div class="row">
                     <div class="col d-flex align-items-center"><select class="form-select selectByB shadow-none" wire:model="idSitio">
-                            <option value="undefined" selected="">Seleccione un sitio</option>
+                            <option class="selectByB" value="undefined" selected="">Seleccione un sitio</option>
                             @foreach ($locacionesCliente as $locacion)
-                                <option value="{{$locacion->id}}">{{ $locacion->nombre }}</option>
+                                <option class="selectByB" value="{{$locacion->id}}">{{ $locacion->nombre }}</option>
                             @endforeach
                         </select></div>
 
-                    <div class="col"><label class="col-form-label">Contacto:</label>
+                    <div class="col"><label class="col-form-label labelCardClientes">Contacto:</label>
                     @if ($sitio != null)
                     <label class="col-form-label">{{$sitio->nombre_contacto}}</label>
                     @endif
@@ -24,13 +24,13 @@
                 </div>
 
               <div class="row">
-                <div class="col"><label class="col-form-label">Dirección:</label>
+                <div class="col"><label class="col-form-label labelCardClientes">Dirección:</label>
                     @if ($sitio != null)
                     <label class="col-form-label">{{ $sitio->direccion }}</label>
                     @endif
 
                 </div>
-                <div class="col"><label class="col-form-label">N° de Contacto:</label>
+                <div class="col"><label class="col-form-label labelCardClientes">N° de Contacto:</label>
                     @if ($sitio != null)
                         <label class="col-form-label">{{ $sitio->contacto_telefono }}</label>
                     @endif
@@ -43,29 +43,29 @@
                 <div class="col">
                     <div class="card">
                         <div class="card-body">
-                            <h4 class="card-title">CCTV</h4>
+                            <h4 class="card-title subtitulosCard">CCTV</h4>
                             <div class="row">
                                 <div class="col columnSepararCards"></div>
                             </div>
                             <div class="row">
-                                <div class="col"> <label class="col-form-label">Tipo de grabador:</label>
+                                <div class="col"> <label class="col-form-label labelCardClientes">Tipo de grabador:</label>
                                     @if ($sitio && $sitio->cctv != null)
                                         <label class="col-form-label">{{ $sitio->cctv->tipo_dvr }}</label>
                                     @endif
                                 </div>
-                                <div class="col"><label class="col-form-label">Cámaras:</label>
+                                <div class="col"><label class="col-form-label labelCardClientes">Cámaras:</label>
                                     @if ($sitio && $sitio->cctv != null)
                                         <label class="col-form-label">{{ $sitio->cctv->cantidad_camaras }}</label>
                                     @endif
                                 </div>
                             </div>
                             <div class="row">
-                                <div class="col"><label class="col-form-label">Número de Serie:&nbsp;</label>
+                                <div class="col"><label class="col-form-label labelCardClientes">Número de Serie:&nbsp;</label>
                                     @if ($sitio && $sitio->cctv != null)
                                         <label class="col-form-label">{{ $sitio->cctv->numero_serie }}</label>
                                     @endif
                                 </div>
-                                <div class="col"><label class="col-form-label">LabelCamaras</label></div>
+                                <div class="col"><label class="col-form-label ">LabelCamaras</label></div>
                             </div>
                         </div>
                     </div>
@@ -78,12 +78,12 @@
                 <div class="col">
                     <div class="card">
                         <div class="card-body">
-                            <h4 class="card-title">Alarma</h4>
+                            <h4 class="card-title subtitulosCard">Alarma</h4>
                             <div class="row">
                                 <div class="col columnSepararCards"></div>
                             </div>
                             <div class="row">
-                                <div class="col"><label class="col-form-label">Tipo de alarma:</label>
+                                <div class="col"><label class="col-form-label labelCardClientes">Tipo de alarma:</label>
                                     @if ($sitio && $sitio->alarmas)
                                         <label class="col-form-label">{{ $sitio->alarmas->tipoAlarma->nombre }}</label>
                                     @endif
@@ -93,11 +93,11 @@
                                     @if ($sitio && $sitio->alarmas != null)
                                         @switch($sitio->tipoAlarma->nombre)
                                             @case("Instrusión GSM")
-                                                <label class="col-form-label">Número:&nbsp;</label>
+                                                <label class="col-form-label labelCardClientes">Número:&nbsp;</label>
                                                 <label class="col-form-label">{{ $sitio->alarmas->get()->id_o_numero}}</label>
                                             @break
                                             @case("Intrusión IP")
-                                                <label class="col-form-label">ID:&nbsp;</label>
+                                                <label class="col-form-label labelCardClientes">ID:&nbsp;</label>
                                                 <label class="col-form-label">{{ $sitio->alarmas->get()->id_o_numero}}</label>
                                             @break
                                         @default
@@ -124,7 +124,7 @@
 
 
 
-<div>
+{{-- <div>
 
     <select name="" id="" wire:model="idSitio">
         <option value="" selected>Seleccione un sitio</option>
@@ -156,4 +156,4 @@
         </div>
         @endif
     @endif
-</div>
+</div> --}}

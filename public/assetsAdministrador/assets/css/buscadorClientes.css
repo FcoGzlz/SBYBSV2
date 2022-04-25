@@ -83,14 +83,41 @@ select.selectByB{
     background-repeat: no-repeat;
     -webkit-appearance: none;
     background-color: #009cde;
-    color: white!important;
+    color: white;
     box-shadow: none;
-    font-weight: bold;
+    font-weight: bolder;
     
 }
 
 select.selectByB:active{
     box-shadow: none;
+}
+
+option.selectByB{
+    background-color: white;
+    color: #009cde;
+    font-weight: bold;
+}
+
+.subtitulosCard{
+    background-color: #009cde;
+    color: white;
+    margin: -16px;
+    padding-top: 20px;
+    padding-bottom: 20px;
+    text-indent: 10px;
+    border-top-left-radius: .2rem;
+    border-top-right-radius: .2rem;
+    font-weight: bold;
+}
+
+.labelCardClientes{
+    color: #009cde;
+    font-weight: bold;
+}
+
+div.col.tablaHeadReportes{
+    padding: 0px;
 }
 
 
