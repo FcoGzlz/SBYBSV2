@@ -27,7 +27,11 @@
                                                 Reponsable
                                             </div>
                                             <div class="col">
+<<<<<<< HEAD
                                                 <select class="form-select selectByB shadow-none" wire:model="buscar">
+=======
+                                                <select wire:model="buscar">
+>>>>>>> a9e305480c4999ec267067f5e794b8dca78790cf
                                                     <option selected value="">Filtrar por responsable</option>
                                                     @foreach ($monitores as $monitor)
                                                         <option value="{{ $monitor->nombre }}">{{ $monitor->nombre }}
@@ -53,6 +57,7 @@
                                             <div class="col">
 
 <<<<<<< HEAD
+<<<<<<< HEAD
                                             <select class="form-select selectByB shadow-none" wire:model="buscarTurno">
                                                 <option selected value="">Todos</option>
                                                 <option value="1">Noche, de 00:00 a 08:00 hrs</option>
@@ -62,48 +67,22 @@
                                         </div></th>
                                         <th class="text-end">Acciones</th>
 =======
+=======
+                                                <select wire:model="buscarTurno">
+                                                    <option selected value="">Filtrar por turno</option>
+                                                    <option value="1">Noche, de 00:00 a 08:00 hrs</option>
+                                                    <option value="2">Mañana, de 08:00 a 16:00</option>
+                                                    <option value="3">Tarde, de 16:00 a 00:00</option>
+                                                </select>
+                                            </div>
+                                        </th>
+                                        <th>Acciones</th>
+>>>>>>> a9e305480c4999ec267067f5e794b8dca78790cf
                                     </tr>
 
                                 </thead>
                                 <tbody class="tablaClientes">
                                     @foreach ($reportes as $reporte)
-<<<<<<< HEAD
-                        <tr>
-                            <td>{{ $reporte->responsable }}
-                            <td>{{ $reporte->fecha }}
-                            <td>@switch($reporte->turno)
-                                @case(1)
-                                        Noche, de 00:00 a 08:00 hrs
-                                    @break
-                                @case(2)
-                                        Mañana, de 08:00 a 16:00 hrs
-                                    @break
-                                @case(3)
-                                        Tarde, de 16:00 a 00:00 hrs
-                                    @break
-
-                                @default
-
-                            @endswitch
-                           <td class="text-end">
-                            <form action="{{ url('/reporte_'.$reporte->id.'_locaciones') }}">
-                                @csrf
-                            <button title="Vista previa PDF" class="btn btnSbyb btnDetalleCliente" type="submit"><i class="far fa-file-pdf"></i></button>
-                        </form>
-                        </td>
-                        {{-- <td>
-                            <form action="{{ url('/reporte_'.$reporte->id) }}">
-                                @csrf
-                                <button class="btn btn-info" type="submit">Ver PDF</button>
-                                <button class="btn btn-primary" type="button" style="padding: 0px 12px;"><i class="far fa-file-pdf"></i></button>
-                            </form>
-                           </td> --}}
-
-                           
-
-                        </tr>
-                    @endforeach
-=======
                                         <tr>
                                             <td>{{ $reporte->responsable }}
                                             <td>{{ $reporte->fecha }}
@@ -146,7 +125,6 @@
 
                                         </tr>
                                     @endforeach
->>>>>>> 03e572d70da5aa9c85d64577e54d92a426800490
                                 </tbody>
                             </table>
                             {{ $reportes->onEachSide(2)->links() }}
