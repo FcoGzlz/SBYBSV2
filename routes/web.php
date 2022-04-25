@@ -77,4 +77,4 @@ Route::get('enviar_mail', [CentralController::class, 'index'])->name('enviar_mai
 
 Route::get('/historial_reportes', [CentralController::class, 'historialReportes'])->name('historial_reportes');
 
-Route::get('/reporte_{reporte}', [CentralController::class, 'reporte']);
+// Route::get('/reporte_{reporte}', [CentralController::class, 'reporte']);
