@@ -27,11 +27,10 @@
                                                 Reponsable
                                             </div>
                                             <div class="col">
-<<<<<<< HEAD
+
                                                 <select class="form-select selectByB shadow-none" wire:model="buscar">
-=======
-                                                <select wire:model="buscar">
->>>>>>> a9e305480c4999ec267067f5e794b8dca78790cf
+
+
                                                     <option selected value="">Filtrar por responsable</option>
                                                     @foreach ($monitores as $monitor)
                                                         <option value="{{ $monitor->nombre }}">{{ $monitor->nombre }}
@@ -55,29 +54,18 @@
                                             </div>
 
                                             <div class="col">
-
-<<<<<<< HEAD
-<<<<<<< HEAD
                                             <select class="form-select selectByB shadow-none" wire:model="buscarTurno">
-                                                <option selected value="">Todos</option>
+                                                <option selected value="">Filtrar por turno</option>
                                                 <option value="1">Noche, de 00:00 a 08:00 hrs</option>
                                                 <option value="2">Mañana, de 08:00 a 16:00</option>
                                                 <option value="3">Tarde, de 16:00 a 00:00</option>
                                             </select>
-                                        </div></th>
-                                        <th class="text-end">Acciones</th>
-=======
-=======
-                                                <select wire:model="buscarTurno">
-                                                    <option selected value="">Filtrar por turno</option>
-                                                    <option value="1">Noche, de 00:00 a 08:00 hrs</option>
-                                                    <option value="2">Mañana, de 08:00 a 16:00</option>
-                                                    <option value="3">Tarde, de 16:00 a 00:00</option>
-                                                </select>
+
+
                                             </div>
+                                    </th>
+                                        <th class="text-end">Acciones</th>
                                         </th>
-                                        <th>Acciones</th>
->>>>>>> a9e305480c4999ec267067f5e794b8dca78790cf
                                     </tr>
 
                                 </thead>
