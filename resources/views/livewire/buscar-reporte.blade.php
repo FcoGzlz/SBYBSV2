@@ -1,4 +1,6 @@
 
+
+
 <div class="row g-0">
     <div class="col">
         <div class="card" style="margin-right: 5%;margin-left: 5%;margin-top: 25px;">
@@ -36,7 +38,14 @@
                                                 </select>
                                             </div>
                                         </th>
-                                        <th>Fecha</th>
+                                        <th>
+                                            <div class="col">
+                                                Fecha => {{$buscarFecha}}
+                                        </div>
+                                            <div class="col">
+                                                <input type="date" wire:model="buscarFecha" placeholder="a">
+                                            </div>
+                                        </th>
                                         <th>
                                             <div class="col">
                                                 Turno
@@ -94,3 +103,5 @@
         </div>
     </div>
 </div>
+
+
