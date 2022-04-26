@@ -138,7 +138,7 @@
                 <div class="row">
                     <div class="col">
                         <h1> <button class="btn btn-info" type="button"
-                                wire:click="cerrarVisualizador">Cerrar</button></h1>w
+                                wire:click="cerrarVisualizador">Cerrar</button></h1>
                     </div>
                 </div>
                 <div class="row g-0">

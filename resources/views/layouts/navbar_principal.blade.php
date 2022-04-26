@@ -52,12 +52,12 @@
                         <span
                             class="nav_name">Reporte Turno</span> </a>
 
-                            {{-- <a href="{{ route('clientes') }}" class="nav_link"> <i
+                            <a href="{{ route('clientes') }}" class="nav_link"> <i
                             class='bx bx-user nav_icon'></i>
 
                             <span class="nav_name">Clientes</span> </a>
                         <a href="{{ route('historial_reportes') }}" class="nav_link"> <i class='bx bx-bar-chart-alt-2 nav_icon'></i> <span
-                            class="nav_name">Stats</span> </a> --}}
+                            class="nav_name">Stats</span> </a>
                 </div>
             </div>
 
