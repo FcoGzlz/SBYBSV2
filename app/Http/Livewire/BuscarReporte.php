@@ -3,7 +3,6 @@
 namespace App\Http\Livewire;
 
 use App\Models\Monitor;
-use App\Models\Reporte;
 use App\Models\Turno;
 use Carbon\Carbon;
 use Livewire\Component;
@@ -14,21 +13,28 @@ class BuscarReporte extends Component
     public $buscarFecha;
     public $buscarTurno;
     public $repo;
+    public $rep;
 
     public function updatedBuscarFecha(){
         // $this->buscarFecha = Carbon::parse($this->buscarFecha)->isoFormat('dddd DD MMMM YYYY');
     }
 
     public function renderPDF($reporte){
-        if ($this->repo != null) {
-            $this->reset('repo');
+        $this->reset('rep');
+        $this->reset('repo');
+        $this->repo = $reporte;
+        // if ($this->repo != null) {
+        //     $this->repo = $reporte;
+        //     $this->rep = $reporte;
 
-            $this->repo = $reporte;
+        // }
+        // else{
+        //     $this->repo = $reporte;
+        //     $this->rep = $reporte;
+        // }
 
-        }
-        else{
-            $this->repo = $reporte;
-        }
+        $this->emit('render', ['reporte' => $reporte]);
+
         // if ($this->repo != null) {
 
         //     $this->repo = $reporte;

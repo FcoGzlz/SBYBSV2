@@ -9,14 +9,15 @@ class PdfRender extends Component
 {
     public $reporte;
 
-    protected $listeners = ['refreshComponent' => 'tst'];
+    protected $listeners = ['render' => 'visualizarPDF'];
 
     public function updatedReporte(){
         dd($this->reporte);
     }
 
-    public function tst(){
-        return redirect(request()->header('Referer'));
+
+    public function visualizarPDF($reporte){
+        $this->reporte = $reporte;
     }
 
     public function render(){

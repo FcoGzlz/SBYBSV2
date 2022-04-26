@@ -33,7 +33,8 @@
 
                                                     <option selected value="">Filtrar por responsable</option>
                                                     @foreach ($monitores as $monitor)
-                                                        <option value="{{ $monitor->nombre }}">{{ $monitor->nombre }}
+                                                        <option value="{{ $monitor->nombre }}">
+                                                            {{ $monitor->nombre }}
                                                         </option>
                                                     @endforeach
 
@@ -45,7 +46,7 @@
                                                 Fecha => {{ $buscarFecha }}
                                             </div>
                                             <div class="col">
-                                                <input type="date" wire:model="buscarFecha" placeholder="Hola">
+                                                <input class="form-control" type="date" wire:model="buscarFecha" placeholder="Hola">
                                             </div>
                                         </th>
                                         <th>
@@ -54,16 +55,17 @@
                                             </div>
 
                                             <div class="col">
-                                            <select class="form-select selectByB shadow-none" wire:model="buscarTurno">
-                                                <option selected value="">Filtrar por turno</option>
-                                                <option value="1">Noche, de 00:00 a 08:00 hrs</option>
-                                                <option value="2">Mañana, de 08:00 a 16:00</option>
-                                                <option value="3">Tarde, de 16:00 a 00:00</option>
-                                            </select>
+                                                <select class="form-select selectByB shadow-none"
+                                                    wire:model="buscarTurno">
+                                                    <option selected value="">Filtrar por turno</option>
+                                                    <option value="1">Noche, de 00:00 a 08:00 hrs</option>
+                                                    <option value="2">Mañana, de 08:00 a 16:00</option>
+                                                    <option value="3">Tarde, de 16:00 a 00:00</option>
+                                                </select>
 
 
                                             </div>
-                                    </th>
+                                        </th>
                                         <th class="text-end">Acciones</th>
                                         </th>
                                     </tr>
@@ -93,18 +95,17 @@
                                             <td>
 
                                                 @if ($repo != null)
-
                                                     @if ($repo == $reporte->id)
                                                         <button class="btn btn-info" type="button"
-                                                        wire:click="renderPDF({{ $reporte->id }})">Visualizando</button>
+                                                            wire:click="renderPDF({{ $reporte->id }})" disabled>Visualizando</button>
                                                     @else
-                                                    <button class="btn btn-info" type="button"
-                                                        wire:click="renderPDF({{ $reporte->id }})">Ver PDF</button>
+                                                        <button class="btn btn-info" type="button"
+                                                            wire:click="renderPDF({{ $reporte->id }})">Ver
+                                                            PDF</button>
                                                     @endif
                                                 @else
                                                     <button class="btn btn-info" type="button"
-                                                    wire:click="renderPDF({{ $reporte->id }})">Ver PDF</button>
-
+                                                        wire:click="renderPDF({{ $reporte->id }})">Ver PDF</button>
                                                 @endif
 
 
@@ -129,17 +130,15 @@
     </div>
 
 
-
-
     @if ($repo != null)
+   <div class="row g-0">
     <div class="col">
         <div class="card" style="margin-right: 5%;margin-left: 5%;margin-top: 25px;">
             <div class="card-body">
                 <div class="row">
                     <div class="col">
                         <h1> <button class="btn btn-info" type="button"
-                            wire:click="cerrarVisualizador">Cerrar</button></h1>
-                            {{$repo}}
+                                wire:click="cerrarVisualizador">Cerrar</button></h1>w
                     </div>
                 </div>
                 <div class="row g-0">
@@ -153,15 +152,11 @@
                 <div class="row columnSepararCards"></div>
                 <div class="row">
                     <div class="col">
-                       @if ($repo != null)
-                       @livewire('pdf-render',[
-                        'reporte' => $repo,
-                        ])
-                       @else
-                       @livewire('pdf-render',[
-                        'reporte' => $repo,
-                        ])
-                       @endif
+
+                        @livewire('pdf-render',[
+                            'reporte' => $repo,
+                            ])
+
                     </div>
 
                 </div>
@@ -171,6 +166,10 @@
 
 
     </div>
+   </div>
 @endif
+
+
 </div>
+
 </div>
