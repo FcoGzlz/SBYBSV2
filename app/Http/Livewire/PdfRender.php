@@ -17,6 +17,7 @@ class PdfRender extends Component
 
 
     public function visualizarPDF($reporte){
+
         $this->reporte = $reporte;
     }
 

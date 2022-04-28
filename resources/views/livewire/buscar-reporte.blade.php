@@ -23,7 +23,7 @@
                                 <thead class="tablaClientes">
                                     <tr>
                                         <th>
-                                            <div class="col tablaHeadReportes">
+                                            <div class="col">
                                                 Reponsable
                                             </div>
                                             <div class="col">
@@ -43,7 +43,7 @@
                                         </th>
                                         <th>
                                             <div class="col">
-                                                Fecha => {{ $buscarFecha }}
+                                                Fecha
                                             </div>
                                             <div class="col">
                                                 <input class="form-control" type="date" wire:model="buscarFecha" placeholder="Hola">
@@ -66,7 +66,7 @@
 
                                             </div>
                                         </th>
-                                        <th class="text-end">Acciones</th>
+                                        <th class=""></th>
                                         </th>
                                     </tr>
 
@@ -116,7 +116,6 @@
                                     @endforeach
                                 </tbody>
                             </table>
-                            {{ $reportes->onEachSide(2)->links() }}
 
                         </div>
                     </div>

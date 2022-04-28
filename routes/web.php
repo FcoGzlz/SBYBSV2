@@ -75,6 +75,6 @@ Route::post('/datos_reporte', [CentralController::class, 'datosReporte'])->name(
 
 Route::get('enviar_mail', [CentralController::class, 'index'])->name('enviar_mail');
 
-Route::get('/historial_reportes', [CentralController::class, 'historialReportes'])->name('historial_reportes');
+Route::any('/historial_reportes', [CentralController::class, 'historialReportes'])->name('historial_reportes');
 
 // Route::get('/reporte_{reporte}', [CentralController::class, 'reporte']);
