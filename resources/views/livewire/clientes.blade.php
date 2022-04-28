@@ -41,7 +41,18 @@
             </div>
             <div class="row">
                 <div class="col">
-                    <div class="card">
+
+                    @if ($sitio == null)
+                        <div class="card">
+                        @else
+                            @if ($sitio->cctv == null)
+                            <div class="card" style="display: none">
+                            @else
+                            <div class="card">
+                            @endif
+
+                        @endif
+
                         <div class="card-body">
                             <h4 class="card-title subtitulosCard">CCTV</h4>
                             <div class="row">
@@ -74,87 +85,115 @@
             <div class="row">
                 <div class="col columnSepararCards"></div>
             </div>
-            <div class="row">
-                <div class="col">
-                    <div class="card">
-                        <div class="card-body">
-                            <h4 class="card-title subtitulosCard">Alarma</h4>
-                            <div class="row">
-                                <div class="col columnSepararCards"></div>
-                            </div>
-                            <div class="row">
-                                <div class="col"><label class="col-form-label labelCardClientes">Tipo de alarma:</label>
-                                    @if ($sitio && $sitio->alarma)
 
-                                        <label class="col-form-label">{{ $sitio->alarma->tipoAlarma->nombre }}</label>
-                                    @endif
+
+                     <div class="row  none">
+                    <div class="col">
+                        @if ($sitio == null)
+                        <div class="card">
+                        @else
+                            @if ($sitio->alarma == null)
+                            <div class="card" style="display: none">
+                            @else
+                            <div class="card">
+                            @endif
+
+                        @endif
+                            <div class="card-body">
+                                <h4 class="card-title subtitulosCard">Alarma</h4>
+                                <div class="row">
+                                    <div class="col columnSepararCards"></div>
                                 </div>
-                                <div class="col">
+                                <div class="row">
+                                    <div class="col"><label class="col-form-label labelCardClientes">Tipo de alarma:</label>
+                                        @if ($sitio && $sitio->alarma != null)
 
-                                    @if ($sitio && $sitio->alarma != null)
-                                        @switch($sitio->alarma->tipoAlarma->nombre)
-                                            @case("Intrusión GSM")
-                                                <label class="col-form-label labelCardClientes">Número:&nbsp;</label>
-                                                <label class="col-form-label">{{ $sitio->alarma->id_o_numero}}</label>
-                                            @break
-                                            @case("Intrusión IP")
-                                                <label class="col-form-label labelCardClientes">ID:&nbsp;</label>
-                                                <label class="col-form-label">{{ $sitio->alarma->id_o_numero}}</label>
-                                            @break
-                                        @default
+                                            <label class="col-form-label">{{ $sitio->alarma->tipoAlarma->nombre }}</label>
+                                        @endif
+                                    </div>
+                                    <div class="col">
 
-                                    @endswitch
+                                        @if ($sitio && $sitio->alarma != null)
+                                            @switch($sitio->alarma->tipoAlarma->nombre)
+                                                @case("Intrusión GSM")
+                                                    <label class="col-form-label labelCardClientes">Número:&nbsp;</label>
+                                                    <label class="col-form-label">{{ $sitio->alarma->id_o_numero}}</label>
+                                                @break
+                                                @case("Intrusión IP")
+                                                    <label class="col-form-label labelCardClientes">ID:&nbsp;</label>
+                                                    <label class="col-form-label">{{ $sitio->alarma->id_o_numero}}</label>
+                                                @break
+                                            @default
 
-                                    @endif
+                                        @endswitch
 
+                                        @endif
+
+                                    </div>
                                 </div>
+                                {{-- <div class="row">
+                                    <div class="col"><label class="col-form-label">GSM</label></div>
+                                    <div class="col"><label class="col-form-label">Número</label></div>
+                                </div> --}}
                             </div>
-                            {{-- <div class="row">
-                                <div class="col"><label class="col-form-label">GSM</label></div>
-                                <div class="col"><label class="col-form-label">Número</label></div>
-                            </div> --}}
                         </div>
                     </div>
                 </div>
-            </div>
+
+
             </div>
         </div>
     </div>
+
+
+    {{--Inicio de formulario--}}
+    <div class="col">
+        <div class="card cardClientes shadow p-3 mb-5 bg-white rounded">
+            <div class="row">
+                <div class="col ">
+                    <h1>Agregar sitio a {{$cliente->nombre}}</h1>
+                </div>
+            </div>
+            <div class="card-body">
+                <div class="row">
+                    <div class="col">
+                      <input type="text" wire:model="nombre" class="form-control" placeholder="Nombre de sitio">
+                      @error('nombre') <span class="warning">{{ $message }}</span> @enderror
+                    </div>
+                    <div class="col">
+                      <input type="text" wire:model="nombreContacto" class="form-control" placeholder="Nombre de contacto">
+                      @error('nombreContacto') <span class="warning">{{ $message }}</span> @enderror
+                    </div>
+                    <div class="col">
+                      <input type="text" wire:model="email" class="form-control" placeholder="Email">
+                      @error('email') <span class="warning">{{ $message }}</span> @enderror
+                    </div>
+                    <div class="col">
+                      <input type="text" wire:model="ciudad" class="form-control" placeholder="Ciudad">
+                      @error('ciudad') <span class="warning">{{ $message }}</span> @enderror
+                    </div>
+                    <div class="col">
+                      <input type="text" wire:model="contactoTelefono" class="form-control" placeholder="Ciudad">
+                      @error('contactoTelefono') <span class="warning">{{ $message }}</span> @enderror
+                    </div>
+                    <div class="col">
+                      <input type="text" wire:model="direccion" class="form-control" placeholder="Direccion">
+                      @error('direccion') <span class="warning">{{ $message }}</span> @enderror
+                    </div>
+
+                    <div class="col 12">
+                      <button class="btn btnSbyb" wire:click="agregarSitio">Añadir sitio</button>
+                    </div>
+                  </div>
+            </div>
+        </div>
+    </div>
+    {{--Fin de formulario--}}
+
 </div>
 
 
 
 
-{{-- <div>
 
-    <select name="" id="" wire:model="idSitio">
-        <option value="" selected>Seleccione un sitio</option>
-    @foreach ($locacionesCliente as $locacion)
-        <option value="{{$locacion->id}}">{{ $locacion->nombre }}</option>
-    @endforeach
-</select>
 
-    @if ($sitio != null)
-       <div class="row"><label>Contacto: </label>{{$sitio->nombre_contacto}}</div>
-        <div class="row"><label>Número contacto: </label>{{$sitio->contacto_telefono}}</div>
-        <div class="row"><label>Dirección: </label>{{$sitio->direccion}}</div>
-
-        @if ($sitio->cctv != null)
-        <div class="row">
-            <div class="col-6">
-                <label>Tipo Grabador</label>{{ $sitio->cctv->tipo_dvr }}
-                <label>Número de serie</label>{{ $sitio->cctv->numero_serie }}
-                <label>Dirección IP</label>{{ $sitio->cctv->direccion_ip }}
-                <label>Cantidad de cámaras</label>{{ $sitio->cctv->cantidad_camaras }}
-            </div>
-        </div>
-        @endif
-        @if ($sitio->alarma != null)
-        <div class="row">
-            <div class="col-6">
-                {{ $sitio->alarma }}
-            </div>
-        </div>
-        @endif
-    @endif
-</div> --}}
