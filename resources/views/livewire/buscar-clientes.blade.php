@@ -8,11 +8,46 @@
                         <h1>Listado de Clientes <button class="btn btnSbyb" wire:model="add" value='true'>Añadir cliente</button> </h1>
 
 
-                        <button type="button" class="btn btn-primary" data-mdb-toggle="modal" data-mdb-target="#staticBackdrop">
-                            Launch static backdrop modal
-                          </button>
+                         {{-- Apartado de añadir cliente --}}
+<div class="row columnSepararCards"></div>
+<div class="row">
+    <div class="col">
+        <div class="card innershadow">
+            <div class="card-body">
 
-                          <!-- Modal -->
+                <div class="row">
+                  <div class="col">
+                    <input type="text" wire:model="nombreCliente" class="form-control" placeholder="Nombre de entidad">
+                    @error('nombreCliente') <span class="warning">{{ $message }}</span> @enderror
+                  </div>
+
+                  {{-- <form id="formato-live" class="form-horizontal">
+                    <div class="control-group">
+                      <label class="control-label" for="inputEmail">RUT</label>
+                      <div class="controls">
+                        <input type="text" id="rut" name="rut" placeholder="14.569.484-1">
+                      </div>
+                    </div>
+                  </form> --}}
+
+                  <div class="col">
+                    <input type="text" id="rut" name="rut" wire:model="rutCliente" class="form-control" placeholder="Rut de entidad">
+                    @error('rutCliente') <span class="warning">{{ $message }}</span> @enderror
+                  </div>
+
+                  <div class="col-auto">
+                    <button class="btn btnSbyb" wire:click="agregarCliente">Añadir cliente</button>
+                  </div>
+                </div>
+
+        </div>
+        </div>
+    </div>
+</div>
+<div class="row columnSepararCards"></div>
+    
+
+{{-- Cierrre de añadir cliente --}}
 
 
                     </div>
@@ -73,29 +108,6 @@
         </div>
     </div>
 
-    {{-- Apartado de añadir cliente --}}
-
-    <div class="col">
-        <div class="card shadow p-3 mb-5 bg-white rounded cardClientes">
-
-                <div class="row">
-                  <div class="col">
-                    <input type="text" wire:model="nombreCliente" class="form-control" placeholder="Nombre de entidad">
-                    @error('nombreCliente') <span class="warning">{{ $message }}</span> @enderror
-                  </div>
-                  <div class="col">
-                    <input type="text" wire:model="rutCliente" class="form-control" placeholder="Rut de entidad">
-                    @error('rutCliente') <span class="warning">{{ $message }}</span> @enderror
-                  </div>
-
-                  <div class="col 12">
-                    <button class="btn btnSbyb" wire:click="agregarCliente">Añadir cliente</button>
-                  </div>
-                </div>
-
-        </div>
-    </div>
-
-{{-- Cierrre de añadir cliente --}}
+   
 
 

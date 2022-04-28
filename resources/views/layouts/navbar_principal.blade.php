@@ -16,6 +16,7 @@
     <link rel="stylesheet" href="assetsAdministrador/assets/css/reporteDeTurno.css">
     <link rel="stylesheet" href="assetsAdministrador/assets/fonts/fontawesome-all.min.css">
     <link rel="stylesheet" href="assetsAdministrador/assets/css/buscadorClientes.css">
+
     @livewireStyles
     @include('sweetalert::alert')
 
@@ -46,20 +47,18 @@
 
                         <span class="nav_name">Messages</span> </a> --}}
 
-                            <a href="{{ route('index') }}"
-                        class="nav_link"> <i class='bx bx-file nav_icon'></i>
+                    <a href="{{ route('index') }}" class="nav_link"> <i class='bx bx-file nav_icon'></i>
 
-                        <span
-                            class="nav_name">Reporte Turno</span> </a>
+                        <span class="nav_name">Reporte Turno</span> </a>
 
-                            <a href="{{ route('clientes') }}" class="nav_link"> <i
-                            class='bx bx-user nav_icon'></i>
+                    <a href="{{ route('clientes') }}" class="nav_link"> <i class='bx bx-user nav_icon'></i>
 
-                            <span class="nav_name">Clientes</span> </a>
+                        <span class="nav_name">Clientes</span> </a>
 
 
-                        <a href="{{ route('historial_reportes') }}" class="nav_link"> <i class='bx bx-file-find nav_icon'></i> <span
-                            class="nav_name">Registro de reportes</span> </a>
+                    <a href="{{ route('historial_reportes') }}" class="nav_link"> <i
+                            class='bx bx-file-find nav_icon'></i> <span class="nav_name">Registro de
+                            reportes</span> </a>
                 </div>
             </div>
 
@@ -78,6 +77,21 @@
     <script src="assetsAdministrador/assets/js/jquery.min.js"></script>
     <script src="assetsAdministrador/assets/js/script.min.js"></script>
     <script src="assetsAdministrador/assets/js/bootstrap.min.js"></script>
+    <script src="assetsAdministrador/assets/js/jquery.rut.js"></script>
+    <script>
+        $(function() {
+            $("#rut").rut().on('rutValido', function(e, rut, dv) {
+                alert("El rut " + rut + "-" + dv + " es correcto");
+            }, {
+                minimumLength: 7
+            });
+            $("input#rut").rut({
+                formatOn: 'keyup',
+                minimumLength: 8, // validar largo mínimo; default: 2
+                validateOn: 'change' // si no se quiere validar, pasar null
+            });
+        })
+    </script>
     @livewireScripts
 </body>
 

@@ -120,5 +120,8 @@ div.col.tablaHeadReportes{
     padding: 0px;
 }
 
+div.card.innershadow{
+    box-shadow: inset 0px 0px 12px 1px rgba(0, 0, 0, .15)!important;
+}
 
 
