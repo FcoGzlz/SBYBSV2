@@ -53,7 +53,7 @@
                                         <label class="col-form-label">{{ $sitio->cctv->tipo_dvr }}</label>
                                     @endif
                                 </div>
-                                <div class="col"><label class="col-form-label labelCardClientes">Cámaras:</label>
+                                <div class="col"><label class="col-form-label labelCardClientes">Cantidad de cámaras:</label>
                                     @if ($sitio && $sitio->cctv != null)
                                         <label class="col-form-label">{{ $sitio->cctv->cantidad_camaras }}</label>
                                     @endif
@@ -65,7 +65,7 @@
                                         <label class="col-form-label">{{ $sitio->cctv->numero_serie }}</label>
                                     @endif
                                 </div>
-                                <div class="col"><label class="col-form-label ">LabelCamaras</label></div>
+                                {{-- <div class="col"><label class="col-form-label ">LabelCamaras</label></div> --}}
                             </div>
                         </div>
                     </div>
@@ -84,21 +84,22 @@
                             </div>
                             <div class="row">
                                 <div class="col"><label class="col-form-label labelCardClientes">Tipo de alarma:</label>
-                                    @if ($sitio && $sitio->alarmas)
-                                        <label class="col-form-label">{{ $sitio->alarmas->tipoAlarma->nombre }}</label>
+                                    @if ($sitio && $sitio->alarma)
+
+                                        <label class="col-form-label">{{ $sitio->alarma->tipoAlarma->nombre }}</label>
                                     @endif
                                 </div>
                                 <div class="col">
 
-                                    @if ($sitio && $sitio->alarmas != null)
-                                        @switch($sitio->tipoAlarma->nombre)
-                                            @case("Instrusión GSM")
+                                    @if ($sitio && $sitio->alarma != null)
+                                        @switch($sitio->alarma->tipoAlarma->nombre)
+                                            @case("Intrusión GSM")
                                                 <label class="col-form-label labelCardClientes">Número:&nbsp;</label>
-                                                <label class="col-form-label">{{ $sitio->alarmas->get()->id_o_numero}}</label>
+                                                <label class="col-form-label">{{ $sitio->alarma->id_o_numero}}</label>
                                             @break
                                             @case("Intrusión IP")
                                                 <label class="col-form-label labelCardClientes">ID:&nbsp;</label>
-                                                <label class="col-form-label">{{ $sitio->alarmas->get()->id_o_numero}}</label>
+                                                <label class="col-form-label">{{ $sitio->alarma->id_o_numero}}</label>
                                             @break
                                         @default
 
@@ -108,10 +109,10 @@
 
                                 </div>
                             </div>
-                            <div class="row">
+                            {{-- <div class="row">
                                 <div class="col"><label class="col-form-label">GSM</label></div>
                                 <div class="col"><label class="col-form-label">Número</label></div>
-                            </div>
+                            </div> --}}
                         </div>
                     </div>
                 </div>

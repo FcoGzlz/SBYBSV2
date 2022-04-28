@@ -17,6 +17,6 @@ class TipoAlarma extends Model
     ];
 
     public function Alarma(){
-        return $this->hasMany(Alarma::class);
+        return $this->hasMany(Alarma::class, 'id');
     }
 }

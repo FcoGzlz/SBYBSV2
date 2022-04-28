@@ -12,7 +12,7 @@ class Cliente extends Model
     protected $table = 'cliente';
     protected $primarykey = 'id';
 
-    protected $fillablle = [
+    protected $fillable = [
         'nombre',
         'rut_cliente',
     ];
