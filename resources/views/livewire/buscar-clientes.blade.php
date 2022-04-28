@@ -81,11 +81,13 @@
                 <div class="row">
                   <div class="col">
                     <input type="text" wire:model="nombreCliente" class="form-control" placeholder="Nombre de entidad">
-                    @error('nombreCliente') <span class="error">{{ $message }}</span> @enderror
+                    @error('nombreCliente') <span class="warning">{{ $message }}</span> @enderror
                   </div>
                   <div class="col">
                     <input type="text" wire:model="rutCliente" class="form-control" placeholder="Rut de entidad">
+                    @error('rutCliente') <span class="warning">{{ $message }}</span> @enderror
                   </div>
+
                   <div class="col 12">
                     <button class="btn btnSbyb" wire:click="agregarCliente">Añadir cliente</button>
                   </div>
