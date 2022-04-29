@@ -33,7 +33,7 @@
 
                                                     <option selected value="">Filtrar por responsable</option>
                                                     @foreach ($monitores as $monitor)
-                                                        <option value="{{ $monitor->nombre }}">
+                                                        <option class="selectByB" value="{{ $monitor->nombre }}">
                                                             {{ $monitor->nombre }}
                                                         </option>
                                                     @endforeach
@@ -46,7 +46,7 @@
                                                 Fecha
                                             </div>
                                             <div class="col">
-                                                <input class="form-control" type="date" wire:model="buscarFecha" placeholder="Hola">
+                                                <input class="form-control buscarFechaSbyb" type="date" id="dateSbyb"wire:model="buscarFecha" placeholder="Hola" data-date-inline-picker="true">
                                             </div>
                                         </th>
                                         <th>
@@ -57,10 +57,10 @@
                                             <div class="col">
                                                 <select class="form-select selectByB shadow-none"
                                                     wire:model="buscarTurno">
-                                                    <option selected value="">Filtrar por turno</option>
-                                                    <option value="1">Noche, de 00:00 a 08:00 hrs</option>
-                                                    <option value="2">Mañana, de 08:00 a 16:00</option>
-                                                    <option value="3">Tarde, de 16:00 a 00:00</option>
+                                                    <option class="selectByB" selected value="">Filtrar por turno</option>
+                                                    <option class="selectByB" value="1">Noche, de 00:00 a 08:00 hrs</option>
+                                                    <option class="selectByB" value="2">Mañana, de 08:00 a 16:00</option>
+                                                    <option class="selectByB" value="3">Tarde, de 16:00 a 00:00</option>
                                                 </select>
 
 
@@ -107,11 +107,7 @@
                                                     <button class="btn btn-info" type="button"
                                                         wire:click="renderPDF({{ $reporte->id }})">Ver PDF</button>
                                                 @endif
-
-
-
                                             </td>
-
                                         </tr>
                                     @endforeach
                                 </tbody>

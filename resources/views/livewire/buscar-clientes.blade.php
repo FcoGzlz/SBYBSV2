@@ -5,20 +5,20 @@
             <div class="card-body">
                 <div class="row">
                     <div class="col">
-                        <h1>Listado de Clientes <button class="btn btnSbyb" wire:model="add" value='true'>Añadir cliente</button> </h1>
+                        <h1>Listado de Clientes</h1>
 
 
                          {{-- Apartado de añadir cliente --}}
 <div class="row columnSepararCards"></div>
 <div class="row">
     <div class="col">
-        <div class="card innershadow">
+        <div class="card agregarClienteCard">
             <div class="card-body">
 
                 <div class="row">
                   <div class="col">
                     <input type="text" wire:model="nombreCliente" class="form-control" placeholder="Nombre de entidad">
-                    @error('nombreCliente') <span class="warning">{{ $message }}</span> @enderror
+                    @error('nombreCliente') <span class="warning text-danger font-weight-bold">* {{ $message }}</span> @enderror
                   </div>
 
                   {{-- <form id="formato-live" class="form-horizontal">
@@ -32,7 +32,7 @@
 
                   <div class="col">
                     <input type="text" id="rut" name="rut" wire:model="rutCliente" class="form-control" placeholder="Rut de entidad">
-                    @error('rutCliente') <span class="warning">{{ $message }}</span> @enderror
+                    @error('rutCliente') <span class="warning text-danger font-weight-bold">* {{ $message }}</span> @enderror
                   </div>
 
                   <div class="col-auto">

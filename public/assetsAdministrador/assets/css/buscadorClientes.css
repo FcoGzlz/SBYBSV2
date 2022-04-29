@@ -68,7 +68,7 @@ border-radius: 0px;
 .tablaClientes thead {
     border-radius: 0px;
     border-bottom: 2px solid #009cde;
-    background: #009cde;
+    background: #ffffff;
     color: rgb(255, 255, 255);
 }
 
@@ -78,12 +78,12 @@ border-radius: 0px;
 
 select.selectByB{
     
-    background-image:url("https://img.icons8.com/ios-filled/50/ffffff/expand-arrow--v1.png") !important;
+    background-image:url("https://img.icons8.com/ios-filled/50/009cde/expand-arrow--v1.png") !important;
     background-size:20px;
     background-repeat: no-repeat;
     -webkit-appearance: none;
-    background-color: #009cde;
-    color: white;
+    /* background-color: #009cde; */
+    color: #009cde;
     box-shadow: none;
     font-weight: bolder;
     
@@ -120,8 +120,42 @@ div.col.tablaHeadReportes{
     padding: 0px;
 }
 
-div.card.innershadow{
-    box-shadow: inset 0px 0px 12px 1px rgba(0, 0, 0, .15)!important;
+div.card.agregarClienteCard{
+    border-style: solid;
+    border-radius: .2rem;
+    border-color: #009cde;
+    border-width: 3px;
 }
 
+input.buscarFechaSbyb{
+    cursor: pointer;
+    color: #009cde;
+    font-weight: bold;
+}
 
+input[type="date"] {
+    position: relative;
+    padding: 10px;
+  }
+  
+  input[type="date"]::-webkit-calendar-picker-indicator {
+    color: transparent;
+    background: none;
+    z-index: 1;
+  }
+  
+  input[type="date"]:before {
+    color: transparent;
+    background: none;
+    display: block;
+    font-family: 'FontAwesome';
+    content: '\f073';
+    /* This is the calendar icon in FontAwesome */
+    width: 15px;
+    height: 20px;
+    position: absolute;
+    top: 5px;
+    right: 15px;
+    color: #009cde;
+    font-weight: normal;
+  }
