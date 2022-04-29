@@ -18,7 +18,6 @@ class BuscarClientes extends Component
 
     protected $rules = [
         'nombreCliente' => 'required',
-        'rutCliente' => 'required',
     ];
 
     public function updated($nombreCliente, $rutCliente){
@@ -38,6 +37,7 @@ class BuscarClientes extends Component
         $cliente->save();
 
         $this->add = false;
+        $this->reset('nombreCliente', 'rutCliente');
     }
 
     public function render()
