@@ -15,6 +15,10 @@ class Cctv extends Model
     protected $fillable = [
         'id_nat_cctv',
         'id_tipo_alarma',
+        'tipo_dvr',
+        'cantidad_camaras',
+        'numero_serie',
+        'id_locacion',
     ];
 
     public function locacion() {

@@ -21,6 +21,7 @@ class Locacion extends Model
         'ciudad',
         'direccion',
         'tipo_institucion',
+        'id_cliente'
     ];
 
     public function cliente(){
