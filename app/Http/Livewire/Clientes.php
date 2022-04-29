@@ -40,7 +40,7 @@ class Clientes extends Component
 
     protected $rules = [
         'nombre' => 'required',
-        'email' => 'required|email',
+        'email' => 'email',
         'ciudad' => 'required',
         'direccion' => 'required',
 
