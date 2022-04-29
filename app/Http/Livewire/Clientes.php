@@ -18,7 +18,11 @@ class Clientes extends Component
 
     public $nombre;
     public $nombreContacto;
-    public $contactoTelefono;
+    public $telefonoContacto;
+    public $nombreContacto2;
+    public $telefonoContacto2;
+    public $nombreContacto3;
+    public $telefonoContacto3;
     public $email;
     public $ciudad;
     public $direccion;
@@ -36,11 +40,9 @@ class Clientes extends Component
 
     protected $rules = [
         'nombre' => 'required',
-        'nombreContacto' => 'required',
         'email' => 'required|email',
         'ciudad' => 'required',
         'direccion' => 'required',
-        'contactoTelefono' => 'required',
 
     ];
 
@@ -67,7 +69,11 @@ class Clientes extends Component
         $sitio = Locacion::create([
             'nombre' => $this->nombre,
             'nombre_contacto' => $this->nombreContacto,
-            'contacto_telefono' => $this->contactoTelefono,
+            'telefono_contacto' => $this->telefonoContacto,
+            'nombre_contacto_2' => $this->nombreContacto2,
+            'telefono_contacto_2' => $this->telefonoContacto2,
+            'nombre_contacto_3' => $this->nombreContacto3,
+            'telefono_contacto_3' => $this->telefonoContacto3,
             'email' => $this->email,
             'ciudad' => $this->ciudad,
             'direccion' => $this->direccion,
@@ -76,7 +82,19 @@ class Clientes extends Component
         ]);
         $sitio->save();
 
-        $this->reset('nombre', 'nombreContacto', 'contactoTelefono', 'email', 'ciudad', 'direccion', 'tipoInstitucion' );
+        $this->reset(
+            'nombre',
+            'nombreContacto',
+            'telefonoContacto',
+            'email',
+            'ciudad',
+            'direccion',
+            'tipoInstitucion',
+            'nombreContacto',
+            'nombreContacto2',
+            'nombreContacto3',
+            'telefonoContacto2',
+            'telefonoContacto3' );
 
         toast('El sitio ha sido agregado con éxito', 'success')->position('bottom-right');
     }
@@ -91,7 +109,11 @@ class Clientes extends Component
         $sitio = Locacion::findOrFail($id);
         $this->nombre = $sitio->nombre;
         $this->nombreContacto = $sitio->nombre_contacto;
-        $this->contactoTelefono = $sitio->contacto_telefono;
+        $this->telefonoContacto = $sitio->telefono_contacto;
+        $this->nombreContacto2 = $sitio->nombre_contacto_2;
+        $this->telefonoContacto2 = $sitio->telefono_contacto_2;
+        $this->nombreContacto3 = $sitio->nombre_contacto_3;
+        $this->telefonoContacto3 = $sitio->telefono_contacto_3;
         $this->email = $sitio->email;
         $this->ciudad = $sitio->ciudad;
         $this->direccion = $sitio->direccion;
@@ -102,13 +124,30 @@ class Clientes extends Component
         $sitio = Locacion::findOrFail($id);
         $sitio->nombre = $this->nombre;
         $sitio->nombre_contacto = $this->nombreContacto;
-        $sitio->contacto_telefono = $this->contactoTelefono;
+        $sitio->telefono_contacto = $this->telefonoContacto;
+        $sitio->nombre_contacto = $this->nombreContacto;
+        $sitio->telefono_contacto_2 = $this->telefonoContacto2;
+        $sitio->nombre_contacto = $this->nombreContacto;
+        $sitio->telefono_contacto_3 = $this->telefonoContacto3;
         $sitio->email = $this->email;
         $sitio->ciudad = $this->ciudad;
         $sitio->direccion = $this->direccion;
         $sitio->tipo_institucion = $this->tipoInstitucion;
 
-        $this->reset('nombre', 'nombreContacto', 'contactoTelefono', 'email', 'ciudad', 'direccion', 'tipoInstitucion' );
+        $this->reset(
+            'nombre',
+            'nombreContacto',
+            'telefonoContacto',
+            'email',
+            'ciudad',
+            'direccion',
+            'tipoInstitucion',
+            'nombreContacto',
+            'nombreContacto2',
+            'nombreContacto3',
+            'telefonoContacto2',
+            'telefonoContacto3' );
+
         $this->edit = false;
 
     }

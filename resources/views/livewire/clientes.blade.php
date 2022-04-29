@@ -35,29 +35,83 @@
                             @foreach ($locacionesCliente as $locacion)
                                 <option class="selectByB" value="{{$locacion->id}}">{{ $locacion->nombre }}</option>
                             @endforeach
-                        </select></div>
+                        </select>
+                    </div>
 
-                    <div class="col"><label class="col-form-label labelCardClientes">Contacto:</label>
-                    @if ($sitio != null)
-                    <label class="col-form-label">{{$sitio->nombre_contacto}}</label>
-                    @endif
+                    <div class="col"><label class="col-form-label labelCardClientes">Dirección:</label>
+                        @if ($sitio != null)
+                        <label class="col-form-label">{{ $sitio->direccion }}</label>
+                        @endif
+
                     </div>
 
                 </div>
 
               <div class="row">
-                <div class="col"><label class="col-form-label labelCardClientes">Dirección:</label>
-                    @if ($sitio != null)
-                    <label class="col-form-label">{{ $sitio->direccion }}</label>
-                    @endif
 
-                </div>
-                <div class="col"><label class="col-form-label labelCardClientes">N° de Contacto:</label>
+                <div class="col"><label class="col-form-label labelCardClientes">Email:</label>
                     @if ($sitio != null)
-                        <label class="col-form-label">{{ $sitio->contacto_telefono }}</label>
+                    <label class="col-form-label">{{$sitio->email}}</label>
+                    @endif
+                    </div>
+
+                <div class="col"><label class="col-form-label labelCardClientes">Ciudad:</label>
+                    @if ($sitio != null)
+                        <label class="col-form-label">{{ $sitio->ciudad }}</label>
                     @endif
                 </div>
             </div>
+
+              <div class="row">
+
+                <div class="col"><label class="col-form-label labelCardClientes">Contacto:</label>
+                    @if ($sitio != null)
+                    <label class="col-form-label">{{$sitio->nombre_contacto}}</label>
+                    @endif
+                    </div>
+
+                <div class="col"><label class="col-form-label labelCardClientes">N° de Contacto:</label>
+                    @if ($sitio != null)
+                        <label class="col-form-label">{{ $sitio->telefono_contacto }}</label>
+                    @endif
+                </div>
+            </div>
+
+              <div class="row">
+
+                <div class="col"><label class="col-form-label labelCardClientes">Contacto 2:</label>
+                    @if ($sitio != null)
+                    <label class="col-form-label">{{$sitio->nombre_contacto_2}}</label>
+                    @endif
+                    </div>
+
+                <div class="col"><label class="col-form-label labelCardClientes">N° de Contacto 2:</label>
+                    @if ($sitio != null)
+                        <label class="col-form-label">{{ $sitio->telefono_contacto_2 }}</label>
+                    @endif
+                </div>
+            </div>
+
+
+              <div class="row">
+
+                <div class="col"><label class="col-form-label labelCardClientes">Contacto 3:</label>
+                    @if ($sitio != null)
+                    <label class="col-form-label">{{$sitio->nombre_contacto_3}}</label>
+                    @endif
+                    </div>
+
+                <div class="col"><label class="col-form-label labelCardClientes">N° de Contacto 3:</label>
+                    @if ($sitio != null)
+                        <label class="col-form-label">{{ $sitio->telefono_contacto_3 }}</label>
+                    @endif
+                </div>
+            </div>
+
+
+
+
+
             <div class="row">
                 <div class="col columnSepararCards"></div>
             </div>
@@ -188,10 +242,12 @@
                         <input class="form-control" type="text" wire:model="nombre" class="form-control" placeholder="Nombre de sitio">
                         @error('nombre') <span class="warning">{{ $message }}</span> @enderror
                       </div>
+
                       <div class="col">
-                        <input class="form-control" type="text" wire:model="nombreContacto" class="form-control" placeholder="Nombre de contacto">
-                        @error('nombreContacto') <span class="warning">{{ $message }}</span> @enderror
+                        <input class="form-control" type="text" wire:model="direccion" class="form-control" placeholder="Dirección">
+                        @error('direccion') <span class="warning">{{ $message }}</span> @enderror
                       </div>
+
                    </div>
 
                  <div class="row form-group">
@@ -207,13 +263,37 @@
 
                    <div class="row form-group">
                     <div class="col">
-                        <input class="form-control" type="text" wire:model="contactoTelefono" class="form-control" placeholder="Número de contacto">
+                        <input class="form-control" type="text" wire:model="nombreContacto" class="form-control" placeholder="Nombre de contacto">
+                        @error('nombreContacto') <span class="warning">{{ $message }}</span> @enderror
+                      </div>
+                    <div class="col">
+                        <input class="form-control" type="text" wire:model="telefonoContacto" class="form-control" placeholder="Número de contacto">
                         @error('contactoTelefono') <span class="warning">{{ $message }}</span> @enderror
                       </div>
-                      <div class="col">
-                        <input class="form-control" type="text" wire:model="direccion" class="form-control" placeholder="Dirección">
-                        @error('direccion') <span class="warning">{{ $message }}</span> @enderror
+
+                   </div>
+
+                   <div class="row form-group">
+                    <div class="col">
+                        <input class="form-control" type="text" wire:model="nombreContacto2" class="form-control" placeholder="Nombre de contacto 2">
+                        @error('nombreContacto2') <span class="warning">{{ $message }}</span> @enderror
                       </div>
+                    <div class="col">
+                        <input class="form-control" type="text" wire:model="telefonoContacto2" class="form-control" placeholder="Número de contacto 2">
+                        @error('telefonoContacto2') <span class="warning">{{ $message }}</span> @enderror
+                      </div>
+
+                   </div>
+                   <div class="row form-group">
+                    <div class="col">
+                        <input class="form-control" type="text" wire:model="nombreContacto3" class="form-control" placeholder="Nombre de contacto 3">
+                        @error('nombreContacto3') <span class="warning">{{ $message }}</span> @enderror
+                      </div>
+                    <div class="col">
+                        <input class="form-control" type="text" wire:model="telefonoContacto3" class="form-control" placeholder="Número de contacto 3">
+                        @error('telefonoContacto3') <span class="warning">{{ $message }}</span> @enderror
+                      </div>
+
                    </div>
                    <div class="row form-group">
                     <div class="col">
