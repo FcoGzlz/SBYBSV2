@@ -19,16 +19,16 @@ class RolesyPermisos extends Seeder
         app()[\Spatie\Permission\PermissionRegistrar::class]->forgetCachedPermissions();
 
         // Permisos asociados a usuarios
-        Permission::create(['name' => 'crear usuario']);
-        Permission::create(['name' => 'editar usuario']);
-        Permission::create(['name' => 'leer usuario']);
-        Permission::create(['name' => 'eliminar usuario']);
+        Permission::create(['name' => 'crear cliente']);
+        Permission::create(['name' => 'editar cliente']);
+        Permission::create(['name' => 'leer cliente']);
+        Permission::create(['name' => 'eliminar cliente']);
 
         // Permisos asociados a roles
-        Permission::create(['name' => 'crear rol']);
-        Permission::create(['name' => 'editar rol']);
-        Permission::create(['name' => 'leer rol']);
-        Permission::create(['name' => 'eliminar rol']);
+        Permission::create(['name' => 'crear reporte']);
+        Permission::create(['name' => 'editar reporte']);
+        Permission::create(['name' => 'leer reporte']);
+        Permission::create(['name' => 'eliminar reporte']);
 
         // Permisos asociados permisos
         Permission::create(['name' => 'crear permiso']);
@@ -36,30 +36,16 @@ class RolesyPermisos extends Seeder
         Permission::create(['name' => 'leer permiso']);
         Permission::create(['name' => 'eliminar permiso']);
 
-        //Permisos asociados a solicitudes
-        Permission::create(['name' => 'crear solicitud']);
-        Permission::create(['name' => 'editar solicitud']);
-        Permission::create(['name' => 'leer solicitud']);
-        Permission::create(['name' => 'eliminar solicitud']);
-        Permission::create(['name' => 'cerrar solicitud']);
-
-
-        //Permisos asociado al detalle de las solicitudes
-        Permission::create(['name' => 'crear detalle']);
-        Permission::create(['name' => 'editar detalle']);
-        Permission::create(['name' => 'leer detalle']);
-        Permission::create(['name' => 'eliminar detalle']);
-        Permission::create(['name' => 'cambiar estado solicitud']);
 
 
         //Roles
         $role = Role::create(['name' => 'superAdmin']);
         $role->givePermissionTo(Permission::all());
 
-        $role = Role::create(['name' => 'UAdministrador'])
-            ->givePermissionTo(['crear solicitud', 'editar solicitud', 'leer solicitud', 'eliminar solicitud', 'cerrar solicitud', 'leer detalle']);
+        $role = Role::create(['name' => 'jefatura'])
+            ->givePermissionTo(Permission::all());
 
-        $role = Role::create(['name' => 'UOperativo'])
-            ->givePermissionTo(['leer solicitud', 'crear detalle', 'editar detalle', 'leer detalle', 'eliminar detalle', 'cambiar estado solicitud']);
+        $role = Role::create(['name' => 'monitoreo'])
+            ->givePermissionTo(Permission::all());
     }
 }

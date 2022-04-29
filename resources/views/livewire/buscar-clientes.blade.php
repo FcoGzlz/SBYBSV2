@@ -23,15 +23,6 @@
                                                 @enderror
                                             </div>
 
-                                            {{-- <form id="formato-live" class="form-horizontal">
-                    <div class="control-group">
-                      <label class="control-label" for="inputEmail">RUT</label>
-                      <div class="controls">
-                        <input type="text" id="rut" name="rut" placeholder="14.569.484-1">
-                      </div>
-                    </div>
-                  </form> --}}
-
                                             <div class="col">
                                                 <input type="text" id="rut" name="rut" wire:model="rutCliente"
                                                     class="form-control" placeholder="Rut de entidad">
@@ -84,7 +75,6 @@
                                 <thead class="tablaClientes">
                                     <tr>
                                         <th>Nombre</th>
-                                        <th>RUT</th>
                                         <th>Cantidad de sitios</th>
                                         <th class="text-end">Detalle</th>
                                     </tr>
@@ -93,7 +83,6 @@
                                     @foreach ($clientes as $cliente)
                                         <tr>
                                             <td>{{ $cliente->nombre }}
-                                            <td>{{ $cliente->rut_cliente }}
                                             <td>{{ $cliente->locaciones->count() }}
                                             <td class="text-end">
                                                 <form action="{{ url('/cliente_' . $cliente->id . '_locaciones') }}">

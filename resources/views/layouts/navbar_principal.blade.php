@@ -47,7 +47,7 @@
 
                         <span class="nav_name">Messages</span> </a> --}}
 
-                    <a href="{{ route('index') }}" class="nav_link"> <i class='bx bx-file nav_icon'></i>
+                    <a href="{{ route('inicio_reporte') }}" class="nav_link"> <i class='bx bx-file nav_icon'></i>
 
                         <span class="nav_name">Reporte Turno</span> </a>
 
@@ -62,8 +62,11 @@
                 </div>
             </div>
 
-            {{-- <a href="#" class="nav_link"> <i class='bx bx-log-out nav_icon'></i> <span
-                    class="nav_name">SignOut</span> </a> --}}
+            <form action="{{ route('logout') }}" method="POST">
+                @csrf
+                <button style="background: none; border:none" href="" class="nav_link"> <i class='bx bx-log-out nav_icon'></i> <span
+                    class="nav_name">Cerrar Sesión</span> </button>
+            </form>
         </nav>
     </div>
     <!--Container Main start-->
