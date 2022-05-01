@@ -92,7 +92,7 @@
                                                 </form>
 
                                                @if (count($cliente->locaciones) == 0)
-                                               <button class="btn btnSbyb btnDetalleCliente" type="submit"
+                                               <button onclick="confirm('¿Desea eliminar?') || event.stopImmediatePropagation();" class="btn btnSbyb btnDetalleCliente" type="submit"
                                                wire:click="eliminarCliente({{ $cliente->id }})"><i
                                                    class="fas fa-trash-alt"></i></button>
                                                @endif

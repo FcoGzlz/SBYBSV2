@@ -121,17 +121,19 @@ class Clientes extends Component
 
     public function guardarCambiosSitio($id){
         $sitio = Locacion::findOrFail($id);
+
         $sitio->nombre = $this->nombre;
         $sitio->nombre_contacto = $this->nombreContacto;
         $sitio->telefono_contacto = $this->telefonoContacto;
-        $sitio->nombre_contacto = $this->nombreContacto;
+        $sitio->nombre_contacto_2 = $this->nombreContacto2;
         $sitio->telefono_contacto_2 = $this->telefonoContacto2;
-        $sitio->nombre_contacto = $this->nombreContacto;
+        $sitio->nombre_contacto_3 = $this->nombreContacto3;
         $sitio->telefono_contacto_3 = $this->telefonoContacto3;
         $sitio->email = $this->email;
         $sitio->ciudad = $this->ciudad;
         $sitio->direccion = $this->direccion;
         $sitio->tipo_institucion = $this->tipoInstitucion;
+        $sitio->save();
 
         $this->reset(
             'nombre',
@@ -169,6 +171,11 @@ class Clientes extends Component
         $cctv->save();
 
         $this->reset('tipoGrabador', 'cantidadCamaras', 'numeroSerie');
+    }
+
+    public function eliminarCCTV($id){
+        $cctv = Cctv::findOrFail($id);
+        $cctv->delete;
     }
 
     public function agregarAlarma(){
