@@ -13,14 +13,8 @@
                             Agregar Sitio
                         </button>
                     </div>
-                   
 
-                      
-
-
-
-
-                    @if ($sitio!= null)
+                    @if ($sitio != null && $edit == false)
                         <div class="col-auto"><button
                             class="btn btn-primary btnSbyb" type="button"
                             wire:click="eliminarSitio({{ $sitio->id}})"><i
@@ -142,7 +136,31 @@
                         @endif
 
                         <div class="card-body">
-                            <h4 class="card-title subtitulosCard">CCTV</h4>
+                            <div class="row">
+                                <div class="col">
+                                    <h4 class="card-title subtitulosCard">CCTV</h4>
+                                </div>
+
+                                @if ($sitio != null)
+                                <div class="col-auto card-title">
+                                    <button
+                                        class="btn btn-primary btnSbyb" type="button"
+                                        wire:click="eliminarSitio({{ $sitio->id}})"><i
+                                            class="fas fa-trash-alt"></i></button>
+
+
+
+                                        <button class="btn btn-primary btnSbyb" type="submit"
+                                        wire:click="editarSitio({{ $sitio }})"><i
+                                            class="far fa-edit"></i></button>
+
+                                </div>
+                                @endif
+
+                            </div>
+
+
+
                             <div class="row">
                                 <div class="col columnSepararCards"></div>
                             </div>
