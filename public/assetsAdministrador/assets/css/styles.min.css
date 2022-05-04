@@ -77,14 +77,6 @@
     max-width: 304px;
 }
 
-.divimglogin {
-    margin-bottom: 28px;
-}
-
-.imglogin {
-    width: 235px;
-}
-
 .navbar.navbar-light.navbar-expand-md {
     padding-left: 0;
 }
@@ -1276,7 +1268,7 @@ svg {
     color: #55a7f9;
     overflow-x: auto;
     border-top: none;
-    max-height: 700px
+    max-height: 570px;
 }
 
 .table-responsive thead th {

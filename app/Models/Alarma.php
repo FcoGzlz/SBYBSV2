@@ -15,6 +15,8 @@ class Alarma extends Model
     protected $fillable = [
         'id_nat_cctv',
         'id_tipo_alarma',
+        'id_o_numero',
+        'id_locacion',
     ];
 
     public function locacion() {

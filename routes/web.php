@@ -23,11 +23,11 @@ use Spatie\Permission\Contracts\Role;
 //     return view('auth.login');
 // });
 
-Route::get('/', [CentralController::class, 'index'])->name('index');
+
 
 Auth::routes();
 
-Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
+Route::get('/', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
 
 Route::get('/solicitudes_clientes', [UAdministradorController::class, 'SolicitudesClientes'])->name('solicitudesClientes');
 
@@ -64,17 +64,21 @@ Route::get('/formulario_ingreso_solicitud', [CCOntroller::class, 'index']);
 //Rutas Sistema Centralizado SByB
 
 
+Route::group(['middleware' => ['role:monitoreo|jefatura']], function () {
 
-Route::match(['get', 'post'],'/reporte_turno', [CentralController::class, 'reporteTurno'])->name('reporte_turno');
+    Route::get('/inicio_reporte', [CentralController::class, 'index'])->name('inicio_reporte');
 
-Route::get('/clientes', [CentralController::class, 'clientes'])->name('clientes');
+    Route::match(['get', 'post'], '/reporte_turno', [CentralController::class, 'reporteTurno'])->name('reporte_turno');
 
-Route::get('/cliente_{cliente}_locaciones', [CentralController::class, 'sitiosCliente']);
+    Route::get('/clientes', [CentralController::class, 'clientes'])->name('clientes');
 
-Route::post('/datos_reporte', [CentralController::class, 'datosReporte'])->name('datos_reporte');
+    Route::get('/cliente_{cliente}_locaciones', [CentralController::class, 'sitiosCliente']);
 
-Route::get('enviar_mail', [CentralController::class, 'index'])->name('enviar_mail');
+    Route::post('/datos_reporte', [CentralController::class, 'datosReporte'])->name('datos_reporte');
 
-Route::any('/historial_reportes', [CentralController::class, 'historialReportes'])->name('historial_reportes');
+    Route::get('enviar_mail', [CentralController::class, 'index'])->name('enviar_mail');
+
+    Route::any('/historial_reportes', [CentralController::class, 'historialReportes'])->name('historial_reportes');
+});
 
 // Route::get('/reporte_{reporte}', [CentralController::class, 'reporte']);

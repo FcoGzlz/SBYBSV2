@@ -27,10 +27,7 @@
                                                 Reponsable
                                             </div>
                                             <div class="col">
-
                                                 <select class="form-select selectByB shadow-none" wire:model="buscar">
-
-
                                                     <option selected value="">Filtrar por responsable</option>
                                                     @foreach ($monitores as $monitor)
                                                         <option class="selectByB" value="{{ $monitor->nombre }}">
@@ -53,7 +50,6 @@
                                             <div class="col">
                                                 Turno
                                             </div>
-
                                             <div class="col">
                                                 <select class="form-select selectByB shadow-none"
                                                     wire:model="buscarTurno">
@@ -62,8 +58,6 @@
                                                     <option class="selectByB" value="2">Mañana, de 08:00 a 16:00</option>
                                                     <option class="selectByB" value="3">Tarde, de 16:00 a 00:00</option>
                                                 </select>
-
-
                                             </div>
                                         </th>
                                         <th class=""></th>

@@ -16,11 +16,16 @@ class Locacion extends Model
     protected $fillable = [
         'nombre',
         'nombre_contacto',
-        'contacto_telefono',
+        'telefono_contacto',
+        'nombre_contacto_2',
+        'telefono_contacto_2',
+        'nombre_contacto_3',
+        'telefono_contacto_3',
         'email',
         'ciudad',
         'direccion',
         'tipo_institucion',
+        'id_cliente'
     ];
 
     public function cliente(){

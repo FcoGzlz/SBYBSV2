@@ -19,8 +19,7 @@ class User extends Authenticatable
      * @var string[]
      */
     protected $fillable = [
-        'name',
-        'email',
+        'nombre',
         'password',
     ];
 
@@ -43,7 +42,4 @@ class User extends Authenticatable
         'email_verified_at' => 'datetime',
     ];
 
-    public function solicitudes() {
-        return $this->hasMany(Solicitud::class, 'responsable', 'id');
-    }
 }

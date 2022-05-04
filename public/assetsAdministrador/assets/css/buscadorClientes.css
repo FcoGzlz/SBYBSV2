@@ -39,18 +39,22 @@
     background: #009cde;
 }
 
-.card.cardClientes{
+/* .card.cardClientes{
     margin-right: 5%;
     margin-left: 5%;
     margin-top: 25px;
-}
+} */
 
 .tablaClientes {
-    border-radius: 3px;
+    border-radius: 0px;
     overflow: auto;
-    border: 2px solid #009cde ;
     margin-bottom: 0px;
   }
+
+.colTableClientes{
+    border: 3px solid #009cde;
+    border-radius: .3rem;
+}
   
 .table.tablaClientes{
     margin-top: -1px;
@@ -74,6 +78,14 @@ border-radius: 0px;
 
 .btnSbyb.btnDetalleCliente{
     padding: 0px 12px;
+}
+
+div.tableClientesHead{
+    overflow: hidden;
+}
+
+th.tableClientesHead{
+    padding-right: 20px;
 }
 
 select.selectByB{
@@ -158,4 +170,10 @@ input[type="date"] {
     right: 15px;
     color: #009cde;
     font-weight: normal;
+  }
+
+ div.col.agregarClienteButton{
+    display: flex;
+    align-items: center;
+    justify-content: flex-end;
   }

@@ -24,8 +24,8 @@
                     </div>
                     <form method="POST" action="{{route('login')}}">
                         @csrf
-                        <div class="form-group"><input class="form-control @error('email') is-invalid @enderror" type="email" placeholder="Email" name="email">
-                            @error('email')
+                        <div class="form-group"><input class="form-control @error('nombre') is-invalid @enderror" type="text" placeholder="Usuario" name="nombre">
+                            @error('nombre')
                                     <span class="invalid-feedback" role="alert">
                                         <strong>{{ $message }}</strong>
                                     </span>

@@ -16,40 +16,25 @@ class UsuariosSeeder extends Seeder
     public function run()
     {
         $superAdmin1 = User::create([
-            'nombre' => 'Super',
-            'apellido' => 'Admin 1',
-            'email' => 'super@admin1.com',
-            'password' => bcrypt('Admin1Pass')
+            'nombre' => 'admin',
+            'password' => bcrypt('adminbyb2019')
         ]);
 
         $superAdmin1->assignRole('superAdmin');
 
         $superAdmin2 = User::create([
-            'nombre' => 'Super',
-            'apellido' => 'Admin 2',
-            'email' => 'super@admin2.com',
-            'password' => bcrypt('Admin2Pass')
+            'nombre' => 'Jefatura',
+            'password' => bcrypt('byb2019,.')
         ]);
 
-        $superAdmin2->assignRole('superAdmin');
+        $superAdmin2->assignRole('jefatura');
 
         $UAdministrador = User::create([
-            'nombre' => 'Usuario',
-            'apellido' => 'Administrador',
-            'email' => 'usuario@administrador.com',
-            'password' => bcrypt('AdministradorPass')
+            'nombre' => 'Monitoreo',
+            'password' => bcrypt('byb2022.,')
         ]);
 
-        $UAdministrador->assignRole('UAdministrador');
-
-        $UOperativo = User::create([
-            'nombre' => 'Usuario',
-            'apellido' => 'Operativo',
-            'email' => 'usuario@operativo.com',
-            'password' => bcrypt('OperativoPass')
-        ]);
-
-        $UOperativo->assignRole('UOperativo');
+        $UAdministrador->assignRole('monitoreo');
 
     }
 }
