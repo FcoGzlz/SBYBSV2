@@ -175,3 +175,13 @@ div.container-datos{
     margin-top: 250px;
 }
 
+.ExtendedCheck:after{
+  position: absolute;
+  content: '';
+  /* border: 1px dotted gray; For visibility */
+  /* The below can be adjusted */
+  top: -0.5em;
+  bottom: -0.5em;
+  left: -0.5em;
+  right: -0.5em;
+}

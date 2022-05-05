@@ -89,21 +89,32 @@
                                             <td>{{ $cliente->nombre }}
                                             <td>{{ $cliente->locaciones->count() }}
                                             <td class="text-end">
-                                                <form action="{{ url('/cliente_' . $cliente->id . '_locaciones') }}">
-                                                    @csrf
-                                                    <button class="btn btnSbyb btnDetalleCliente" type="submit"><i
-                                                            class="fas fa-eye"></i></button>
-                                                </form>
+                                                <div class="row g-0 float-end">
 
-                                               @if (count($cliente->locaciones) == 0)
-                                               <button onclick="confirm('¿Desea eliminar?') || event.stopImmediatePropagation();" class="btn btnSbyb btnDetalleCliente" type="submit"
-                                               wire:click="eliminarCliente({{ $cliente->id }})"><i
-                                                   class="fas fa-trash-alt"></i></button>
-                                               @endif
+                                                    @if (count($cliente->locaciones) == 0)
+                                                    <div class="col-auto">
+                                                        <button class="btn btnSbyb btnDetalleCliente" type="submit"
+                                                            wire:click="eliminarCliente({{ $cliente->id }})"><i
+                                                                class="fas fa-trash-alt"></i></button>
+                                                    </div>
+                                                    @endif
 
-                                                    <button class="btn btnSbyb btnDetalleCliente" type="submit"
-                                                        wire:click="editarCliente({{ $cliente->id }})"><i
-                                                            class="far fa-edit"></i></button>
+                                                    <div class="col-auto">
+                                                        <form
+                                                            action="{{ url('/cliente_' . $cliente->id . '_locaciones') }}">
+                                                            @csrf
+                                                            <button class="btn btnSbyb btnDetalleCliente"
+                                                                type="submit"><i class="fas fa-eye"></i></button>
+                                                        </form>
+                                                    </div>
+
+                                                    <div class="col-auto">
+                                                        <button class="btn btnSbyb btnDetalleCliente" type="submit"
+                                                            wire:click="editarCliente({{ $cliente->id }})"><i
+                                                                class="far fa-edit"></i></button>
+                                                    </div>
+
+                                                </div>
                                             </td>
 
                                             {{-- <td>
