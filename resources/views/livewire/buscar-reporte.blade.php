@@ -60,7 +60,9 @@
                                                 </select>
                                             </div>
                                         </th>
-                                        <th class=""></th> <!-- Este es el que cuerpo de benito, que necesito que detecte si hay o no, puedes coupar display:hidden -->
+                                        <th class="" @if (count($reportes) == 0)
+                                            hidden
+                                        @endif></th>
                                         </th>
                                     </tr>
 
