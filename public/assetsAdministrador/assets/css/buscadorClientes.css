@@ -47,7 +47,7 @@
 
 .tablaClientes {
     border-radius: 0px;
-    overflow: auto;
+    overflow: hidden;
     margin-bottom: 0px;
   }
 
@@ -63,6 +63,10 @@
 
 .tablaClientes thead th{
     border-bottom: none;
+}
+
+.tablaClientes thead tr th{
+    padding: 10px;
 }
 
 .tablaClientes tbody {
@@ -147,7 +151,6 @@ input.buscarFechaSbyb{
 
 input[type="date"] {
     position: relative;
-    padding: 10px;
   }
   
   input[type="date"]::-webkit-calendar-picker-indicator {

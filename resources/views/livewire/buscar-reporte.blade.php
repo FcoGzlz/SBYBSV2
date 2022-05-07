@@ -22,7 +22,7 @@
                             <table class="table table-striped table-sm tablaClientes">
                                 <thead class="tablaClientes">
                                     <tr>
-                                        <th>
+                                        <th class="tablaClientes">
                                             <div class="col">
                                                 Reponsable
                                             </div>
@@ -38,7 +38,7 @@
                                                 </select>
                                             </div>
                                         </th>
-                                        <th>
+                                        <th class="tablaClientes">
                                             <div class="col">
                                                 Fecha
                                             </div>
@@ -46,7 +46,7 @@
                                                 <input class="form-control buscarFechaSbyb" type="date" id="dateSbyb"wire:model="buscarFecha" placeholder="Hola" data-date-inline-picker="true">
                                             </div>
                                         </th>
-                                        <th>
+                                        <th class="tablaClientes">
                                             <div class="col">
                                                 Turno
                                             </div>
@@ -60,7 +60,7 @@
                                                 </select>
                                             </div>
                                         </th>
-                                        <th class=""></th>
+                                        <th class=""></th> <!-- Este es el que cuerpo de benito, que necesito que detecte si hay o no, puedes coupar display:hidden -->
                                         </th>
                                     </tr>
 
@@ -90,15 +90,15 @@
 
                                                 @if ($repo != null)
                                                     @if ($repo == $reporte->id)
-                                                        <button class="btn btn-info" type="button"
+                                                        <button class="btn btnSbyb" type="button"
                                                             wire:click="renderPDF({{ $reporte->id }})" disabled>Visualizando</button>
                                                     @else
-                                                        <button class="btn btn-info" type="button"
+                                                        <button class="btn btnSbyb" type="button"
                                                             wire:click="renderPDF({{ $reporte->id }})">Ver
                                                             PDF</button>
                                                     @endif
                                                 @else
-                                                    <button class="btn btn-info" type="button"
+                                                    <button class="btn btnSbyb" type="button"
                                                         wire:click="renderPDF({{ $reporte->id }})">Ver PDF</button>
                                                 @endif
                                             </td>

@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="es">
+<html lang="es" style="height: 100%">
 
 <head>
     <meta charset="UTF-8">
@@ -8,7 +8,7 @@
     <link rel="stylesheet" href="assetsAdministrador/assets/css/navbar_principal.css">
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/boxicons@latest/css/boxicons.min.css">
 
-    <link rel="stylesheet" href="assetsAdministrador/assets/bootstrap/css/bootstrap.min.css">
+    {{-- <link rel="stylesheet" href="assetsAdministrador/assets/bootstrap/css/bootstrap.min.css"> --}}
     <link rel="stylesheet" href="assetsAdministrador/assets/bootstrap/css/bootstrap2.min.css">
     <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto">
     <link rel="stylesheet" href="assetsAdministrador/assets/fonts/font-awesome.min.css">
@@ -23,7 +23,7 @@
     <title>Reporte de Turno</title>
 </head>
 
-<body id="body-pd">
+<body id="body-pd" style="height: 100%">
     <header class="header" id="header">
         <div class="header_toggle"> <i class='bx bx-menu' id="header-toggle"></i> </div>
 
@@ -84,10 +84,10 @@
     </div>
     <!--Container Main start-->
 
-    <div style="transform: translateY(70px)!important; height:100%">
+    <div style="transform: translateY(70px)!important;">
         @yield('content')
     </div>
-
+    
 
     <script src="assetsAdministrador/assets/js/navbar_principal.js"></script>
     <script src="assetsAdministrador/assets/js/jquery.min.js"></script>
@@ -108,7 +108,9 @@
             });
         })
     </script>
+   
     @livewireScripts
+    
 </body>
-@yield('outBody')
+
 </html>
