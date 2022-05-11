@@ -69,6 +69,22 @@
     padding: 10px;
 }
 
+th.tablaClientes.thVerpdf,td.tablaClientes.thVerpdf{
+    /* flex: auto;
+    width: auto; */
+    text-align: center;
+    text-indent: 0px;
+    width: 30px;
+}
+
+td.tablaClientes{
+    padding: 5px;
+    vertical-align: middle;
+    text-indent: 5px
+}
+
+
+
 .tablaClientes tbody {
 border-radius: 0px;
 }

@@ -60,19 +60,21 @@
                                                 </select>
                                             </div>
                                         </th>
-                                        <th class="" @if (count($reportes) == 0)
-                                            hidden
-                                        @endif></th>
+                                        @if (count($reportes) == 0)
+                                        <th class="tablaClientes" hidden></th>
+                                        @else
+                                        <th class="tablaClientes thVerpdf">Visualizar
                                         </th>
+                                        @endif
                                     </tr>
 
                                 </thead>
                                 <tbody class="tablaClientes">
                                     @foreach ($reportes as $reporte)
                                         <tr>
-                                            <td>{{ $reporte->responsable }}
-                                            <td>{{ $reporte->fecha }}
-                                            <td>
+                                            <td class="tablaClientes">{{ $reporte->responsable }}
+                                            <td class="tablaClientes">{{ $reporte->fecha }}
+                                            <td class="tablaClientes">
                                                 @switch($reporte->turno)
                                                     @case(1)
                                                         Noche, de 00:00 a 08:00 hrs
@@ -88,7 +90,7 @@
 
                                                     @default
                                                 @endswitch
-                                            <td>
+                                            <td class="tablaClientes thVerpdf">
 
                                                 @if ($repo != null)
                                                     @if ($repo == $reporte->id)
@@ -101,7 +103,8 @@
                                                     @endif
                                                 @else
                                                     <button class="btn btnSbyb" type="button"
-                                                        wire:click="renderPDF({{ $reporte->id }})">Ver PDF</button>
+                                                        wire:click="renderPDF({{ $reporte->id }})">
+                                                        <i class="far fa-file-pdf"></i></button>
                                                 @endif
                                             </td>
                                         </tr>
@@ -128,8 +131,8 @@
             <div class="card-body">
                 <div class="row">
                     <div class="col">
-                        <h1> <button class="btn btn-info" type="button"
-                                wire:click="cerrarVisualizador">Cerrar</button></h1>
+                        <div class="float-end"> <button class="btn btnSbyb aling-self-end" type="button"
+                            wire:click="cerrarVisualizador"><i class="fas fa-times"></i></button></div>
                     </div>
                 </div>
                 <div class="row g-0">

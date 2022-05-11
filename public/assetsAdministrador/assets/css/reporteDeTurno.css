@@ -17,8 +17,16 @@
     margin: 14px;
 }
 
-.tableMonitor.td {
+/* .tableMonitor td {
     border-color: var(--bs-blue);
+} */
+
+.tableMonitor tbody, .tableMonitor thead {
+    border-color: lightgray!important;
+}
+
+.tabla-comentarios tbody, .tabla-comentarios thead {
+    border-color: lightgray!important;
 }
 
 .botonesMonitor {
@@ -33,7 +41,7 @@
     text-decoration: none;
     transition: color .15s ease-in-out, background-color .15s ease-in-out, border-color .15s ease-in-out;
     border-width: 1px;
-    border-color: #00a2ff;
+    border-color: #009cde;
     border-style: solid;
 }
 
@@ -83,7 +91,7 @@ label.label-turno{
 }
 div.datos-turno {
     margin-right: 20px;
-    margin-left: 20px;
+    /* margin-left: 20px; */
 }
 
 @media (max-width: 580px) {
@@ -99,8 +107,8 @@ div.datos-turno {
 }
 
 div.formulario-comentarios {
-    margin-right: 30px;
-    margin-left: 30px;
+    /* margin-right: 30px;
+    margin-left: 30px; */
     margin-bottom: 10px;
     margin-top: 10px;
 }
@@ -135,6 +143,11 @@ th.th-hora {
     width: 200px;
 }
 
+table.TablaChecks{
+    border: #00a2ff;
+    border-width: 2px
+}
+
 table.tabla-comentarios {
     table-layout: fixed;
     word-wrap: break-word;
@@ -164,6 +177,11 @@ div.tabla-comentarios {
 .col-finalizar-turno {
     margin: 10px;
     margin-top: 10px;
+}
+
+.h1Reporte, .h4Comentario{
+    color: #009cde;
+    align-self: center;
 }
 
 div.container-datos{

@@ -3,14 +3,14 @@
 @include('sweetalert::alert')
 
     <div class="container container-datos shadow p-3 mb-5 bg-white rounded">
-        <div class="row datos-turno">
+        <div class="row">
             <div class="col">
                 <div class="row">
                     <form method="GET" action="{{ route('reporte_turno') }}">
                         @csrf
                         <div class="col text-center align-self-center"><label
                             class="form-label datos-turno label-turno">Nombre</label>
-                            <select class="datos-turno" name="nombreMonitor" id="">
+                            <select class="datos-turno" name="nombreMonitor" id="" style="padding-right: 8px;">
                                 @foreach ($monitores as $monitor)
                                     <option value="{{ $monitor->nombre }}">{{ $monitor->nombre }}</option>
                                 @endforeach
