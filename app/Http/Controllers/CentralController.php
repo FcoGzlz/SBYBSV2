@@ -20,7 +20,7 @@ class CentralController extends Controller
         if ($turnoBD != null) {
             return view('central.reporte_diario', compact("turnoBD"));
         } else {
-            $monitores = Monitor::all();
+            $monitores = Monitor::where('activo', '=', true)->get();
             return view('central.inicio_reporte', compact("monitores"));
         }
 

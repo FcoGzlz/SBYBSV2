@@ -22,6 +22,8 @@ class Locacion extends Model
         'nombre_contacto_3',
         'telefono_contacto_3',
         'email',
+        'email_contacto_2',
+        'email_contacto_3',
         'ciudad',
         'direccion',
         'tipo_institucion',
