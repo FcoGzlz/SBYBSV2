@@ -6,7 +6,14 @@
             <div class="card-body">
                 <div class="row align-middle">
                     <div class="col text-uppercase">
-                        <h1>{{ $cliente->nombre }}</h1>
+                        <h1>{{ $cliente->nombre }}
+                    </div>
+                    <div class="col text-uppercase">
+                        @if ($menu == false)
+                            <button class="btn btnSbyb" wire:click="menu">Gestionar sitios</button>
+                        @else
+                            <button class="btn btnSbyb" wire:click="menu">Cerrar gestión de sitios</button>
+                        @endif
                     </div>
                     {{-- <div class="col agregarClienteButton">
                         <button class="btn btnSbyb" type="button" data-bs-toggle="modal" data-bs-target="#modalAgregarCliente">
@@ -261,16 +268,14 @@
 
     </div>
 </div>
+
 </div>
 
 
 
 
-
-
-
-
-{{-- Inicio de formulario --}}
+@if ($menu == true)
+    {{-- Inicio de formulario --}}
 <div class="col">
     <div class="card cardClientes shadow p-3 mb-5 bg-white rounded">
         <div class="row">
@@ -521,146 +526,13 @@
         </div>
         {{-- FIN formulario CCTV --}}
     @endif
-    {{-- @section('outBody') --}}
-    <div id="modalAgregarCliente" class="modal fade" role="dialog" data-backdrop="false">
-        <div class="modal-dialog" tabindex="-1">
-            <div class="modal-content">
-
-                <div class="row">
-                    <div class="col ">
-                        @if ($edit == false)
-                            <h1>Agregar sitio a {{ $cliente->nombre }}</h1>
-                        @else
-                            <h1>Modificar datos de {{ $sitio->nombre }}</h1>
-                        @endif
-
-                    </div>
-                </div>
-                <div class="row">
-                    <div class="row mb-3">
-                        <div class="col">
-                            <input class="form-control" type="text" wire:model="nombre" class="form-control"
-                                placeholder="Nombre de sitio">
-                            @error('nombre')
-                                <span class="warning">{{ $message }}</span>
-                            @enderror
-                        </div>
-
-                        <div class="col">
-                            <input class="form-control" type="text" wire:model="direccion" class="form-control"
-                                placeholder="Dirección">
-                            @error('direccion')
-                                <span class="warning">{{ $message }}</span>
-                            @enderror
-                        </div>
-
-                    </div>
-
-            </div>
-    {{-- FIN formulario CCTV --}}
-        @endif
-            {{-- @section('outBody') --}}
-{{-- <div id="modalAgregarCliente" class="modal fade" role="dialog" data-backdrop="false">
-    <div class="modal-dialog" tabindex="-1">
-        <div class="modal-content">
-
-                    <div class="row mb-3">
-                        <div class="col">
-                            <input class="form-control" type="text" wire:model="nombreContacto"
-                                class="form-control" placeholder="Nombre de contacto">
-                            @error('nombreContacto')
-                                <span class="warning">{{ $message }}</span>
-                            @enderror
-                        </div>
-                        <div class="col">
-                            <input class="form-control" type="text" wire:model="telefonoContacto"
-                                class="form-control" placeholder="Número de contacto">
-                            @error('contactoTelefono')
-                                <span class="warning">{{ $message }}</span>
-                            @enderror
-                        </div>
-
-                    </div>
-
-                    <div class="row mb-3">
-                        <div class="col">
-                            <input class="form-control" type="text" wire:model="nombreContacto2"
-                                class="form-control" placeholder="Nombre de contacto 2">
-                            @error('nombreContacto2')
-                                <span class="warning">{{ $message }}</span>
-                            @enderror
-                        </div>
-                        <div class="col">
-                            <input class="form-control" type="text" wire:model="telefonoContacto2"
-                                class="form-control" placeholder="Número de contacto 2">
-                            @error('telefonoContacto2')
-                                <span class="warning">{{ $message }}</span>
-                            @enderror
-                        </div>
-
-                    </div>
-                    <div class="row mb-3">
-                        <div class="col">
-                            <input class="form-control" type="text" wire:model="nombreContacto3"
-                                class="form-control" placeholder="Nombre de contacto 3">
-                            @error('nombreContacto3')
-                                <span class="warning">{{ $message }}</span>
-                            @enderror
-                        </div>
-                        <div class="col">
-                            <input class="form-control" type="text" wire:model="telefonoContacto3"
-                                class="form-control" placeholder="Número de contacto 3">
-                            @error('telefonoContacto3')
-                                <span class="warning">{{ $message }}</span>
-                            @enderror
-                        </div>
-
-                    </div>
-                    <div class="row mb-3">
-                        <div class="col">
-                            <input class="form-control" type="text" wire:model="tipoInstitucion"
-                                class="form-control" placeholder="Tipo de insitución (opcional)">
-                            @error('tipoInstitucion')
-                                <span class="warning">{{ $message }}</span>
-                            @enderror
-                        </div>
-                    </div>
-
-                    <div class="col 12">
-                        @if ($edit == null)
-                            <button class="btn btnSbyb" wire:click="agregarSitio">Añadir sitio</button>
-                        @else
-                            <button class="btn btnSbyb"
-                                wire:click="guardarCambiosSitio({{ $sitio->id }})">Guardar cambios</button>
-                        @endif
-
-                    </div>
-                </div>
-                <div class="modal-header">
-                    <h4 class="modal-title">Modal 1</h4><button class="btn-close" type="button"
-                        data-bs-dismiss="modal" aria-label="Close"></button>
-                </div>
-                <div class="modal-body">
-                    <p>The content of your modal.</p>
-                </div>
-                <div class="modal-footer"><button class="btn btn-light" type="button"
-                        data-bs-dismiss="modal">Close</button><button class="btn btn-primary"
-                        type="button">Save</button></div>
-
-            </div>
-        </div>
-    </div>
-</div> --}}
-{{-- @endsection --}}
-
-    </div>
-    {{--Fin de formulario--}}
 
 
 
 </div>
-{{-- Fin de formulario --}}
+
+
+@endif
 
 
 
-</div>

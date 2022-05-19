@@ -15,6 +15,7 @@ class Clientes extends Component
     public $idCliente;
     public $idSitio;
     public $edit;
+    public $menu = false;
 
     public $nombre;
     public $nombreContacto;
@@ -44,6 +45,17 @@ class Clientes extends Component
         'nombre' => 'required',
 
     ];
+
+    public function menu(){
+
+
+        if ($this->menu == false) {
+            $this->menu = true;
+        }
+        else{
+            $this->menu = false;
+        }
+    }
 
     public function updatedNombre($nombre)
     {
