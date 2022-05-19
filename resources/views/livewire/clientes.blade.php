@@ -8,11 +8,11 @@
                     <div class="col text-uppercase">
                         <h1>{{$cliente->nombre}}</h1>
                     </div>
-                    <div class="col agregarClienteButton">
+                    {{-- <div class="col agregarClienteButton">
                         <button class="btn btnSbyb" type="button" data-bs-toggle="modal" data-bs-target="#modalAgregarCliente">
                             Agregar Sitio
                         </button>
-                    </div>
+                    </div> --}}
 
                     @if ($sitio != null && $edit == false)
                         <div class="col-auto"><button
@@ -445,7 +445,7 @@
     {{-- FIN formulario CCTV --}}
         @endif
             {{-- @section('outBody') --}}
-<div id="modalAgregarCliente" class="modal fade" role="dialog" data-backdrop="false">
+{{-- <div id="modalAgregarCliente" class="modal fade" role="dialog" data-backdrop="false">
     <div class="modal-dialog" tabindex="-1">
         <div class="modal-content">
 
@@ -544,7 +544,7 @@
 
         </div>
     </div>
-</div>
+</div> --}}
 {{-- @endsection --}}
 
     </div>
