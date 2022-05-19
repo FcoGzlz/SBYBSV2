@@ -24,6 +24,8 @@ class Clientes extends Component
     public $nombreContacto3;
     public $telefonoContacto3;
     public $email;
+    public $emailContacto2;
+    public $emailContacto3;
     public $ciudad;
     public $direccion;
     public $tipoInstitucion;
@@ -40,8 +42,6 @@ class Clientes extends Component
 
     protected $rules = [
         'nombre' => 'required',
-        'ciudad' => 'required',
-        'direccion' => 'required',
 
     ];
 
@@ -74,6 +74,8 @@ class Clientes extends Component
             'nombre_contacto_3' => $this->nombreContacto3,
             'telefono_contacto_3' => $this->telefonoContacto3,
             'email' => $this->email,
+            'email_contacto_2' => $this->emailContacto2,
+            'email_contacto_3' => $this->emailContacto3,
             'ciudad' => $this->ciudad,
             'direccion' => $this->direccion,
             'tipo_institucion' => $this->tipoInstitucion,
@@ -86,6 +88,8 @@ class Clientes extends Component
             'nombreContacto',
             'telefonoContacto',
             'email',
+            'emailContacto2',
+            'emailContacto3',
             'ciudad',
             'direccion',
             'tipoInstitucion',
@@ -114,6 +118,8 @@ class Clientes extends Component
         $this->nombreContacto3 = $sitio->nombre_contacto_3;
         $this->telefonoContacto3 = $sitio->telefono_contacto_3;
         $this->email = $sitio->email;
+        $this->emailContacto2 = $sitio->email_contacto_2;
+        $this->emailContacto3 = $sitio->email_contacto_3;
         $this->ciudad = $sitio->ciudad;
         $this->direccion = $sitio->direccion;
         $this->tipoInstitucion = $sitio->tipo_institucion;
@@ -130,6 +136,8 @@ class Clientes extends Component
         $sitio->nombre_contacto_3 = $this->nombreContacto3;
         $sitio->telefono_contacto_3 = $this->telefonoContacto3;
         $sitio->email = $this->email;
+        $sitio->email_contacto_2 = $this->emailContacto2;
+        $sitio->email_contacto_3 = $this->emailContacto3;
         $sitio->ciudad = $this->ciudad;
         $sitio->direccion = $this->direccion;
         $sitio->tipo_institucion = $this->tipoInstitucion;
@@ -140,6 +148,8 @@ class Clientes extends Component
             'nombreContacto',
             'telefonoContacto',
             'email',
+            'emailContacto2',
+            'emailContacto3',
             'ciudad',
             'direccion',
             'tipoInstitucion',
@@ -159,7 +169,6 @@ class Clientes extends Component
         $this->validate([
             'tipoGrabador' => 'required',
             'cantidadCamaras' => 'required',
-            'numeroSerie' => 'required',
         ]);
 
         $cctv = Cctv::create([
@@ -181,7 +190,6 @@ class Clientes extends Component
     public function agregarAlarma(){
         $this->validate([
             'tipoAlarma' => 'required',
-            'numeroId' => 'required',
         ]);
 
         $alarma = Alarma::create([
