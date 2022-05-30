@@ -194,9 +194,22 @@ class Clientes extends Component
         $this->reset('tipoGrabador', 'cantidadCamaras', 'numeroSerie');
     }
 
+    public function editarCCTV($id)
+    {
+        $cctv = Cctv::findOrFail($id);
+        $this->tipoGrabador = $cctv->tipo_dvr;
+        $this->cantidadCamaras = $cctv->cantidad_camaras;
+    }
+
+    public function guardarCambiosCCTV($id)
+    {
+
+    }
+
     public function eliminarCCTV($id){
         $cctv = Cctv::findOrFail($id);
-        $cctv->delete;
+        $cctv->delete();
+        $cctv->save();
     }
 
     public function agregarAlarma(){
@@ -213,6 +226,20 @@ class Clientes extends Component
         $alarma->save();
 
         $this->reset('tipoAlarma', 'numeroId');
+    }
+
+    public function editarAlarmas($id)
+    {
+        $alarma = Alarma::finrOrFail($id);
+        $this->tipoAlarma = $alarma->tipoAlarma;
+        $this->numeroId = $alarma->id_o_numero;
+    }
+
+    public function eliminarAlarma($id)
+    {
+        $alarma = Alarma::finrOrFail($id);
+        $alarma->delete();
+        $alarma->save();
     }
 
     public function render()
