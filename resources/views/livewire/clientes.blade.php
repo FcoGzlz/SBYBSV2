@@ -20,21 +20,10 @@
                             Agregar Sitio
                         </button>
                     </div> --}}
-
-                    @if ($sitio != null && $edit == false)
-                        <div class="col-auto"><button class="btn btn-primary btnSbyb" type="button"
-                                wire:click="eliminarSitio({{ $sitio->id }})"><i
-                                    class="fas fa-trash-alt"></i></button>
-                        </div>
-
-                        <div class="col-auto">
-                            <button class="btn btn-primary btnSbyb" type="submit"
-                                wire:click="editarSitio({{ $sitio->id }})"><i class="far fa-edit"></i></button>
-                        </div>
-                    @endif
                 </div>
                 <div class="row">
-                    <div class="col d-flex align-items-center"><select @if ($edit == true) disabled @endif
+                    
+                        <div class="col d-flex align-items-center"><select @if ($edit == true) disabled @endif
                             class="form-select selectByB shadow-none" wire:model="idSitio">
                             <option class="selectByB" value="undefined" selected="">Seleccione un sitio</option>
                             @foreach ($locacionesCliente as $locacion)
@@ -43,9 +32,18 @@
                             @endforeach
                         </select>
                     </div>
+                    @if ($sitio != null && $edit == false)
+                    <div class="col-auto g-0"><button class="btn btnSbyb" type="button"
+                            wire:click="eliminarSitio({{ $sitio->id }})"><i
+                                class="fas fa-trash-alt"></i></button>
+                    </div>
 
-
-
+                    <div class="col-auto">
+                        <button class="btn btnSbyb" type="submit"
+                            wire:click="editarSitio({{ $sitio->id }})"><i class="far fa-edit"></i></button>
+                    </div>
+                    @endif
+                    
                 </div>
 
                 <div class="row">
@@ -159,16 +157,19 @@
                                 </div>
 
                                 @if ($sitio != null)
-                                    <div class="col-auto card-title">
-                                        <button class="btn btn-primary btnSbyb" type="button"
-                                            wire:click="eliminarCCTV({{ $sitio->cctv->id }})"><i
-                                                class="fas fa-trash-alt"></i></button>
+                                    <div class="col-auto">
+                                    <div class="btn-edit-background">
+                                        <button class="btn btnSbyb" type="button"
+                                        wire:click="eliminarCCTV({{ $sitio->cctv->id }})"><i
+                                            class="fas fa-trash-alt"></i></button>
 
 
 
-                                        <button class="btn btn-primary btnSbyb" type="submit"
-                                            wire:click="editarCCTV({{ $sitio->cctv->id }})"><i
-                                                class="far fa-edit"></i></button>
+                                    <button class="btn btnSbyb" type="submit"
+                                        wire:click="editarCCTV({{ $sitio->cctv->id }})"><i
+                                            class="far fa-edit"></i></button>
+                                    </div> 
+                                       
 
                                     </div>
                                 @endif
@@ -180,28 +181,103 @@
                             <div class="row">
                                 <div class="col columnSepararCards"></div>
                             </div>
-                            <div class="row">
-                                <div class="col"> <label class="col-form-label labelCardClientes">Tipo de
-                                        grabador:</label>
-                                    @if ($sitio && $sitio->cctv != null)
-                                        <label class="col-form-label">{{ $sitio->cctv->tipo_dvr }}</label>
-                                    @endif
+                            <div class="row cardLabelCCTV">
+                                <div class="col">
+                                    <div class="row">
+                                        <div class="col"> <label class="col-form-label labelCardClientes">Tipo de
+                                                grabador:</label>
+                                            @if ($sitio && $sitio->cctv != null)
+                                                <label class="col-form-label">{{ $sitio->cctv->tipo_dvr }}</label>
+                                            @endif
+                                        </div>
+                                        <div class="col"><label class="col-form-label labelCardClientes">Cantidad de
+                                                cámaras:</label>
+                                            @if ($sitio && $sitio->cctv != null)
+                                                <label class="col-form-label">{{ $sitio->cctv->cantidad_camaras }}</label>
+                                            @endif
+                                        </div>
+                                    </div>
+                                    <div class="row">
+                                        <div class="col"><label class="col-form-label labelCardClientes">Número de
+                                                Serie:&nbsp;</label>
+                                            @if ($sitio && $sitio->cctv != null)
+                                                <label class="col-form-label">{{ $sitio->cctv->numero_serie }}</label>
+                                            @endif
+                                        </div>
+                                        {{-- <div class="col"><label class="col-form-label ">LabelCamaras</label></div> --}}
+                                    </div>
                                 </div>
-                                <div class="col"><label class="col-form-label labelCardClientes">Cantidad de
-                                        cámaras:</label>
-                                    @if ($sitio && $sitio->cctv != null)
-                                        <label class="col-form-label">{{ $sitio->cctv->cantidad_camaras }}</label>
-                                    @endif
-                                </div>
-                            </div>
-                            <div class="row">
-                                <div class="col"><label class="col-form-label labelCardClientes">Número de
-                                        Serie:&nbsp;</label>
-                                    @if ($sitio && $sitio->cctv != null)
-                                        <label class="col-form-label">{{ $sitio->cctv->numero_serie }}</label>
-                                    @endif
-                                </div>
-                                {{-- <div class="col"><label class="col-form-label ">LabelCamaras</label></div> --}}
+                                <div class="col">
+                                    <div class="card-body">
+                                        <div class="row align-items-center">
+                                            
+                                                <div class="col-6">
+                                                    <div class="mb-3">
+                                                        <label for="tipoGrabadorInput" class="form-label">Tipo Grabador</label>
+                                                        <input type="text" class="form-control" id="tipoGrabadorInput" wire:model="tipoGrabador">
+                                                        @error('tipoGrabador')
+                                                        <span class="warning">{{ $message }}</span>
+                                                        @enderror
+                                                    </div>
+                                                </div>
+                                                <div class="col-6">
+                                                    <div class="mb-3">
+                                                        <label for="cantidadCamarasInput" class="form-label">Cantidad de cámaras</label>
+                                                        <input type="text" class="form-control" id="contidadCamarasInput" wire:model="cantidadCamaras">
+                                                        @error('cantidadCamaras')
+                                                        <span class="warning">{{ $message }}</span>
+                                                        @enderror
+                                                    </div>
+                                                </div>
+                                                
+                                                {{-- <div class="row">
+                                                    <div class="col">
+                                                        <input class="form-control" type="text" wire:model="tipoGrabador"
+                                                            class="form-control" placeholder="Tipo Grabador">
+                                                        @error('tipoGrabador')
+                                                            <span class="warning">{{ $message }}</span>
+                                                        @enderror
+                                                    </div>
+                                                </div> --}}
+
+                                                {{-- <div class="row">
+                                                    <div class="col">
+                                                        <input class="form-control" type="text" wire:model="cantidadCamaras"
+                                                            class="form-control" placeholder="Cantidad de cámaras">
+                                                        @error('cantidadCamaras')
+                                                            <span class="warning">{{ $message }}</span>
+                                                        @enderror
+                                                    </div>
+                                                </div> --}}
+
+                                                <div class="col-6">
+                                                    <div class="mb-3">
+                                                        <label for="numeroDeSerieInput" class="form-label">Número de Serie</label>
+                                                        <input type="text" class="form-control" id="numeroDeSerieInput" wire:model="numeroSerie">
+                                                        @error('numeroSerie')
+                                                        <span class="warning">{{ $message }}</span>
+                                                        @enderror
+                                                    </div>
+                                                </div>
+                                                {{-- <div class="row">
+                                                    <div class="col">
+                                                        <input class="form-control" type="text" wire:model="numeroSerie"
+                                                            class="form-control" placeholder="Número de serie">
+                                                        @error('numeroSerie')
+                                                            <span class="warning">{{ $message }}</span>
+                                                        @enderror
+                                                    </div>
+                                                </div> --}}
+                                                <div class="col-6">
+                                                    <div class="mb-2">
+                                                        <label class="form-label"> </label>
+                                                            @if ($editCCTV == false)
+                                                            <button class="btn btnSbyb form-control" wire:click="agregarCCTV">Añadir CCTV</button>
+                                                            @else
+                                                            <button class="btn btnSbyb form-control" wire:click="guardarCambiosCCTV({{$sitio->cctv->id}})">Guardar Cambios</button>
+                                                            @endif
+                                                    </div>
+                                                </div>
                             </div>
                         </div>
                     </div>
@@ -232,17 +308,16 @@
                                 <h4 class="card-title subtitulosCard">Alarma</h4>
                             </div>
                             @if ($sitio != null)
-                            <div class="col-auto card-title">
-                                <button class="btn btn-primary btnSbyb" type="button"
+                            <div class="col-auto">
+                                <div class="btn-edit-background">
+                                    <button class="btn btnSbyb" type="button"
                                     wire:click="eliminarAlarma({{ $sitio->alarma->id }})"><i
                                         class="fas fa-trash-alt"></i></button>
 
-
-
-                                <button class="btn btn-primary btnSbyb" type="submit"
+                                <button class="btn btnSbyb" type="submit"
                                     wire:click="editarAlarma({{ $sitio->alarma->id }})"><i
                                         class="far fa-edit"></i></button>
-
+                                </div>
                             </div>
                         @endif
                         </div>
@@ -275,6 +350,71 @@
                                     @endswitch
                                 @endif
 
+                            </div>
+
+                            <div class="card-body">
+                                <div class="row">
+                                        {{-- <div class="row">
+                                            <div class="col">
+                                                <select class="form-control" wire:model="tipoAlarma" id="">
+                                                    <option value="">Seleccione tipo de alarma</option>
+                                                    @foreach ($tiposAlarma as $tipoAlarma)
+                                                        <option value="{{ $tipoAlarma->id }}">{{ $tipoAlarma->nombre }}
+                                                        </option>
+                                                    @endforeach
+                                                </select>
+                                                @error('tipoAlarma')
+                                                    <span class="warning">{{ $message }}</span>
+                                                @enderror
+                                            </div>
+                                        </div> --}}
+
+                                        <div class="col-6">
+                                            <div class="mb-3">
+                                                <label for="tipoAlarmaInput" class="form-label">Seleccione tipo de alarma</label>
+                                                <select class="form-select selectByB shadow-none" id="tipoAlarmaInput"  wire:model="tipoAlarma">
+                                                    <option value="">Seleccione tipo de alarma</option>
+                                                    @foreach ($tiposAlarma as $tipoAlarma)
+                                                        <option value="{{ $tipoAlarma->id }}">{{ $tipoAlarma->nombre }}
+                                                        </option>
+                                                    @endforeach
+                                                </select>
+                                                @error('tipoAlarma')
+                                                <span class="warning">{{ $message }}</span>
+                                                @enderror
+                                            </div>
+                                        </div>
+
+
+                                        <div class="col-6">
+                                            <div class="mb-3">
+                                                <label for="numeroIdInput" class="form-label">Número de Serie</label>
+                                                <input type="text" class="form-control" id="numeroIdInput" wire:model="numeroId">
+                                                @error('numeroId')
+                                                <span class="warning">{{ $message }}</span>
+                                                @enderror
+                                            </div>
+                                        </div>
+    
+                                        {{-- <div class="col-6">
+                                            <div class="mb-3">
+                                                <input class="form-control" type="text" wire:model="numeroId"
+                                                    class="form-control" placeholder="Número de serie">
+                                                @error('numeroId')
+                                                    <span class="warning">{{ $message }}</span>
+                                                @enderror
+                                            </div>
+                                        </div>
+     --}}
+                                        <div>
+                                                @if ($editAlarma == false)
+                                                <button class="btn btnSbyb form-control" wire:click="agregarAlarma">Añadir
+                                                    Alarma</button>
+                                                @else
+                                                <button class="btn btnSbyb form-control" wire:click="guardarCambiosAlarma({{$sitio->alarma->id}})">Guardar Cambios</button>
+                                                @endif
+                                        </div>
+                                </div>
                             </div>
                         </div>
                         {{-- <div class="row">
@@ -455,7 +595,7 @@
                         <div class="card-body">
                             <div class="row">
                                 <div>
-                                    <div class="row form-group">
+                                    <div class="row">
                                         <div class="col">
                                             <input class="form-control" type="text" wire:model="tipoGrabador"
                                                 class="form-control" placeholder="Tipo Grabador">
@@ -465,7 +605,7 @@
                                         </div>
                                     </div>
 
-                                    <div class="row form-group">
+                                    <div class="row">
                                         <div class="col">
                                             <input class="form-control" type="text" wire:model="cantidadCamaras"
                                                 class="form-control" placeholder="Cantidad de cámaras">
@@ -475,7 +615,7 @@
                                         </div>
                                     </div>
 
-                                    <div class="row form-group">
+                                    <div class="row">
                                         <div class="col">
                                             <input class="form-control" type="text" wire:model="numeroSerie"
                                                 class="form-control" placeholder="Número de serie">
@@ -485,7 +625,7 @@
                                         </div>
                                     </div>
 
-                                    <div class="row form-group">
+                                    <div class="row">
                                         <div class="col">
                                             @if ($editCCTV == false)
                                             <button class="btn btnSbyb form-control" wire:click="agregarCCTV">Añadir

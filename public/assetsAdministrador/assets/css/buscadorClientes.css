@@ -196,3 +196,18 @@ input[type="date"] {
     align-items: center;
     justify-content: flex-end;
   }
+
+  .btn-edit-background{
+    background-color: #009cde;
+    margin: -16px;
+    border-top-left-radius: 0.2rem;
+    border-top-right-radius: 0.2rem;
+    padding-top: 15px;
+    padding-right: 15px;
+    padding-bottom: 16px;
+    padding-left: 15px;
+  }
+
+  .cardLabelCCTV{
+      display: inline;
+  }
