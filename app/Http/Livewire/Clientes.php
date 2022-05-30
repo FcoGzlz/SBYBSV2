@@ -15,6 +15,8 @@ class Clientes extends Component
     public $idCliente;
     public $idSitio;
     public $edit;
+    public $editCCTV = false;
+    public $editAlarma = false;
     public $menu = false;
 
     public $nombre;
@@ -196,6 +198,7 @@ class Clientes extends Component
 
     public function editarCCTV($id)
     {
+        $this->editCCTV = true;
         $cctv = Cctv::findOrFail($id);
         $this->tipoGrabador = $cctv->tipo_dvr;
         $this->cantidadCamaras = $cctv->cantidad_camaras;
@@ -228,8 +231,9 @@ class Clientes extends Component
         $this->reset('tipoAlarma', 'numeroId');
     }
 
-    public function editarAlarmas($id)
+    public function editarAlarma($id)
     {
+        $this->editAlarma = true;
         $alarma = Alarma::finrOrFail($id);
         $this->tipoAlarma = $alarma->tipoAlarma;
         $this->numeroId = $alarma->id_o_numero;
