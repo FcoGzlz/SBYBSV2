@@ -266,7 +266,7 @@
                                             <label class="col-form-label">{{ $sitio->alarma->id_o_numero }}</label>
                                         @break
 
-                                        @case('Intrusión IP')
+                                        @case('Intrusión RISCO')
                                             <label class="col-form-label labelCardClientes">ID:&nbsp;</label>
                                             <label class="col-form-label">{{ $sitio->alarma->id_o_numero }}</label>
                                         @break
@@ -295,7 +295,7 @@
 
 
 
-@if ($menu == true)
+@if ($menu == true || $editCCTV == true || $editAlarma == true)
     {{-- Inicio de formulario --}}
 <div class="col">
     <div class="card cardClientes shadow p-3 mb-5 bg-white rounded">
@@ -440,12 +440,16 @@
         {{-- INICIO formulario CCTV --}}
         <div class="row g-0">
 
-            @if ($sitio->cctv == null)
+            @if ($sitio->cctv == null || $editCCTV == true)
                 <div class="col g-0">
                     <div class="card cardClientes shadow p-3 mb-5 bg-white rounded">
                         <div class="row">
                             <div class="col ">
+                                @if ($editCCTV == false)
                                 <h4>Agregar CCTV a {{ $sitio->nombre }}</h4>
+                                @else
+                                <h4>Modificar datos de CCTV</h4>
+                                @endif
                             </div>
                         </div>
                         <div class="card-body">
@@ -483,8 +487,12 @@
 
                                     <div class="row form-group">
                                         <div class="col">
+                                            @if ($editCCTV == false)
                                             <button class="btn btnSbyb form-control" wire:click="agregarCCTV">Añadir
                                                 CCTV</button>
+                                            @else
+                                            <button class="btn btnSbyb form-control" wire:click="guardarCambiosCCTV({{$sitio->cctv->id}})">Guardar Cambios</button>
+                                            @endif
                                         </div>
                                     </div>
                                 </div>
@@ -495,12 +503,16 @@
             @endif
 
 
-            @if ($sitio->alarma == null)
+            @if ($sitio->alarma == null || $editAlarma == true)
                 <div class="col">
                     <div class="card cardClientes shadow p-3 mb-5 bg-white rounded">
                         <div class="row">
                             <div class="col ">
-                                <h4>Agregar alarma a {{ $sitio->nombre }}</h4>
+                               @if ($editAlarma == false)
+                               <h4>Agregar alarma a {{ $sitio->nombre }}</h4>
+                               @else
+                               <h4>Guardar cambios de Alarma</h4>
+                               @endif
                             </div>
                         </div>
                         <div class="card-body">
@@ -533,8 +545,12 @@
 
                                     <div class="row form-group">
                                         <div class="col">
+                                            @if ($editAlarma == false)
                                             <button class="btn btnSbyb form-control" wire:click="agregarAlarma">Añadir
                                                 Alarma</button>
+                                            @else
+                                            <button class="btn btnSbyb form-control" wire:click="guardarCambiosAlarma({{$sitio->alarma->id}})">Guardar Cambios</button>
+                                            @endif
                                         </div>
                                     </div>
                                 </div>
