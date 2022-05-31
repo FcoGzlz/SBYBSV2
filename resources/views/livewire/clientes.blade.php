@@ -156,7 +156,7 @@
                                     <h4 class="card-title subtitulosCard">CCTV</h4>
                                 </div>
 
-                                @if ($sitio != null)
+                                @if ($sitio && $sitio->cctv != null )
                                     <div class="col-auto">
                                     <div class="btn-edit-background">
                                         <button class="btn btnSbyb" type="button"
@@ -217,7 +217,7 @@
                                             <div class="col-6">
                                                 <div class="mb-3">
                                                     <label for="tipoGrabadorInput" class="form-label">Tipo Grabador</label>
-                                                    <input type="text" class="form-control" id="tipoGrabadorInput" wire:model="tipoGrabador">
+                                                    <input type="text" class="form-control" id="tipoGrabadorInput" wire:model="tipoGrabadorEdit">
                                                     @error('tipoGrabador')
                                                     <span class="warning">{{ $message }}</span>
                                                     @enderror
@@ -226,7 +226,7 @@
                                             <div class="col-6">
                                                 <div class="mb-3">
                                                     <label for="cantidadCamarasInput" class="form-label">Cantidad de cámaras</label>
-                                                    <input type="text" class="form-control" id="contidadCamarasInput" wire:model="cantidadCamaras">
+                                                    <input type="text" class="form-control" id="contidadCamarasInput" wire:model="cantidadCamarasEdit">
                                                     @error('cantidadCamaras')
                                                     <span class="warning">{{ $message }}</span>
                                                     @enderror
@@ -238,7 +238,7 @@
                                             <div class="col-6">
                                                 <div class="mb-3">
                                                     <label for="numeroDeSerieInput" class="form-label">Número de Serie</label>
-                                                    <input type="text" class="form-control" id="numeroDeSerieInput" wire:model="numeroSerie">
+                                                    <input type="text" class="form-control" id="numeroDeSerieInput" wire:model="numeroSerieEdit">
                                                     @error('numeroSerie')
                                                     <span class="warning">{{ $message }}</span>
                                                     @enderror
@@ -289,7 +289,7 @@
                             <div class="col">
                                 <h4 class="card-title subtitulosCard">Alarma</h4>
                             </div>
-                            @if ($sitio != null)
+                            @if ($sitio && $sitio->alarma != null)
                             <div class="col-auto">
                                 <div class="btn-edit-background">
                                     <button class="btn btnSbyb" type="button"
@@ -343,7 +343,7 @@
                                         <div class="col-6">
                                             <div class="mb-3">
                                                 <label for="tipoAlarmaInput" class="form-label">Seleccione tipo de alarma</label>
-                                                <select class="form-select selectByB shadow-none" id="tipoAlarmaInput"  wire:model="tipoAlarma">
+                                                <select class="form-select selectByB shadow-none" id="tipoAlarmaInput"  wire:model="tipoAlarmaEdit">
                                                     <option value="">Seleccione tipo de alarma</option>
                                                     @foreach ($tiposAlarma as $tipoAlarma)
                                                         <option value="{{ $tipoAlarma->id }}">{{ $tipoAlarma->nombre }}
@@ -360,7 +360,7 @@
                                         <div class="col-6">
                                             <div class="mb-3">
                                                 <label for="numeroIdInput" class="form-label">Número de Serie</label>
-                                                <input type="text" class="form-control" id="numeroIdInput" wire:model="numeroId">
+                                                <input type="text" class="form-control" id="numeroIdInput" wire:model="numeroIdEdit">
                                                 @error('numeroId')
                                                 <span class="warning">{{ $message }}</span>
                                                 @enderror
@@ -398,7 +398,7 @@
 
 
 
-@if ($menu == true || $editCCTV == true || $editAlarma == true)
+@if ($menu == true)
     {{-- Inicio de formulario --}}
 <div class="col">
     <div class="card cardClientes shadow p-3 mb-5 bg-white rounded">
@@ -539,11 +539,11 @@
         </div>
     </div>
 
-    @if ($sitio != null)
+    @if ($sitio != null && $edit == false)
         {{-- INICIO formulario CCTV --}}
         <div class="row g-0">
 
-            @if ($sitio->cctv == null || $editCCTV == true)
+            @if ($sitio->cctv == null)
                 <div class="col g-0">
                     <div class="card cardClientes shadow p-3 mb-5 bg-white rounded">
                         <div class="row">
@@ -606,7 +606,7 @@
             @endif
 
 
-            @if ($sitio->alarma == null || $editAlarma == true)
+            @if ($sitio->alarma == null && $edit == false)
                 <div class="col">
                     <div class="card cardClientes shadow p-3 mb-5 bg-white rounded">
                         <div class="row">

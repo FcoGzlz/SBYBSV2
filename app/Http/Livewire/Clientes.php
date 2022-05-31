@@ -37,8 +37,15 @@ class Clientes extends Component
     public $cantidadCamaras;
     public $numeroSerie;
 
+    public $tipoGrabadorEdit;
+    public $cantidadCamarasEdit;
+    public $numeroSerieEdit;
+
     public $tipoAlarma;
     public $numeroId;
+
+    public $tipoAlarmaEdit;
+    public $numeroIdEdit;
 
 
 
@@ -113,7 +120,7 @@ class Clientes extends Component
             'telefonoContacto2',
             'telefonoContacto3' );
 
-        toast('El sitio ha sido agregado con éxito', 'success')->position('bottom-right');
+
     }
 
     public function eliminarSitio($id){
@@ -123,6 +130,7 @@ class Clientes extends Component
 
     public function editarSitio($id){
         $this->edit = true;
+        $this->menu = true;
         $sitio = Locacion::findOrFail($id);
         $this->nombre = $sitio->nombre;
         $this->nombreContacto = $sitio->nombre_contacto;
@@ -200,30 +208,28 @@ class Clientes extends Component
     {
         $this->editCCTV = true;
         $cctv = Cctv::findOrFail($id);
-        $this->tipoGrabador = $cctv->tipo_dvr;
-        $this->numeroSerie = $cctv->numero_serie;
-        $this->cantidadCamaras = $cctv->cantidad_camaras;
+        $this->tipoGrabadorEdit = $cctv->tipo_dvr;
+        $this->numeroSerieEdit = $cctv->numero_serie;
+        $this->cantidadCamarasEdit = $cctv->cantidad_camaras;
     }
 
     public function guardarCambiosCCTV($id)
     {
         $cctv = Cctv::findOrFail($id);
-        $cctv->tipo_dvr = $this->tipoGrabador;
-        $cctv->numero_serie = $this->numeroSerie;
-        $cctv->cantidad_camaras= $this->cantidadCamaras;
+        $cctv->tipo_dvr = $this->tipoGrabadorEdit;
+        $cctv->numero_serie = $this->numeroSerieEdit;
+        $cctv->cantidad_camaras= $this->cantidadCamarasEdit;
 
         $cctv->save();
-
-        $this->reset('tipoGrabador', 'cantidadCamaras', 'numeroSerie');
-
-        $this->editCCTV == false;
+        $this->reset('tipoGrabadorEdit', 'cantidadCamarasEdit', 'numeroSerieEdit');
+        $this->editCCTV = false;
 
     }
 
     public function eliminarCCTV($id){
         $cctv = Cctv::findOrFail($id);
         $cctv->delete();
-        $cctv->save();
+
     }
 
     public function agregarAlarma(){
@@ -246,26 +252,26 @@ class Clientes extends Component
     {
         $this->editAlarma = true;
         $alarma = Alarma::findOrFail($id);
-        $this->tipoAlarma = $alarma->id_tipo_alarma;
-        $this->numeroId = $alarma->id_o_numero;
+        $this->tipoAlarmaEdit = $alarma->id_tipo_alarma;
+        $this->numeroIdEdit = $alarma->id_o_numero;
     }
 
     public function guardarCambiosAlarma($id)
     {
         $alarma = Alarma::findOrFail($id);
-        $alarma->id_tipo_alarma = $this->tipoAlarma;
-        $alarma->id_o_numero = $this->numeroId;
+        $alarma->id_tipo_alarma = $this->tipoAlarmaEdit;
+        $alarma->id_o_numero = $this->numeroIdEdit;
         $alarma->save();
 
-        $this->reset('tipoAlarma', 'numeroId');
-        $this->editAlarma == false;
+        $this->reset('tipoAlarmaEdit', 'numeroIdEdit');
+        $this->editAlarma = false;
     }
 
     public function eliminarAlarma($id)
     {
-        $alarma = Alarma::finrOrFail($id);
+        $alarma = Alarma::findOrFail($id);
         $alarma->delete();
-        $alarma->save();
+
     }
 
     public function render()
