@@ -33,6 +33,20 @@ class Clientes extends Component
     public $direccion;
     public $tipoInstitucion;
 
+    public $nombreEdit;
+    public $nombreContactoEdit;
+    public $telefonoContactoEdit;
+    public $nombreContacto2Edit;
+    public $telefonoContacto2Edit;
+    public $nombreContacto3Edit;
+    public $telefonoContacto3Edit;
+    public $emailEdit;
+    public $emailContacto2Edit;
+    public $emailContacto3Edit;
+    public $ciudadEdit;
+    public $direccionEdit;
+    public $tipoInstitucionEdit;
+
     public $tipoGrabador;
     public $cantidadCamaras;
     public $numeroSerie;
@@ -54,6 +68,35 @@ class Clientes extends Component
         'nombre' => 'required',
 
     ];
+
+    protected function resetCamposSitio()
+    {
+        $this->reset(
+            'nombre',
+            'nombreContacto',
+            'telefonoContacto',
+            'email',
+            'emailContacto2',
+            'emailContacto3',
+            'ciudad',
+            'direccion',
+            'tipoInstitucion',
+            'nombreContacto',
+            'nombreContacto2',
+            'nombreContacto3',
+            'telefonoContacto2',
+            'telefonoContacto3' );
+    }
+
+    protected function resetCamposCCTV()
+    {
+        $this->reset('tipoGrabadorEdit', 'cantidadCamarasEdit', 'numeroSerieEdit');
+    }
+
+    protected function resetCamposAlarma()
+    {
+        $this->reset('tipoAlarma', 'numeroId');
+    }
 
     public function menu(){
 
@@ -104,21 +147,7 @@ class Clientes extends Component
         ]);
         $sitio->save();
 
-        $this->reset(
-            'nombre',
-            'nombreContacto',
-            'telefonoContacto',
-            'email',
-            'emailContacto2',
-            'emailContacto3',
-            'ciudad',
-            'direccion',
-            'tipoInstitucion',
-            'nombreContacto',
-            'nombreContacto2',
-            'nombreContacto3',
-            'telefonoContacto2',
-            'telefonoContacto3' );
+        $this->resetCamposSitio();
 
 
     }
@@ -130,56 +159,41 @@ class Clientes extends Component
 
     public function editarSitio($id){
         $this->edit = true;
-        $this->menu = true;
         $sitio = Locacion::findOrFail($id);
-        $this->nombre = $sitio->nombre;
-        $this->nombreContacto = $sitio->nombre_contacto;
-        $this->telefonoContacto = $sitio->telefono_contacto;
-        $this->nombreContacto2 = $sitio->nombre_contacto_2;
-        $this->telefonoContacto2 = $sitio->telefono_contacto_2;
-        $this->nombreContacto3 = $sitio->nombre_contacto_3;
-        $this->telefonoContacto3 = $sitio->telefono_contacto_3;
-        $this->email = $sitio->email;
-        $this->emailContacto2 = $sitio->email_contacto_2;
-        $this->emailContacto3 = $sitio->email_contacto_3;
-        $this->ciudad = $sitio->ciudad;
-        $this->direccion = $sitio->direccion;
-        $this->tipoInstitucion = $sitio->tipo_institucion;
+        $this->nombreEdit = $sitio->nombre;
+        $this->nombreContactoEdit = $sitio->nombre_contacto;
+        $this->telefonoContactoEdit = $sitio->telefono_contacto;
+        $this->nombreContacto2Edit = $sitio->nombre_contacto_2;
+        $this->telefonoContacto2Edit = $sitio->telefono_contacto_2;
+        $this->nombreContacto3Edit = $sitio->nombre_contacto_3;
+        $this->telefonoContacto3Edit = $sitio->telefono_contacto_3;
+        $this->emailEdit = $sitio->email;
+        $this->emailContacto2Edit = $sitio->email_contacto_2;
+        $this->emailContacto3Edit = $sitio->email_contacto_3;
+        $this->ciudadEdit = $sitio->ciudad;
+        $this->direccionEdit = $sitio->direccion;
+        $this->tipoInstitucionEdit = $sitio->tipo_institucion;
     }
 
     public function guardarCambiosSitio($id){
         $sitio = Locacion::findOrFail($id);
 
-        $sitio->nombre = $this->nombre;
-        $sitio->nombre_contacto = $this->nombreContacto;
-        $sitio->telefono_contacto = $this->telefonoContacto;
-        $sitio->nombre_contacto_2 = $this->nombreContacto2;
-        $sitio->telefono_contacto_2 = $this->telefonoContacto2;
-        $sitio->nombre_contacto_3 = $this->nombreContacto3;
-        $sitio->telefono_contacto_3 = $this->telefonoContacto3;
-        $sitio->email = $this->email;
-        $sitio->email_contacto_2 = $this->emailContacto2;
-        $sitio->email_contacto_3 = $this->emailContacto3;
-        $sitio->ciudad = $this->ciudad;
-        $sitio->direccion = $this->direccion;
-        $sitio->tipo_institucion = $this->tipoInstitucion;
+        $sitio->nombre = $this->nombreEdit;
+        $sitio->nombre_contacto = $this->nombreContactoEdit;
+        $sitio->telefono_contacto = $this->telefonoContactoEdit;
+        $sitio->nombre_contacto_2 = $this->nombreContacto2Edit;
+        $sitio->telefono_contacto_2 = $this->telefonoContacto2Edit;
+        $sitio->nombre_contacto_3 = $this->nombreContacto3Edit;
+        $sitio->telefono_contacto_3 = $this->telefonoContacto3Edit;
+        $sitio->email = $this->emailEdit;
+        $sitio->email_contacto_2 = $this->emailContacto2Edit;
+        $sitio->email_contacto_3 = $this->emailContacto3Edit;
+        $sitio->ciudad = $this->ciudadEdit;
+        $sitio->direccion = $this->direccionEdit;
+        $sitio->tipo_institucion = $this->tipoInstitucionEdit;
         $sitio->save();
 
-        $this->reset(
-            'nombre',
-            'nombreContacto',
-            'telefonoContacto',
-            'email',
-            'emailContacto2',
-            'emailContacto3',
-            'ciudad',
-            'direccion',
-            'tipoInstitucion',
-            'nombreContacto',
-            'nombreContacto2',
-            'nombreContacto3',
-            'telefonoContacto2',
-            'telefonoContacto3' );
+        $this->resetCamposSitio();
 
         $this->edit = false;
 
@@ -221,7 +235,7 @@ class Clientes extends Component
         $cctv->cantidad_camaras= $this->cantidadCamarasEdit;
 
         $cctv->save();
-        $this->reset('tipoGrabadorEdit', 'cantidadCamarasEdit', 'numeroSerieEdit');
+        $this->resetCamposCCTV();
         $this->editCCTV = false;
 
     }
@@ -263,7 +277,7 @@ class Clientes extends Component
         $alarma->id_o_numero = $this->numeroIdEdit;
         $alarma->save();
 
-        $this->reset('tipoAlarmaEdit', 'numeroIdEdit');
+        $this->resetCamposAlarma();
         $this->editAlarma = false;
     }
 

@@ -19,148 +19,151 @@
                         </button>
                     </div> --}}
                 </div>
+
+                @if ($edit == false)
                 <div class="row">
 
-                        <div class="col d-flex align-items-center"><select @if ($edit == true) disabled @endif
-                            class="form-select selectByB shadow-none" wire:model="idSitio">
-                            <option class="selectByB" value="undefined" selected="">Seleccione un sitio</option>
-                            @foreach ($locacionesCliente as $locacion)
-                                <option class="selectByB" value="{{ $locacion->id }}">{{ $locacion->nombre }}
-                                </option>
-                            @endforeach
-                        </select>
-                    </div>
-                    @if ($sitio != null && $edit == false)
-                    <div class="col-auto g-0"><button class="btn btnSbyb" type="button"
-                            wire:click="eliminarSitio({{ $sitio->id }})"><i
-                                class="fas fa-trash-alt"></i></button>
-                    </div>
+                    <div class="col d-flex align-items-center"><select
+                        class="form-select selectByB shadow-none" wire:model="idSitio">
+                        <option class="selectByB" value="undefined" selected="">Seleccione un sitio</option>
+                        @foreach ($locacionesCliente as $locacion)
+                            <option class="selectByB" value="{{ $locacion->id }}">{{ $locacion->nombre }}
+                            </option>
+                        @endforeach
+                    </select>
+                </div>
+                @if ($sitio != null)
+                <div class="col-auto g-0"><button class="btn btnSbyb" type="button"
+                        wire:click="eliminarSitio({{ $sitio->id }})"><i
+                            class="fas fa-trash-alt"></i></button>
+                </div>
 
-                    <div class="col-auto">
-                        <button class="btn btnSbyb" type="submit"
-                            wire:click="editarSitio({{ $sitio->id }})"><i class="far fa-edit"></i></button>
-                    </div>
+                <div class="col-auto">
+                    <button class="btn btnSbyb" type="submit"
+                        wire:click="editarSitio({{ $sitio->id }})"><i class="far fa-edit"></i></button>
+                </div>
+                @endif
+
+            </div>
+
+            <div class="row">
+
+                <div class="col"><label class="col-form-label labelCardClientes">Ciudad:</label>
+                    @if ($sitio != null)
+                        <label class="col-form-label">{{ $sitio->ciudad }}</label>
+                    @endif
+                </div>
+
+                <div class="col"><label class="col-form-label labelCardClientes">Dirección:</label>
+                    @if ($sitio != null)
+                        <label class="col-form-label">{{ $sitio->direccion }}</label>
                     @endif
 
                 </div>
+            </div>
 
-                <div class="row">
+            <div class="row">
 
-                    <div class="col"><label class="col-form-label labelCardClientes">Ciudad:</label>
-                        @if ($sitio != null)
-                            <label class="col-form-label">{{ $sitio->ciudad }}</label>
-                        @endif
-                    </div>
-
-                    <div class="col"><label class="col-form-label labelCardClientes">Dirección:</label>
-                        @if ($sitio != null)
-                            <label class="col-form-label">{{ $sitio->direccion }}</label>
-                        @endif
-
-                    </div>
+                <div class="col"><label class="col-form-label labelCardClientes">Contacto:</label>
+                    @if ($sitio != null)
+                        <label class="col-form-label">{{ $sitio->nombre_contacto }}</label>
+                    @endif
                 </div>
 
-                <div class="row">
-
-                    <div class="col"><label class="col-form-label labelCardClientes">Contacto:</label>
-                        @if ($sitio != null)
-                            <label class="col-form-label">{{ $sitio->nombre_contacto }}</label>
-                        @endif
-                    </div>
-
-                    <div class="col"><label class="col-form-label labelCardClientes">N° de Contacto:</label>
-                        @if ($sitio != null)
-                            <label class="col-form-label">{{ $sitio->telefono_contacto }}</label>
-                        @endif
-                    </div>
-
-                     <div class="col"><label class="col-form-label labelCardClientes">Email:</label>
-                        @if ($sitio != null)
-                            <label class="col-form-label">{{ $sitio->email }}</label>
-                        @endif
-                    </div>
-
+                <div class="col"><label class="col-form-label labelCardClientes">N° de Contacto:</label>
+                    @if ($sitio != null)
+                        <label class="col-form-label">{{ $sitio->telefono_contacto }}</label>
+                    @endif
                 </div>
 
-                <div class="row">
-
-                    <div class="col"><label class="col-form-label labelCardClientes">Contacto 2:</label>
-                        @if ($sitio != null)
-                            <label class="col-form-label">{{ $sitio->nombre_contacto_2 }}</label>
-                        @endif
-                    </div>
-
-                    <div class="col"><label class="col-form-label labelCardClientes">N° de Contacto
-                            2:</label>
-                        @if ($sitio != null)
-                            <label class="col-form-label">{{ $sitio->telefono_contacto_2 }}</label>
-                        @endif
-                    </div>
-
-                    <div class="col"><label class="col-form-label labelCardClientes">Email 2:</label>
-                        @if ($sitio != null)
-                            <label class="col-form-label">{{ $sitio->email_contacto_2 }}</label>
-                        @endif
-                    </div>
+                 <div class="col"><label class="col-form-label labelCardClientes">Email:</label>
+                    @if ($sitio != null)
+                        <label class="col-form-label">{{ $sitio->email }}</label>
+                    @endif
                 </div>
 
+            </div>
 
-                <div class="row">
+            <div class="row">
 
-                    <div class="col"><label class="col-form-label labelCardClientes">Contacto 3:</label>
-                        @if ($sitio != null)
-                            <label class="col-form-label">{{ $sitio->nombre_contacto_3 }}</label>
-                        @endif
-                    </div>
-
-                    <div class="col"><label class="col-form-label labelCardClientes">N° de Contacto
-                            3:</label>
-                        @if ($sitio != null)
-                            <label class="col-form-label">{{ $sitio->telefono_contacto_3 }}</label>
-                        @endif
-                    </div>
-
-                    <div class="col"><label class="col-form-label labelCardClientes">Email 3:</label>
-                        @if ($sitio != null)
-                            <label class="col-form-label">{{ $sitio->email_contacto_3 }}</label>
-                        @endif
-                    </div>
-                </div> 
-                <div class="row">
-                     <div class="col columnSepararCards"></div> 
+                <div class="col"><label class="col-form-label labelCardClientes">Contacto 2:</label>
+                    @if ($sitio != null)
+                        <label class="col-form-label">{{ $sitio->nombre_contacto_2 }}</label>
+                    @endif
                 </div>
+
+                <div class="col"><label class="col-form-label labelCardClientes">N° de Contacto
+                        2:</label>
+                    @if ($sitio != null)
+                        <label class="col-form-label">{{ $sitio->telefono_contacto_2 }}</label>
+                    @endif
+                </div>
+
+                <div class="col"><label class="col-form-label labelCardClientes">Email 2:</label>
+                    @if ($sitio != null)
+                        <label class="col-form-label">{{ $sitio->email_contacto_2 }}</label>
+                    @endif
+                </div>
+            </div>
+
+
+            <div class="row">
+
+                <div class="col"><label class="col-form-label labelCardClientes">Contacto 3:</label>
+                    @if ($sitio != null)
+                        <label class="col-form-label">{{ $sitio->nombre_contacto_3 }}</label>
+                    @endif
+                </div>
+
+                <div class="col"><label class="col-form-label labelCardClientes">N° de Contacto
+                        3:</label>
+                    @if ($sitio != null)
+                        <label class="col-form-label">{{ $sitio->telefono_contacto_3 }}</label>
+                    @endif
+                </div>
+
+                <div class="col"><label class="col-form-label labelCardClientes">Email 3:</label>
+                    @if ($sitio != null)
+                        <label class="col-form-label">{{ $sitio->email_contacto_3 }}</label>
+                    @endif
+                </div>
+            </div>
+            <div class="row">
+                 <div class="col columnSepararCards"></div>
+            </div>
+                @else
                 <div class="row"> {{--inputs de sitio para ser invisibles--}}
                     <div class="row mb-3">
                         <div class="col">
                             <label for="nombreSitioInput" class="form-label">Nombre de sitio</label>
-                            <input class="form-control" type="text" wire:model="nombre" class="form-control" id="nombreSitioInput">
+                            <input class="form-control" type="text" wire:model="nombreEdit" class="form-control" id="nombreSitioInput">
                         </div>
 
                         <div class="col">
                             <label for="direccionInput" class="form-label">Dirección</label>
-                            <input class="form-control" type="text" wire:model="direccion" class="form-control" id="direccionInput">
+                            <input class="form-control" type="text" wire:model="direccionEdit" class="form-control" id="direccionInput">
                         </div>
                     </div>
 
                     <div class="row mb-3">
                         <div class="col">
                             <label for="ciudadnInput" class="form-label">Ciudad</label>
-                            <input class="form-control" type="text" wire:model="ciudad" class="form-control" id="ciudadnInput">
+                            <input class="form-control" type="text" wire:model="ciudadEdit" class="form-control" id="ciudadnInput">
                         </div>
                     </div>
 
                     <div class="row mb-3">
                         <div class="col">
                             <label for="nombreContactonInput" class="form-label">Nombre de contacto</label>
-                            <input class="form-control" type="text" wire:model="nombreContacto" class="form-control" id="nombreContactonInput">
+                            <input class="form-control" type="text" wire:model="nombreContactoEdit" class="form-control" id="nombreContactonInput">
                         </div>
                         <div class="col">
                             <label for="numeroContactoInput" class="form-label">Número de contacto</label>
-                            <input class="form-control" type="text" wire:model="telefonoContacto" class="form-control" id="numeroContactoInput">
+                            <input class="form-control" type="text" wire:model="telefonoContactoEdit" class="form-control" id="numeroContactoInput">
                         </div>
                         <div class="col">
                             <label for="emailInput" class="form-label">Email de contacto</label>
-                            <input class="form-control" type="text" wire:model="email" class="form-control" id="emailInput">
+                            <input class="form-control" type="text" wire:model="emailEdit" class="form-control" id="emailInput">
                         </div>
 
                     </div>
@@ -168,39 +171,44 @@
                     <div class="row mb-3">
                         <div class="col">
                             <label for="nombreContactonInput2" class="form-label">Nombre de contacto 2</label>
-                            <input class="form-control" type="text" wire:model="nombreContacto" class="form-control" id="nombreContactonInput2">
+                            <input class="form-control" type="text" wire:model="nombreContacto2Edit" class="form-control" id="nombreContactonInput2">
                         </div>
                         <div class="col">
                             <label for="numeroContactoInput2" class="form-label">Número de contacto 2</label>
-                            <input class="form-control" type="text" wire:model="telefonoContacto2" class="form-control" id="numeroContactoInput2">
+                            <input class="form-control" type="text" wire:model="telefonoContacto2Edit" class="form-control" id="numeroContactoInput2">
                         </div>
                         <div class="col">
                             <label for="emailInput2" class="form-label">Email de contacto 2</label>
-                            <input class="form-control" type="text" wire:model="emailContacto2" class="form-control" id="emailInput2">
+                            <input class="form-control" type="text" wire:model="emailContacto2Edit" class="form-control" id="emailInput2">
                         </div>
 
                     </div>
                     <div class="row mb-3">
                         <div class="col">
                             <label for="nombreContactonInput3" class="form-label">Nombre de contacto 3</label>
-                            <input class="form-control" type="text" wire:model="nombreContacto" class="form-control" id="nombreContactonInput3">
+                            <input class="form-control" type="text" wire:model="nombreContacto3Edit" class="form-control" id="nombreContactonInput3">
                         </div>
                         <div class="col">
                             <label for="numeroContactoInput3" class="form-label">Número de contacto 3</label>
-                            <input class="form-control" type="text" wire:model="telefonoContacto3" class="form-control" id="numeroContactoInput3">
+                            <input class="form-control" type="text" wire:model="telefonoContacto3Edit" class="form-control" id="numeroContactoInput3">
                         </div>
                         <div class="col">
                             <label for="emailInput3" class="form-label">Email de contacto 3</label>
-                            <input class="form-control" type="text" wire:model="emailContacto3" class="form-control" id="emailInput3">
+                            <input class="form-control" type="text" wire:model="emailContacto3Edit" class="form-control" id="emailInput3">
                         </div>
                     </div>
                     <div class="row mb-3">
                         <div class="col">
                             <label for="tipoInstitucionInput" class="form-label">Tipo de insitución (opcional) </label>
-                            <input class="form-control" type="text" wire:model="tipoInstitucion" class="form-control" id="tipoInstitucionInput">
+                            <input class="form-control" type="text" wire:model="tipoInstitucionEdit" class="form-control" id="tipoInstitucionInput">
                         </div>
                     </div>
-                </div>   
+                    <button class="btn btnSbyb" wire:click="guardarCambiosSitio({{ $sitio->id }})">Guardar
+                        cambios</button>
+                </div>
+                @endif
+
+
             </div>
 
             <div class="row">
@@ -426,12 +434,7 @@
             <div class="card cardClientes shadow p-3 mb-5 bg-white rounded">
                 <div class="row">
                     <div class="col ">
-                        @if ($edit == false)
                             <h1>Agregar sitio a {{ $cliente->nombre }}</h1>
-                        @else
-                            <h1>Modificar datos de {{ $sitio->nombre }}</h1>
-                        @endif
-
                     </div>
                 </div>
                 <div class="card-body">
@@ -548,13 +551,9 @@
                         </div>
 
                         <div class="col 12">
-                            @if ($edit == null)
                                 <button class="btn btnSbyb" wire:click="agregarSitio">Añadir sitio</button>
                                 <button class="btn btnSbyb" wire:click="menu">Cancelar</button>
-                            @else
-                                <button class="btn btnSbyb" wire:click="guardarCambiosSitio({{ $sitio->id }})">Guardar
-                                    cambios</button>
-                            @endif
+
 
                         </div>
                     </div>
