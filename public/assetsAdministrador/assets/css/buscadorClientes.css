@@ -211,3 +211,9 @@ input[type="date"] {
   .cardLabelCCTV{
       display: inline;
   }
+
+  .agregarSitioButton{
+    display: flex;
+    flex-direction: row-reverse;
+    align-items: center;
+  }

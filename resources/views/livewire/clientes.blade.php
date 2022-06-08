@@ -8,7 +8,7 @@
                     <div class="col text-uppercase">
                         <h1>{{ $cliente->nombre }}
                     </div>
-                    <div class="col text-uppercase">
+                    <div class="col text-uppercase agregarSitioButton">
                         @if ($menu == false)
                             <button class="btn btnSbyb" wire:click="menu">Agregar Sitio</button>
                         @endif
@@ -125,115 +125,191 @@
                             <label class="col-form-label">{{ $sitio->email_contacto_3 }}</label>
                         @endif
                     </div>
-                </div>
-
+                </div> 
                 <div class="row">
-                    <div class="col columnSepararCards"></div>
+                     <div class="col columnSepararCards"></div> 
                 </div>
+                <div class="row"> {{--inputs de sitio para ser invisibles--}}
+                    <div class="row mb-3">
+                        <div class="col">
+                            <label for="nombreSitioInput" class="form-label">Nombre de sitio</label>
+                            <input class="form-control" type="text" wire:model="nombre" class="form-control" id="nombreSitioInput">
+                        </div>
 
-                <div class="row none">
-                    <div class="col">
-                        <div class="card">
-                            <div class="card-body">
-                                <div class="row">
-                                    <div class="col">
-                                        <h4 class="card-title subtitulosCard">CCTV</h4>
+                        <div class="col">
+                            <label for="direccionInput" class="form-label">Dirección</label>
+                            <input class="form-control" type="text" wire:model="direccion" class="form-control" id="direccionInput">
+                        </div>
+                    </div>
+
+                    <div class="row mb-3">
+                        <div class="col">
+                            <label for="ciudadnInput" class="form-label">Ciudad</label>
+                            <input class="form-control" type="text" wire:model="ciudad" class="form-control" id="ciudadnInput">
+                        </div>
+                    </div>
+
+                    <div class="row mb-3">
+                        <div class="col">
+                            <label for="nombreContactonInput" class="form-label">Nombre de contacto</label>
+                            <input class="form-control" type="text" wire:model="nombreContacto" class="form-control" id="nombreContactonInput">
+                        </div>
+                        <div class="col">
+                            <label for="numeroContactoInput" class="form-label">Número de contacto</label>
+                            <input class="form-control" type="text" wire:model="telefonoContacto" class="form-control" id="numeroContactoInput">
+                        </div>
+                        <div class="col">
+                            <label for="emailInput" class="form-label">Email de contacto</label>
+                            <input class="form-control" type="text" wire:model="email" class="form-control" id="emailInput">
+                        </div>
+
+                    </div>
+
+                    <div class="row mb-3">
+                        <div class="col">
+                            <label for="nombreContactonInput2" class="form-label">Nombre de contacto 2</label>
+                            <input class="form-control" type="text" wire:model="nombreContacto" class="form-control" id="nombreContactonInput2">
+                        </div>
+                        <div class="col">
+                            <label for="numeroContactoInput2" class="form-label">Número de contacto 2</label>
+                            <input class="form-control" type="text" wire:model="telefonoContacto2" class="form-control" id="numeroContactoInput2">
+                        </div>
+                        <div class="col">
+                            <label for="emailInput2" class="form-label">Email de contacto 2</label>
+                            <input class="form-control" type="text" wire:model="emailContacto2" class="form-control" id="emailInput2">
+                        </div>
+
+                    </div>
+                    <div class="row mb-3">
+                        <div class="col">
+                            <label for="nombreContactonInput3" class="form-label">Nombre de contacto 3</label>
+                            <input class="form-control" type="text" wire:model="nombreContacto" class="form-control" id="nombreContactonInput3">
+                        </div>
+                        <div class="col">
+                            <label for="numeroContactoInput3" class="form-label">Número de contacto 3</label>
+                            <input class="form-control" type="text" wire:model="telefonoContacto3" class="form-control" id="numeroContactoInput3">
+                        </div>
+                        <div class="col">
+                            <label for="emailInput3" class="form-label">Email de contacto 3</label>
+                            <input class="form-control" type="text" wire:model="emailContacto3" class="form-control" id="emailInput3">
+                        </div>
+                    </div>
+                    <div class="row mb-3">
+                        <div class="col">
+                            <label for="tipoInstitucionInput" class="form-label">Tipo de insitución (opcional) </label>
+                            <input class="form-control" type="text" wire:model="tipoInstitucion" class="form-control" id="tipoInstitucionInput">
+                        </div>
+                    </div>
+                </div>   
+            </div>
+
+            <div class="row">
+                <div class="col columnSepararCards"></div>
+            </div>
+
+            <div class="row none">
+                <div class="col">
+                    <div class="card">
+                        <div class="card-body">
+                            <div class="row">
+                                <div class="col">
+                                    <h4 class="card-title subtitulosCard">CCTV</h4>
+                                </div>
+
+                                @if ($sitio && $sitio->cctv != null )
+                                    <div class="col-auto">
+                                        <div class="btn-edit-background">
+                                            <button class="btn btnSbyb" type="button"
+                                            wire:click="eliminarCCTV({{ $sitio->cctv->id }})"><i
+                                                class="fas fa-trash-alt"></i></button>
+
+
+
+                                            <button class="btn btnSbyb" type="submit"
+                                                wire:click="editarCCTV({{ $sitio->cctv->id }})"><i
+                                                    class="far fa-edit"></i>
+                                            </button>
+                                        </div>
                                     </div>
+                                @endif
+                            </div>
 
-                                    @if ($sitio && $sitio->cctv != null )
-                                        <div class="col-auto">
-                                            <div class="btn-edit-background">
-                                                <button class="btn btnSbyb" type="button"
-                                                wire:click="eliminarCCTV({{ $sitio->cctv->id }})"><i
-                                                    class="fas fa-trash-alt"></i></button>
+                            <div class="row">
+                                <div class="col columnSepararCards"></div>
+                            </div>
 
-
-
-                                                <button class="btn btnSbyb" type="submit"
-                                                    wire:click="editarCCTV({{ $sitio->cctv->id }})"><i
-                                                        class="far fa-edit"></i></button>
+                            <div class="row cardLabelCCTV">
+                                @if ($editCCTV == false)
+                                    <div class="col">
+                                        <div class="row">
+                                            <div class="col"> <label class="col-form-label labelCardClientes">Tipo de
+                                                grabador:</label>
+                                                @if ($sitio && $sitio->cctv != null)
+                                                    <label class="col-form-label">{{ $sitio->cctv->tipo_dvr }}</label>
+                                                @endif
+                                            </div>
+                                            <div class="col"><label class="col-form-label labelCardClientes">Cantidad de
+                                                    cámaras:</label>
+                                                @if ($sitio && $sitio->cctv != null)
+                                                    <label class="col-form-label">{{ $sitio->cctv->cantidad_camaras }}</label>
+                                                @endif
                                             </div>
                                         </div>
-                                    @endif
-                                </div>
-
-                                <div class="row">
-                                    <div class="col columnSepararCards"></div>
-                                </div>
-
-                                <div class="row cardLabelCCTV">
-                                    @if ($editCCTV == false)
-                                        <div class="col">
-                                            <div class="row">
-                                                <div class="col"> <label class="col-form-label labelCardClientes">Tipo de
-                                                    grabador:</label>
-                                                    @if ($sitio && $sitio->cctv != null)
-                                                        <label class="col-form-label">{{ $sitio->cctv->tipo_dvr }}</label>
-                                                    @endif
-                                                </div>
-                                                <div class="col"><label class="col-form-label labelCardClientes">Cantidad de
-                                                        cámaras:</label>
-                                                    @if ($sitio && $sitio->cctv != null)
-                                                        <label class="col-form-label">{{ $sitio->cctv->cantidad_camaras }}</label>
-                                                    @endif
-                                                </div>
+                                        <div class="row">
+                                            <div class="col"><label class="col-form-label labelCardClientes">Número de
+                                                    Serie:&nbsp;</label>
+                                                @if ($sitio && $sitio->cctv != null)
+                                                    <label class="col-form-label">{{ $sitio->cctv->numero_serie }}</label>
+                                                @endif
                                             </div>
-                                            <div class="row">
-                                                <div class="col"><label class="col-form-label labelCardClientes">Número de
-                                                        Serie:&nbsp;</label>
-                                                    @if ($sitio && $sitio->cctv != null)
-                                                        <label class="col-form-label">{{ $sitio->cctv->numero_serie }}</label>
-                                                    @endif
-                                                </div>
-                                                {{-- <div class="col"><label class="col-form-label ">LabelCamaras</label></div> --}}
-                                            </div>
+                                            {{-- <div class="col"><label class="col-form-label ">LabelCamaras</label></div> --}}
                                         </div>
-                                    @else
-                                        <div class="col">
-                                            <div class="card-body">
-                                                <div class="row align-items-center">
-                                                    <div class="col-6">
-                                                        <div class="mb-3">
-                                                            <label for="tipoGrabadorInput" class="form-label">Tipo Grabador</label>
-                                                            <input type="text" class="form-control" id="tipoGrabadorInput" wire:model="tipoGrabadorEdit">
-                                                            @error('tipoGrabador')
-                                                            <span class="warning">{{ $message }}</span>
-                                                            @enderror
-                                                        </div>
+                                    </div>
+                                @else
+                                    <div class="col">
+                                        <div class="card-body">
+                                            <div class="row align-items-center">
+                                                <div class="col-6">
+                                                    <div class="mb-3">
+                                                        <label for="tipoGrabadorInput" class="form-label">Tipo Grabador</label>
+                                                        <input type="text" class="form-control" id="tipoGrabadorInput" wire:model="tipoGrabadorEdit">
+                                                        @error('tipoGrabador')
+                                                        <span class="warning">{{ $message }}</span>
+                                                        @enderror
                                                     </div>
-                                                    <div class="col-6">
-                                                        <div class="mb-3">
-                                                            <label for="cantidadCamarasInput" class="form-label">Cantidad de cámaras</label>
-                                                            <input type="text" class="form-control" id="contidadCamarasInput" wire:model="cantidadCamarasEdit">
-                                                            @error('cantidadCamaras')
-                                                            <span class="warning">{{ $message }}</span>
-                                                            @enderror
-                                                        </div>
+                                                </div>
+                                                <div class="col-6">
+                                                    <div class="mb-3">
+                                                        <label for="cantidadCamarasInput" class="form-label">Cantidad de cámaras</label>
+                                                        <input type="text" class="form-control" id="contidadCamarasInput" wire:model="cantidadCamarasEdit">
+                                                        @error('cantidadCamaras')
+                                                        <span class="warning">{{ $message }}</span>
+                                                        @enderror
                                                     </div>
-                                                    <div class="col-6">
-                                                        <div class="mb-3">
-                                                            <label for="numeroDeSerieInput" class="form-label">Número de Serie</label>
-                                                            <input type="text" class="form-control" id="numeroDeSerieInput" wire:model="numeroSerieEdit">
-                                                            @error('numeroSerie')
-                                                            <span class="warning">{{ $message }}</span>
-                                                            @enderror
-                                                        </div>
+                                                </div>
+                                                <div class="col-6">
+                                                    <div class="mb-3">
+                                                        <label for="numeroDeSerieInput" class="form-label">Número de Serie</label>
+                                                        <input type="text" class="form-control" id="numeroDeSerieInput" wire:model="numeroSerieEdit">
+                                                        @error('numeroSerie')
+                                                        <span class="warning">{{ $message }}</span>
+                                                        @enderror
                                                     </div>
-                                                    <div class="col-6">
-                                                        <div class="mb-2">
-                                                            <label class="form-label"> </label>
-                                                                @if ($editCCTV == false)
-                                                                <button class="btn btnSbyb form-control" wire:click="agregarCCTV">Añadir CCTV</button>
-                                                                @else
-                                                                <button class="btn btnSbyb form-control" wire:click="guardarCambiosCCTV({{$sitio->cctv->id}})">Guardar Cambios</button>
-                                                                @endif
-                                                        </div>
+                                                </div>
+                                                <div class="col-6">
+                                                    <div class="mb-2">
+                                                        <label class="form-label"> </label>
+                                                            @if ($editCCTV == false)
+                                                            <button class="btn btnSbyb form-control" wire:click="agregarCCTV">Añadir CCTV</button>
+                                                            @else
+                                                            <button class="btn btnSbyb form-control" wire:click="guardarCambiosCCTV({{$sitio->cctv->id}})">Guardar Cambios</button>
+                                                            @endif
                                                     </div>
                                                 </div>
                                             </div>
                                         </div>
-                                    @endif
-                                </div>
+                                    </div>
+                                @endif
                             </div>
                         </div>
                     </div>
@@ -376,7 +452,6 @@
                                     <span class="warning">{{ $message }}</span>
                                 @enderror
                             </div>
-
                         </div>
 
                         <div class="row mb-3">
