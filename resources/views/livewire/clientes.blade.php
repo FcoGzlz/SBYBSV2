@@ -30,9 +30,23 @@
                             <option class="selectByB" value="{{ $locacion->id }}">{{ $locacion->nombre }}
                             </option>
                         @endforeach
-                    </select>
+                        </select>
+                    </div>
+
+                {{-- <div class="col-auto g-0"><button class="btn btnSbyb" type="button"><i
+                        class="fas fa-video"></i></button>
                 </div>
+                <div class="col-auto g-0"><button class="btn btnSbyb" type="button"><i
+                    class="fas fa-bell"></i></button>
+                </div> --}}
+                
+
+
                 @if ($sitio != null)
+
+                <div class="col-auto text-uppercase agregarSitioButton"> 
+                    <button class="btn btnSbyb" >Agregar Dispositivos</button> {{--Boton agregar dispositivos--}}
+                </div>
                 <div class="col-auto g-0"><button class="btn btnSbyb" type="button"
                         wire:click="eliminarSitio({{ $sitio->id }})"><i
                             class="fas fa-trash-alt"></i></button>
@@ -44,7 +58,7 @@
                 </div>
                 @endif
 
-            </div>
+                </div>
 
             <div class="row">
 
