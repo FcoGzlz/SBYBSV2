@@ -7,7 +7,7 @@
             <div class="col">
                 <div class="row">
                     <form method="GET" action="{{ route('reporte_turno') }}">
-                        @csrf
+
                         <div class="col text-center align-self-center"><label
                             class="form-label datos-turno label-turno">Nombre</label>
                             <select class="datos-turno" name="nombreMonitor" id="" style="padding-right: 8px;">

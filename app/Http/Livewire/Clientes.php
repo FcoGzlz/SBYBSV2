@@ -18,6 +18,7 @@ class Clientes extends Component
     public $editCCTV = false;
     public $editAlarma = false;
     public $menu = false;
+    public $menuDispositivos = false;
 
     public $nombre;
     public $nombreContacto;
@@ -106,6 +107,16 @@ class Clientes extends Component
         }
         else{
             $this->menu = false;
+        }
+    }
+
+    public function agregarDispositivos()
+    {
+        if ($this->menuDispositivos == false) {
+            $this->menuDispositivos = true;
+        }
+        else{
+            $this->menuDispositivos = false;
         }
     }
 
