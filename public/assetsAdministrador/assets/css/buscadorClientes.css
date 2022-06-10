@@ -217,3 +217,36 @@ input[type="date"] {
     flex-direction: row-reverse;
     align-items: center;
   }
+
+  .paddingAlarma{
+    padding: 2rem 1rem 2.3rem 1rem;
+  }
+
+  .tableContactos{
+    background: #fff;
+    overflow: auto;
+    width: 100%;
+    max-height: 700px;
+  }
+
+  .table.tableContactos{
+    margin-bottom: 0rem!important;
+  }
+
+thead.tableContactos{
+    background: #009cde;
+    color: #fff;
+}
+
+th.thContacto{
+    color: #009cde!important;
+}
+
+.tableContactos thead{
+    border-bottom: none!important;
+}
+
+.divTableContactos{
+    border: 3px solid #009cde;
+    border-radius: 0.3rem;
+}
