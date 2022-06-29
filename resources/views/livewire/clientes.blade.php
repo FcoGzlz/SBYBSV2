@@ -36,7 +36,7 @@
                         </div>
 
                         @if ($sitio != null)
-                           @if (($sitio->cctv && $sitio->alarma) == null)
+                           @if (($sitio->cctv && $sitio->alarma) == null && $menuDispositivos == false)
                             <div class="col-auto text-uppercase agregarSitioButton">
                                 <button class="btn btnSbyb" wire:click="agregarDispositivos">Agregar
                                     Dispositivos</button> {{-- Boton agregar dispositivos --}}
@@ -748,8 +748,8 @@
                                 </div>
                             </div>
                             <div class="card-body">
-                               
-                                    
+
+
                                     @if ($sitio->cctv == null)
                                     <div class="col">
                                         <div class="card cardClientes shadow p-3 mb-3 bg-white rounded">
@@ -774,7 +774,7 @@
                                                                 @enderror
                                                             </div>
                                                         </div>
-            
+
                                                         <div class="row">
                                                             <div class="col">
                                                                 <input class="form-control" type="text"
@@ -785,7 +785,7 @@
                                                                 @enderror
                                                             </div>
                                                         </div>
-            
+
                                                         <div class="row">
                                                             <div class="col">
                                                                 <input class="form-control" type="text" wire:model="numeroSerie"
@@ -795,7 +795,7 @@
                                                                 @enderror
                                                             </div>
                                                         </div>
-            
+
                                                         <div class="row">
                                                             <div class="col">
                                                                 @if ($editCCTV == false)
@@ -876,15 +876,15 @@
 
 
 
-                                
+
                             </div>
                             <div class="row">
                                 <div class="col" style="display: flex; flex-direction: row-reverse;">
-                                    <button class="btn btnSbyb" wire:click="menu">Volver</button>
+                                    <button class="btn btnSbyb" wire:click="agregarDispositivos">Volver</button>
                                 </div>
 
                             </div>
-                            
+
                         </div>
                     </div>
                 </div>
