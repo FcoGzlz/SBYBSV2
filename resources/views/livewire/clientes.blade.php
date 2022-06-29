@@ -24,7 +24,9 @@
                     <div class="row">
 
                         <div class="col d-flex align-items-center">
-                            <select class="form-select selectByB shadow-none" wire:model="idSitio">
+                            <select class="form-select selectByB shadow-none" wire:model="idSitio"
+                            {{ $menuDispositivos ? 'disabled' :'' }}
+                            >
                                 <option class="selectByB" value="undefined" selected="">Seleccione un sitio
                                 </option>
                                 @foreach ($locacionesCliente as $locacion)
