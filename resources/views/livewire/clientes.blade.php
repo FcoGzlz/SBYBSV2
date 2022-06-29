@@ -42,10 +42,12 @@
                     class="fas fa-bell"></i></button>
                 </div> --}}
                         @if ($sitio != null)
+                           @if ($sitio->cctv && $sitio->alarma == null)
                             <div class="col-auto text-uppercase agregarSitioButton">
                                 <button class="btn btnSbyb" wire:click="agregarDispositivos">Agregar
                                     Dispositivos</button> {{-- Boton agregar dispositivos --}}
                             </div>
+                           @endif
                             <div class="col-auto g-0"><button class="btn btnSbyb" type="button"
                                     wire:click="eliminarSitio({{ $sitio->id }})"><i
                                         class="fas fa-trash-alt"></i></button>
@@ -735,7 +737,7 @@
                 </div>
             </div>
 
-                
+
             @endif
 
 
