@@ -23,8 +23,8 @@
                 @if ($edit == false)
                     <div class="row">
 
-                        <div class="col d-flex align-items-center"><select class="form-select selectByB shadow-none"
-                                wire:model="idSitio">
+                        <div class="col d-flex align-items-center">
+                            <select class="form-select selectByB shadow-none" wire:model="idSitio">
                                 <option class="selectByB" value="undefined" selected="">Seleccione un sitio
                                 </option>
                                 @foreach ($locacionesCliente as $locacion)
@@ -740,12 +740,160 @@
             @if ($menuDispositivos == true)
                 {{-- INICIO formulario CCTV --}}
                 <div class="row">
+                    <div class="col">
+                        <div class="card cardClientes shadow p-3 mb-5 bg-white rounded">
+                            <div class="row">
+                                <div class="col">
+                                    <h1>Agregar dispositivos a {{ $sitio->nombre }}</h1>
+                                </div>
+                            </div>
+                            <div class="card-body">
+                               
+                                    
+                                    @if ($sitio->cctv == null)
+                                    <div class="col">
+                                        <div class="card cardClientes shadow p-3 mb-3 bg-white rounded">
+                                            <div class="row">
+                                                <div class="col">
+                                                    @if ($editCCTV == false)
+                                                        <h4>Agregar CCTV a {{ $sitio->nombre }}</h4>
+                                                    @else
+                                                        <h4>Modificar datos de CCTV</h4>
+                                                    @endif
+                                                </div>
+                                            </div>
+                                            <div class="card-body">
+                                                <div class="row">
+                                                    <div class="col">
+                                                        <div class="row">
+                                                            <div class="col">
+                                                                <input class="form-control" type="text" wire:model="tipoGrabador"
+                                                                    class="form-control" placeholder="Tipo Grabador">
+                                                                @error('tipoGrabador')
+                                                                    <span class="warning">{{ $message }}</span>
+                                                                @enderror
+                                                            </div>
+                                                        </div>
+            
+                                                        <div class="row">
+                                                            <div class="col">
+                                                                <input class="form-control" type="text"
+                                                                    wire:model="cantidadCamaras" class="form-control"
+                                                                    placeholder="Cantidad de cámaras">
+                                                                @error('cantidadCamaras')
+                                                                    <span class="warning">{{ $message }}</span>
+                                                                @enderror
+                                                            </div>
+                                                        </div>
+            
+                                                        <div class="row">
+                                                            <div class="col">
+                                                                <input class="form-control" type="text" wire:model="numeroSerie"
+                                                                    class="form-control" placeholder="Número de serie">
+                                                                @error('numeroSerie')
+                                                                    <span class="warning">{{ $message }}</span>
+                                                                @enderror
+                                                            </div>
+                                                        </div>
+            
+                                                        <div class="row">
+                                                            <div class="col">
+                                                                @if ($editCCTV == false)
+                                                                    <button class="btn btnSbyb form-control"
+                                                                        wire:click="agregarCCTV">Añadir
+                                                                        CCTV</button>
+                                                                @else
+                                                                    <button class="btn btnSbyb form-control"
+                                                                        wire:click="guardarCambiosCCTV({{ $sitio->cctv->id }})">Guardar
+                                                                        Cambios</button>
+                                                                @endif
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                @endif
 
-                    @if ($sitio->cctv == null)
+
+                                @if ($sitio->alarma == null)
+                        <div class="col">
+                            <div class="card cardClientes shadow p-3 mb-3 bg-white rounded">
+                                <div class="row">
+                                    <div class="col ">
+                                        @if ($editAlarma == false)
+                                            <h4>Agregar alarma a {{ $sitio->nombre }}</h4>
+                                        @else
+                                            <h4>Guardar cambios de Alarma</h4>
+                                        @endif
+                                    </div>
+                                </div>
+                                <div class="card-body">
+                                    <div class="row">
+                                        <div>
+                                            <div class="row form-group">
+                                                <div class="col">
+                                                    <select class="form-control" wire:model="tipoAlarma" id="">
+                                                        <option value="">Seleccione tipo de alarma</option>
+                                                        @foreach ($tiposAlarma as $tipoAlarma)
+                                                            <option value="{{ $tipoAlarma->id }}">
+                                                                {{ $tipoAlarma->nombre }}
+                                                            </option>
+                                                        @endforeach
+                                                    </select>
+                                                    @error('tipoAlarma')
+                                                        <span class="warning">{{ $message }}</span>
+                                                    @enderror
+                                                </div>
+                                            </div>
+
+                                            <div class="row form-group">
+                                                <div class="col">
+                                                    <input class="form-control" type="text" wire:model="numeroId"
+                                                        class="form-control" placeholder="Número de serie">
+                                                    @error('numeroId')
+                                                        <span class="warning">{{ $message }}</span>
+                                                    @enderror
+                                                </div>
+                                            </div>
+
+                                            <div class="row form-group">
+                                                <div class="col">
+                                                    <button class="btn btnSbyb form-control"
+                                                        wire:click="agregarAlarma">Añadir
+                                                        Alarma</button>
+
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    @endif
+
+
+
+
+                                
+                            </div>
+                            <div class="row">
+                                <div class="col" style="display: flex; flex-direction: row-reverse;">
+                                    <button class="btn btnSbyb" wire:click="menu">Volver</button>
+                                </div>
+
+                            </div>
+                            
+                        </div>
+                    </div>
+                </div>
+
+                    {{-- @if ($sitio->cctv == null)
                         <div class="col">
                             <div class="card cardClientes shadow p-3 mb-5 bg-white rounded">
                                 <div class="row">
-                                    <div class="col ">
+                                    <div class="col">
                                         @if ($editCCTV == false)
                                             <h4>Agregar CCTV a {{ $sitio->nombre }}</h4>
                                         @else
@@ -805,10 +953,10 @@
                                 </div>
                             </div>
                         </div>
-                    @endif
+                    @endif --}}
 
 
-                    @if ($sitio->alarma == null)
+                    {{-- @if ($sitio->alarma == null)
                         <div class="col">
                             <div class="card cardClientes shadow p-3 mb-5 bg-white rounded">
                                 <div class="row">
@@ -862,7 +1010,7 @@
                                 </div>
                             </div>
                         </div>
-                    @endif
+                    @endif --}}
 
                 </div>
         </div>
