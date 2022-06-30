@@ -89,14 +89,43 @@ class Clientes extends Component
             'telefonoContacto3' );
     }
 
+    protected function resetCamposSitioEdit()
+    {
+        $this->reset(
+            'nombreEdit',
+            'nombreContactoEdit',
+            'telefonoContactoEdit',
+            'emailEdit',
+            'emailContacto2Edit',
+            'emailContacto3Edit',
+            'ciudadEdit',
+            'direccionEdit',
+            'tipoInstitucionEdit',
+            'nombreContactoEdit',
+            'nombreContacto2Edit',
+            'nombreContacto3Edit',
+            'telefonoContacto2Edit',
+            'telefonoContacto3Edit' );
+    }
+
     protected function resetCamposCCTV()
     {
         $this->reset('tipoGrabadorEdit', 'cantidadCamarasEdit', 'numeroSerieEdit');
     }
 
+    protected function resetCamposCCTVAdd()
+    {
+        $this->reset('tipoGrabador', 'cantidadCamaras', 'numeroSerie');
+    }
+
     protected function resetCamposAlarma()
     {
         $this->reset('tipoAlarma', 'numeroId');
+    }
+
+    protected function resetCamposAlarmaEdit()
+    {
+        $this->reset('tipoAlarmaEdit', 'numeroIdEdit');
     }
 
     public function menu(){
@@ -204,7 +233,7 @@ class Clientes extends Component
         $sitio->tipo_institucion = $this->tipoInstitucionEdit;
         $sitio->save();
 
-        $this->resetCamposSitio();
+        $this->resetCamposSitioEdit();
 
         $this->edit = false;
 
@@ -226,6 +255,7 @@ class Clientes extends Component
         ]);
         $cctv->save();
 
+        $this->resetCamposCCTVAdd();
 
     }
 
@@ -270,7 +300,7 @@ class Clientes extends Component
 
         $alarma->save();
 
-        $this->reset('tipoAlarma', 'numeroId');
+        $this->resetCamposAlarma();
     }
 
     public function editarAlarma($id)
@@ -288,7 +318,7 @@ class Clientes extends Component
         $alarma->id_o_numero = $this->numeroIdEdit;
         $alarma->save();
 
-        $this->resetCamposAlarma();
+        $this->resetCamposAlarmaEdit();
         $this->editAlarma = false;
     }
 
