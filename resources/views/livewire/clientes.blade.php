@@ -44,11 +44,11 @@
                                     Dispositivos</button> {{-- Boton agregar dispositivos --}}
                             </div>
                            @endif
-                           <form wire:submit.prevent="eliminarSitio({{ $sitio->id }})">
-                            <div class="col-auto g-0"><button onclick="confirm('¿Desea eliminar el sitio?') || event.preventDefault();" class="btn btnSbyb"
+                           
+                            <div class="col-auto g-0"><button wire:submit.prevent="eliminarSitio({{ $sitio->id }})" onclick="confirm('¿Desea eliminar el sitio?') || event.preventDefault();" class="btn btnSbyb"
                                 type="submit"><i class="fas fa-trash-alt"></i></button>
                             </div>
-                           </form>
+                         
                             <div class="col-auto">
                                 <button class="btn btnSbyb" type="submit"
                                     wire:click="editarSitio({{ $sitio->id }})"><i
