@@ -250,3 +250,16 @@ th.thContacto{
     border: 3px solid #009cde;
     border-radius: 0.3rem;
 }
+
+.cardAlarmayCctv{
+    border: 3px solid #009cde;
+    border-radius: 0.3rem;
+}
+
+.colorLabelAlarmayCctv{
+    color: #009cde;
+}
+
+.warning{
+    color: red;
+}

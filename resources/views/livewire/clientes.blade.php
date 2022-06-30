@@ -754,11 +754,11 @@
 
                                     @if ($sitio->cctv == null)
                                     <div class="col">
-                                        <div class="card cardClientes shadow p-3 mb-3 bg-white rounded">
+                                        <div class="card cardClientes p-3 mb-3 bg-white rounded cardAlarmayCctv">
                                             <div class="row">
                                                 <div class="col">
                                                     @if ($editCCTV == false)
-                                                        <h4>Agregar CCTV a {{ $sitio->nombre }}</h4>
+                                                        <h4 class="colorLabelAlarmayCctv">Agregar CCTV a {{ $sitio->nombre }}</h4>
                                                     @else
                                                         <h4>Modificar datos de CCTV</h4>
                                                     @endif
@@ -768,7 +768,7 @@
                                                 <div class="row">
                                                     <div class="col">
                                                         <div class="row">
-                                                            <div class="col">
+                                                            <div class="col mb-2">
                                                                 <input class="form-control" type="text" wire:model="tipoGrabador"
                                                                     class="form-control" placeholder="Tipo Grabador">
                                                                 @error('tipoGrabador')
@@ -778,7 +778,7 @@
                                                         </div>
 
                                                         <div class="row">
-                                                            <div class="col">
+                                                            <div class="col mb-2">
                                                                 <input class="form-control" type="text"
                                                                     wire:model="cantidadCamaras" class="form-control"
                                                                     placeholder="Cantidad de cámaras">
@@ -789,7 +789,7 @@
                                                         </div>
 
                                                         <div class="row">
-                                                            <div class="col">
+                                                            <div class="col mb-2">
                                                                 <input class="form-control" type="text" wire:model="numeroSerie"
                                                                     class="form-control" placeholder="Número de serie">
                                                                 @error('numeroSerie')
@@ -821,11 +821,11 @@
 
                                 @if ($sitio->alarma == null)
                         <div class="col">
-                            <div class="card cardClientes shadow p-3 mb-3 bg-white rounded">
+                            <div class="card cardClientes p-3 mb-3 bg-white rounded cardAlarmayCctv">
                                 <div class="row">
                                     <div class="col ">
                                         @if ($editAlarma == false)
-                                            <h4>Agregar alarma a {{ $sitio->nombre }}</h4>
+                                            <h4 class="colorLabelAlarmayCctv">Agregar alarma a {{ $sitio->nombre }}</h4>
                                         @else
                                             <h4>Guardar cambios de Alarma</h4>
                                         @endif
@@ -835,7 +835,7 @@
                                     <div class="row">
                                         <div>
                                             <div class="row form-group">
-                                                <div class="col">
+                                                <div class="col mb-2">
                                                     <select class="form-control" wire:model="tipoAlarma" id="">
                                                         <option value="">Seleccione tipo de alarma</option>
                                                         @foreach ($tiposAlarma as $tipoAlarma)
@@ -851,7 +851,7 @@
                                             </div>
 
                                             <div class="row form-group">
-                                                <div class="col">
+                                                <div class="col mb-2">
                                                     <input class="form-control" type="text" wire:model="numeroId"
                                                         class="form-control" placeholder="Número de serie">
                                                     @error('numeroId')
