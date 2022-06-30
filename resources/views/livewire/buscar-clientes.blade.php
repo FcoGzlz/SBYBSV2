@@ -67,7 +67,7 @@
                 <div class="row g-0">
                     <div class="col colTableClientes">
 
-                        
+
                         <div class="table-responsive tableClientesHead">
                             <table class="table tablaClientes table-striped table-sm">
                                 <thead class="tablaClientes">
@@ -116,13 +116,6 @@
 
                                                 </div>
                                             </td>
-
-                                            {{-- <td>
-                            <form action="{{ url('/cliente_'.$cliente->id.'_locaciones') }}">
-                                @csrf
-                                <button class="btn btn-info" type="submit">Ver Sitios</button>
-                            </form>
-                           </td> --}}
                                         </tr>
                                     @endforeach
                                 </tbody>
