@@ -292,15 +292,19 @@
                                 </div>
 
                                 @if ($sitio && $sitio->cctv != null)
-                                    <div class="col-auto">
+                                    
+                                <div class="col-auto">
+                                    <div class="btn-edit-background">
+                                        <form wire:submit.prevent="eliminarCCTV({{ $sitio->cctv->id }})">
+                                            <button onclick="confirm('¿Desea eliminar CCTV?') || event.preventDefault();" class="btn btnSbyb" type="submit"><i
+                                                class="fas fa-trash-alt"></i></button>
+                                        </form>
+                                    </div>
+                                   
+                                </div>
+
+                                <div class="col-auto">
                                         <div class="btn-edit-background">
-                                            <form wire:submit.prevent="eliminarCCTV({{ $sitio->cctv->id }})">
-                                                <button onclick="confirm('¿Desea eliminar CCTV?') || event.preventDefault();" class="btn btnSbyb" type="submit"><i
-                                                    class="fas fa-trash-alt"></i></button>
-                                            </form>
-
-
-
                                             <button class="btn btnSbyb" type="submit"
                                                 wire:click="editarCCTV({{ $sitio->cctv->id }})"><i
                                                     class="far fa-edit"></i>
@@ -427,12 +431,16 @@
                                                 <button onclick="confirm('¿Desea eliminar Alarma?') || event.preventDefault();" class="btn btnSbyb" type="submit"><i
                                                     class="fas fa-trash-alt"></i></button>
                                             </form>
+                                        </div>
+                                    </div>
+                                    <div class="col-auto">
+                                        <div class="btn-edit-background">
 
                                             <button class="btn btnSbyb" type="submit"
                                                 wire:click="editarAlarma({{ $sitio->alarma->id }})"><i
                                                     class="far fa-edit"></i></button>
-                                        </div>
-                                    </div>
+                                                </div>
+                                            </div>
                                 @endif
                             </div>
 
