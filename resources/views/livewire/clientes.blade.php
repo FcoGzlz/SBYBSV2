@@ -98,88 +98,6 @@
                                 </div>
                             </div>
 
-                            {{-- <div class="row">
-
-                                <div class="col"><label
-                                        class="col-form-label labelCardClientes">Contacto:</label>
-                                    @if ($sitio != null)
-                                        <label class="col-form-label">{{ $sitio->nombre_contacto }}</label>
-                                    @endif
-                                </div>
-
-                                <div class="col"><label class="col-form-label labelCardClientes">N° de
-                                        Contacto:</label>
-                                    @if ($sitio != null)
-                                        <label class="col-form-label">{{ $sitio->telefono_contacto }}</label>
-                                    @endif
-                                </div>
-
-                                <div class="col"><label
-                                        class="col-form-label labelCardClientes">Email:</label>
-                                    @if ($sitio != null)
-                                        <label class="col-form-label">{{ $sitio->email }}</label>
-                                    @endif
-                                </div>
-
-                            </div>
-
-                            <div class="row">
-
-                                <div class="col"><label class="col-form-label labelCardClientes">Contacto
-                                        2:</label>
-                                    @if ($sitio != null)
-                                        <label class="col-form-label">{{ $sitio->nombre_contacto_2 }}</label>
-                                    @endif
-                                </div>
-
-                                <div class="col"><label class="col-form-label labelCardClientes">N° de
-                                        Contacto
-                                        2:</label>
-                                    @if ($sitio != null)
-                                        <label class="col-form-label">{{ $sitio->telefono_contacto_2 }}</label>
-                                    @endif
-                                </div>
-
-                                <div class="col"><label class="col-form-label labelCardClientes">Email
-                                        2:</label>
-                                    @if ($sitio != null)
-                                        <label class="col-form-label">{{ $sitio->email_contacto_2 }}</label>
-                                    @endif
-                                </div>
-                            </div>
-
-
-                            <div class="row">
-
-                                <div class="col"><label class="col-form-label labelCardClientes">Contacto
-                                        3:</label>
-                                    @if ($sitio != null)
-                                        <label class="col-form-label">{{ $sitio->nombre_contacto_3 }}</label>
-                                    @endif
-                                </div>
-
-                                <div class="col"><label class="col-form-label labelCardClientes">N° de
-                                        Contacto
-                                        3:</label>
-                                    @if ($sitio != null)
-                                        <label class="col-form-label">{{ $sitio->telefono_contacto_3 }}</label>
-                                    @endif
-                                </div>
-
-                                <div class="col"><label class="col-form-label labelCardClientes">Email
-                                        3:</label>
-                                    @if ($sitio != null)
-                                        <label class="col-form-label">{{ $sitio->email_contacto_3 }}</label>
-                                    @endif
-                                </div>
-                            </div> --}}
-
-
-                            {{-- <div class="row">
-                                <div class="col columnSepararCards"></div>
-                            </div> --}}
-
-
                             <div class="row mb-2" style="color: #009cde; font-weight:bold">
                                 <h3>Datos del Contacto</h3>
                             </div>
@@ -376,16 +294,14 @@
                                 @if ($sitio && $sitio->cctv != null)
                                     <div class="col-auto">
                                         <div class="btn-edit-background">
-                                            <button class="btn btnSbyb" type="button"
-                                                wire:click="eliminarCCTV({{ $sitio->cctv->id }})"><i
+                                            <form wire:submit.prevent="eliminarCCTV({{ $sitio->cctv->id }})">
+                                                <button onclick="confirm('¿Desea eliminar CCTV?') || event.preventDefault();" class="btn btnSbyb" type="submit"><i
                                                     class="fas fa-trash-alt"></i></button>
+                                            </form>
 
 
 
-                                            <button class="btn btnSbyb" type="submit"
-                                                wire:click="editarCCTV({{ $sitio->cctv->id }})"><i
-                                                    class="far fa-edit"></i>
-                                            </button>
+
                                         </div>
                                     </div>
                                 @endif
@@ -504,9 +420,10 @@
                                 @if ($sitio && $sitio->alarma != null)
                                     <div class="col-auto">
                                         <div class="btn-edit-background">
-                                            <button class="btn btnSbyb" type="button"
-                                                wire:click="eliminarAlarma({{ $sitio->alarma->id }})"><i
+                                            <form wire:submit.prevent="eliminarAlarma({{ $sitio->alarma->id }})">
+                                                <button onclick="confirm('¿Desea eliminar Alarma?') || event.preventDefault();" class="btn btnSbyb" type="submit"><i
                                                     class="fas fa-trash-alt"></i></button>
+                                            </form>
 
                                             <button class="btn btnSbyb" type="submit"
                                                 wire:click="editarAlarma({{ $sitio->alarma->id }})"><i
