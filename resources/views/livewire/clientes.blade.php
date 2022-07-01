@@ -780,7 +780,7 @@
 
                                                         <div class="row">
                                                             <div class="col mb-2">
-                                                                <input class="form-control" type="text"
+                                                                <input class="form-control" type="number"
                                                                     wire:model="cantidadCamaras" class="form-control"
                                                                     placeholder="Cantidad de cámaras">
                                                                 @error('cantidadCamaras')
