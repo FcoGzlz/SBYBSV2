@@ -301,7 +301,10 @@
 
 
 
-
+                                            <button class="btn btnSbyb" type="submit"
+                                                wire:click="editarCCTV({{ $sitio->cctv->id }})"><i
+                                                    class="far fa-edit"></i>
+                                            </button>
                                         </div>
                                     </div>
                                 @endif
