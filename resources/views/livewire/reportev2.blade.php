@@ -20,15 +20,15 @@
                                         <label class="">
                                             @switch($turno)
                                                 @case(1)
-                                                    Noche de 00:00 a 08:00 hrs.
+                                                    Noche de 23:00 a 07:00 hrs.
                                                 @break
 
                                                 @case(2)
-                                                    Mañana de 08:00 a 16:00 hrs.
+                                                    Mañana de 07:00 a 15:00 hrs.
                                                 @break
 
                                                 @case(3)
-                                                    Tarde de 16:00 a 00:00 hrs.
+                                                    Tarde de 15:00 a 23:00 hrs.
                                                 @break
                                             @endswitch
                                         </label>
@@ -44,13 +44,13 @@
                             <div class="col text-end col-finalizar-turno"><button class="btn btn-lg btnSbyb" type="submit"
                                     wire:click="finalizarReporte" >Finalizar Turno</button></div>
                         </div>
-                    
+
                         <div class="row g-0">
                             <div class="col">
                                 <div class="row g-0">
                                     <div class="col col-pills-tab">
                                         <ul class="nav nav-pills mb-1 justify-content-center paneles-monitores" id="pills-tab" role="tablist">
-    
+
                                             <li class="nav-item" role="presentation">
                                                 <button class="nav-link {{ $tabMonitor == 1 ? 'active' : '' }}" id="pills-1-tab" data-bs-toggle="pill" data-bs-target="pills-1" type="button" role="tab" aria-controls="pills-1" aria-selected="true"   wire:click="$set('tabMonitor', '1')">1</button>
                                             </li>
@@ -69,7 +69,7 @@
                                             <li class="nav-item" role="presentation">
                                                 <button class="nav-link {{ $tabMonitor == 6 ? 'active' : '' }}" id="pills-6-tab" data-bs-toggle="pill" data-bs-target="pills-6" type="button" role="tab" aria-controls="pills-6" aria-selected="false"  wire:click="$set('tabMonitor', '6')">6</button>
                                             </li>
-    
+
                                         </ul>
                                     </div>
                                 </div>
@@ -77,7 +77,7 @@
                         </div>
                     </div>
 
-                   
+
 
                     <div class="row g-0">
                         <div class="col">
@@ -118,27 +118,27 @@
                                                                 @switch($turno)
                                                                     @case(1)
                                                                         @php
-                                                                            $hora = Carbon\Carbon::create('23:00');
+                                                                            $hora = Carbon\Carbon::create('22:00');
                                                                         @endphp
                                                                     @break
-    
+
                                                                     @case(2)
                                                                         @php
-                                                                            $hora = Carbon\Carbon::create('07:00');
+                                                                            $hora = Carbon\Carbon::create('06:00');
                                                                         @endphp
                                                                     @break
-    
+
                                                                     @case(3)
                                                                         @php
-                                                                            $hora = Carbon\Carbon::create('15:00');
+                                                                            $hora = Carbon\Carbon::create('14:00');
                                                                         @endphp
                                                                     @break
                                                                 @endswitch
-    
+
                                                                 @for ($i = 1; $i <= 9; $i++)
                                                                     <tr>
                                                                         <th> {{ $hora->addHour()->isoFormat('HH:mm') }} </th>
-    
+
                                                                         @for ($j = 1; $j <= 16; $j++)
                                                                             <td>
                                                                                 <div class="position-relative">
@@ -146,7 +146,7 @@
                                                                                 </div>
                                                                             </td>
                                                                         @endfor
-    
+
                                                                     </tr>
                                                                 @endfor
                                                             </tbody>
@@ -154,7 +154,7 @@
                                                     </div>
                                                 </div>
 
-                                                
+
                                             </div>
                                         @break
 
@@ -190,19 +190,19 @@
                                                             @switch($turno)
                                                                 @case(1)
                                                                     @php
-                                                                        $hora = Carbon\Carbon::create('23:00');
+                                                                        $hora = Carbon\Carbon::create('22:00');
                                                                     @endphp
                                                                 @break
 
                                                                 @case(2)
                                                                     @php
-                                                                        $hora = Carbon\Carbon::create('07:00');
+                                                                        $hora = Carbon\Carbon::create('06:00');
                                                                     @endphp
                                                                 @break
 
                                                                 @case(3)
                                                                     @php
-                                                                        $hora = Carbon\Carbon::create('15:00');
+                                                                        $hora = Carbon\Carbon::create('14:00');
                                                                     @endphp
                                                                 @break
                                                             @endswitch
@@ -260,19 +260,19 @@
                                                             @switch($turno)
                                                                 @case(1)
                                                                     @php
-                                                                        $hora = Carbon\Carbon::create('23:00');
+                                                                        $hora = Carbon\Carbon::create('22:00');
                                                                     @endphp
                                                                 @break
 
                                                                 @case(2)
                                                                     @php
-                                                                        $hora = Carbon\Carbon::create('07:00');
+                                                                        $hora = Carbon\Carbon::create('06:00');
                                                                     @endphp
                                                                 @break
 
                                                                 @case(3)
                                                                     @php
-                                                                        $hora = Carbon\Carbon::create('15:00');
+                                                                        $hora = Carbon\Carbon::create('14:00');
                                                                     @endphp
                                                                 @break
                                                             @endswitch
@@ -330,19 +330,19 @@
                                                             @switch($turno)
                                                                 @case(1)
                                                                     @php
-                                                                        $hora = Carbon\Carbon::create('23:00');
+                                                                        $hora = Carbon\Carbon::create('22:00');
                                                                     @endphp
                                                                 @break
 
                                                                 @case(2)
                                                                     @php
-                                                                        $hora = Carbon\Carbon::create('07:00');
+                                                                        $hora = Carbon\Carbon::create('06:00');
                                                                     @endphp
                                                                 @break
 
                                                                 @case(3)
                                                                     @php
-                                                                        $hora = Carbon\Carbon::create('15:00');
+                                                                        $hora = Carbon\Carbon::create('14:00');
                                                                     @endphp
                                                                 @break
                                                             @endswitch
@@ -400,19 +400,19 @@
                                                             @switch($turno)
                                                                 @case(1)
                                                                     @php
-                                                                        $hora = Carbon\Carbon::create('23:00');
+                                                                        $hora = Carbon\Carbon::create('22:00');
                                                                     @endphp
                                                                 @break
 
                                                                 @case(2)
                                                                     @php
-                                                                        $hora = Carbon\Carbon::create('07:00');
+                                                                        $hora = Carbon\Carbon::create('06:00');
                                                                     @endphp
                                                                 @break
 
                                                                 @case(3)
                                                                     @php
-                                                                        $hora = Carbon\Carbon::create('15:00');
+                                                                        $hora = Carbon\Carbon::create('14:00');
                                                                     @endphp
                                                                 @break
                                                             @endswitch
@@ -470,19 +470,19 @@
                                                             @switch($turno)
                                                                 @case(1)
                                                                     @php
-                                                                        $hora = Carbon\Carbon::create('23:00');
+                                                                        $hora = Carbon\Carbon::create('22:00');
                                                                     @endphp
                                                                 @break
 
                                                                 @case(2)
                                                                     @php
-                                                                        $hora = Carbon\Carbon::create('07:00');
+                                                                        $hora = Carbon\Carbon::create('06:00');
                                                                     @endphp
                                                                 @break
 
                                                                 @case(3)
                                                                     @php
-                                                                        $hora = Carbon\Carbon::create('15:00');
+                                                                        $hora = Carbon\Carbon::create('14:00');
                                                                     @endphp
                                                                 @break
                                                             @endswitch
@@ -558,7 +558,7 @@
                         <h4 class="text-start h4Comentario">Comentarios</h4>
                         <div class="row g-0 justify-content-center align-items-center formulario-comentarios">
 
-                            
+
                             <div class="col-auto datos-turno">
                                 @if ($edit != true)
                                     <button class="btn btn-lg btnSbyb" type="button" wire:click="agregarComentario"
@@ -621,7 +621,7 @@
                     @endif
                     </div>
 
-                   
+
                 </div>
                 </div>
             </div>

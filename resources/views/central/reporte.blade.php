@@ -80,13 +80,13 @@
                 <div class="col" style="float: left; margin-left: -15px">
                     <label class="col-form-label" style="font-weight: bold">Turno: </label> <label class="col-form-label" > @switch($turno)
                         @case(1)
-                            Noche, de 00:00 hasta las 08:00 hrs.
+                            Noche, de 11:00 hasta las 07:00 hrs.
                             @break
                         @case(2)
-                            Mañana, de 08:00 hasta las 16:00 hrs.
+                            Mañana, de 07:00 hasta las 15:00 hrs.
                         @break
                         @case(3)
-                            Tarde, de 16:00 hasta las 00:00 hrs.
+                            Tarde, de 15:00 hasta las 23:00 hrs.
                         @break
 
                     @endswitch </label>
@@ -144,19 +144,19 @@
                     @switch($turno)
                     @case(1)
                         @php
-                            $hora = Carbon\Carbon::create('23:00');
+                            $hora = Carbon\Carbon::create('22:00');
                         @endphp
                     @break
 
                     @case(2)
                         @php
-                            $hora = Carbon\Carbon::create('07:00');
+                            $hora = Carbon\Carbon::create('06:00');
                         @endphp
                     @break
 
                     @case(3)
                         @php
-                            $hora = Carbon\Carbon::create('15:00');
+                            $hora = Carbon\Carbon::create('14:00');
                         @endphp
                     @break
                 @endswitch
@@ -210,19 +210,19 @@
                     @switch($turno)
                     @case(1)
                         @php
-                            $hora = Carbon\Carbon::create('23:00');
+                            $hora = Carbon\Carbon::create('22:00');
                         @endphp
                     @break
 
                     @case(2)
                         @php
-                            $hora = Carbon\Carbon::create('07:00');
+                            $hora = Carbon\Carbon::create('06:00');
                         @endphp
                     @break
 
                     @case(3)
                         @php
-                            $hora = Carbon\Carbon::create('15:00');
+                            $hora = Carbon\Carbon::create('14:00');
                         @endphp
                     @break
                 @endswitch
@@ -283,19 +283,19 @@
                         @switch($turno)
                         @case(1)
                             @php
-                                $hora = Carbon\Carbon::create('23:00');
+                                $hora = Carbon\Carbon::create('22:00');
                             @endphp
                         @break
 
                         @case(2)
                             @php
-                                $hora = Carbon\Carbon::create('07:00');
+                                $hora = Carbon\Carbon::create('06:00');
                             @endphp
                         @break
 
                         @case(3)
                             @php
-                                $hora = Carbon\Carbon::create('15:00');
+                                $hora = Carbon\Carbon::create('14:00');
                             @endphp
                         @break
                     @endswitch
@@ -349,19 +349,19 @@
                         @switch($turno)
                         @case(1)
                             @php
-                                $hora = Carbon\Carbon::create('23:00');
+                                $hora = Carbon\Carbon::create('22:00');
                             @endphp
                         @break
 
                         @case(2)
                             @php
-                                $hora = Carbon\Carbon::create('07:00');
+                                $hora = Carbon\Carbon::create('06:00');
                             @endphp
                         @break
 
                         @case(3)
                             @php
-                                $hora = Carbon\Carbon::create('15:00');
+                                $hora = Carbon\Carbon::create('14:00');
                             @endphp
                         @break
                     @endswitch
@@ -423,19 +423,19 @@
                     @switch($turno)
                     @case(1)
                         @php
-                            $hora = Carbon\Carbon::create('23:00');
+                            $hora = Carbon\Carbon::create('22:00');
                         @endphp
                     @break
 
                     @case(2)
                         @php
-                            $hora = Carbon\Carbon::create('07:00');
+                            $hora = Carbon\Carbon::create('06:00');
                         @endphp
                     @break
 
                     @case(3)
                         @php
-                            $hora = Carbon\Carbon::create('15:00');
+                            $hora = Carbon\Carbon::create('14:00');
                         @endphp
                     @break
                 @endswitch
@@ -489,19 +489,19 @@
                     @switch($turno)
                     @case(1)
                         @php
-                            $hora = Carbon\Carbon::create('23:00');
+                            $hora = Carbon\Carbon::create('22:00');
                         @endphp
                     @break
 
                     @case(2)
                         @php
-                            $hora = Carbon\Carbon::create('07:00');
+                            $hora = Carbon\Carbon::create('06:00');
                         @endphp
                     @break
 
                     @case(3)
                         @php
-                            $hora = Carbon\Carbon::create('15:00');
+                            $hora = Carbon\Carbon::create('14:00');
                         @endphp
                     @break
                 @endswitch

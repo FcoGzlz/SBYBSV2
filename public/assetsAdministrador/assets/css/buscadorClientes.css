@@ -39,6 +39,7 @@
     background: #009cde;
 }
 
+
 /* .card.cardClientes{
     margin-right: 5%;
     margin-left: 5%;
@@ -47,29 +48,31 @@
 
 .tablaClientes {
     border-radius: 0px;
-    overflow: hidden;
     margin-bottom: 0px;
-  }
+    overflow-y: scroll;
+    overflow-x: hidden;
+}
 
-.colTableClientes{
+.colTableClientes {
     border: 3px solid #009cde;
     border-radius: .3rem;
 }
-  
-.table.tablaClientes{
+
+.table.tablaClientes {
     margin-top: -1px;
     margin-bottom: 0px;
 }
 
-.tablaClientes thead th{
+.tablaClientes thead th {
     border-bottom: none;
 }
 
-.tablaClientes thead tr th{
+.tablaClientes thead tr th {
     padding: 10px;
 }
 
-th.tablaClientes.thVerpdf,td.tablaClientes.thVerpdf{
+th.tablaClientes.thVerpdf,
+td.tablaClientes.thVerpdf {
     /* flex: auto;
     width: auto; */
     text-align: center;
@@ -77,16 +80,14 @@ th.tablaClientes.thVerpdf,td.tablaClientes.thVerpdf{
     width: 30px;
 }
 
-td.tablaClientes{
+td.tablaClientes {
     padding: 5px;
     vertical-align: middle;
     text-indent: 5px
 }
 
-
-
 .tablaClientes tbody {
-border-radius: 0px;
+    border-radius: 0px;
 }
 
 .tablaClientes thead {
@@ -96,42 +97,40 @@ border-radius: 0px;
     color: rgb(255, 255, 255);
 }
 
-.btnSbyb.btnDetalleCliente{
+.btnSbyb.btnDetalleCliente {
     padding: 0px 12px;
 }
 
-div.tableClientesHead{
+div.tableClientesHead {
     overflow: hidden;
 }
 
-th.tableClientesHead{
+th.tableClientesHead {
     padding-right: 20px;
 }
 
-select.selectByB{
-    
-    background-image:url("https://img.icons8.com/ios-filled/50/009cde/expand-arrow--v1.png") !important;
-    background-size:20px;
+select.selectByB {
+    background-image: url("https://img.icons8.com/ios-filled/50/009cde/expand-arrow--v1.png") !important;
+    background-size: 20px;
     background-repeat: no-repeat;
     -webkit-appearance: none;
     /* background-color: #009cde; */
     color: #009cde;
     box-shadow: none;
     font-weight: bolder;
-    
 }
 
-select.selectByB:active{
+select.selectByB:active {
     box-shadow: none;
 }
 
-option.selectByB{
+option.selectByB {
     background-color: white;
     color: #009cde;
     font-weight: bold;
 }
 
-.subtitulosCard{
+.subtitulosCard {
     background-color: #009cde;
     color: white;
     margin: -16px;
@@ -143,23 +142,23 @@ option.selectByB{
     font-weight: bold;
 }
 
-.labelCardClientes{
+.labelCardClientes {
     color: #009cde;
     font-weight: bold;
 }
 
-div.col.tablaHeadReportes{
+div.col.tablaHeadReportes {
     padding: 0px;
 }
 
-div.card.agregarClienteCard{
+div.card.agregarClienteCard {
     border-style: solid;
     border-radius: .2rem;
     border-color: #009cde;
     border-width: 3px;
 }
 
-input.buscarFechaSbyb{
+input.buscarFechaSbyb {
     cursor: pointer;
     color: #009cde;
     font-weight: bold;
@@ -167,15 +166,15 @@ input.buscarFechaSbyb{
 
 input[type="date"] {
     position: relative;
-  }
-  
-  input[type="date"]::-webkit-calendar-picker-indicator {
+}
+
+input[type="date"]::-webkit-calendar-picker-indicator {
     color: transparent;
     background: none;
     z-index: 1;
-  }
-  
-  input[type="date"]:before {
+}
+
+input[type="date"]:before {
     color: transparent;
     background: none;
     display: block;
@@ -189,15 +188,15 @@ input[type="date"] {
     right: 15px;
     color: #009cde;
     font-weight: normal;
-  }
+}
 
- div.col.agregarClienteButton{
+div.col.agregarClienteButton {
     display: flex;
     align-items: center;
     justify-content: flex-end;
-  }
+}
 
-  .btn-edit-background{
+.btn-edit-background {
     background-color: #009cde;
     margin: -16px;
     border-top-left-radius: 0.2rem;
@@ -206,60 +205,60 @@ input[type="date"] {
     padding-right: 15px;
     padding-bottom: 16px;
     padding-left: -10px;
-  }
+}
 
-  .cardLabelCCTV{
-      display: inline;
-  }
+.cardLabelCCTV {
+    display: inline;
+}
 
-  .agregarSitioButton{
+.agregarSitioButton {
     display: flex;
     flex-direction: row-reverse;
     align-items: center;
-  }
+}
 
-  .paddingAlarma{
+.paddingAlarma {
     padding: 2rem 1rem 2.3rem 1rem;
-  }
+}
 
-  .tableContactos{
+.tableContactos {
     background: #fff;
     overflow: auto;
     width: 100%;
     max-height: 700px;
-  }
+}
 
-  .table.tableContactos{
+.table.tableContactos {
     margin-bottom: 0rem!important;
-  }
+}
 
-thead.tableContactos{
+thead.tableContactos {
     background: #009cde;
     color: #fff;
 }
 
-th.thContacto{
+th.thContacto {
     color: #009cde!important;
 }
 
-.tableContactos thead{
+.tableContactos thead {
     border-bottom: none!important;
 }
 
-.divTableContactos{
+.divTableContactos {
     border: 3px solid #009cde;
     border-radius: 0.3rem;
 }
 
-.cardAlarmayCctv{
+.cardAlarmayCctv {
     border: 3px solid #009cde;
     border-radius: 0.3rem;
 }
 
-.colorLabelAlarmayCctv{
+.colorLabelAlarmayCctv {
     color: #009cde;
 }
 
-.warning{
+.warning {
     color: red;
 }
