@@ -136,6 +136,7 @@ class Turnos extends Component
             'checksM5' => $this->checksM5,
             'checksM6' => $this->checksM6,
         ]);
+
         $pdf->save('../public/archivos/'.$this->nombrePDF);
 
         Mail::send('central.mail_test', [
