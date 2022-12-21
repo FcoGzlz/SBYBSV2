@@ -73,7 +73,7 @@
         <div class="col-6" style="margin-left: -60px; float: left">
 
                 <div class="col" style="float: left; margin-left: -15px">
-                    <label class="col-form-label" style="font-weight: bold">Responsable de monitoreo:  </label> <label class="col-form-label" > {{ $nombreMonitor}} </label>
+                    <label class="col-form-label" style="font-weight: bold">Monitor(es):  </label> <label class="col-form-label" > {{ $nombreMonitor}} </label>
                 </div>
 
                     <div class="col-12" style="height: 40px"></div>

@@ -28,11 +28,19 @@ class CentralController extends Controller
 
     public function reporteTurno(Request $request)
     {
-
-        $nombreMonitor = $request->get("nombreMonitor");
+        $nombreMonitor = "";
+        $nombreMonitor1 = $request->get("nombreMonitor");
+        $nombreMonitor2 = $request->get("nombreMonitor2");
         $selecTurno = $request->get("turnoSeleccionado");
         $fechaT = $request->get("fechaT");
+        $modalidadTurno = $request->get("modalidadTurno");
         $turnoB = Turno::where('finalizado', '=', false);
+        if($modalidadTurno != null){
+            $nombreMonitor = $nombreMonitor1." - ".$nombreMonitor2;
+        }
+        else{
+            $nombreMonitor = $nombreMonitor1;
+        }
 
         if ($turnoB->first() == null) {
             $turno = Turno::create([

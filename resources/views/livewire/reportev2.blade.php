@@ -12,7 +12,7 @@
                             <div class="col">
                                 <div class="row text-start">
                                     <div class="col-auto"><label
-                                            class="">Nombre: {{ $nombreMonitor }}</label>
+                                            class="">Nombre(s): {{ $nombreMonitor }}</label>
                                     </div>
 
                                     <div class="col-auto"><label class="">Turno:
