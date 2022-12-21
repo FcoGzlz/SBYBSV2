@@ -31,6 +31,7 @@ class CentralController extends Controller
 
         $nombreMonitor = $request->get("nombreMonitor");
         $selecTurno = $request->get("turnoSeleccionado");
+        dd($selecTurno);
         $fechaT = $request->get("fechaT");
         $turnoB = Turno::where('finalizado', '=', false);
 
