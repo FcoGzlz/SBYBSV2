@@ -7,14 +7,22 @@
 
                         <div class="col text-center align-self-center"><label
                             class="form-label datos-turno label-turno">  <input type="checkbox" name="turnoDoble" value="true" wire:click="modalidadTurno"> Turno Doble</label>
-                            {{ $turnoDoble }}
                         </div>
 
                         <div class="col text-center align-self-center"><label
-                            class="form-label datos-turno label-turno">Nombre Monitor</label>
-                            <select class="datos-turno" name="nombreMonitor" id="" style="padding-right: 8px;" wire:model="monitor1">
+                            class="form-label datos-turno label-turno">Nombre Monitor @if ($turnoDoble == true)
+                                1
+                            @endif</label>
+                            <select class="datos-turno" name="nombreMonitor1" id="" style="padding-right: 8px;" wire:model="monitor1">
+                                @if ($turnoDoble == true)
+                                    <option>Seleccione Monitor 1</option>
+                                @else
+                                    <option>Seleccione Monitor</option>
+                                @endif
                                 @foreach ($monitores as $monitor)
-                                    <option value="{{ $monitor->nombre }}">{{ $monitor->nombre }}</option>
+                                    @if ($monitor->nombre != $monitor2)
+                                        <option value="{{ $monitor->nombre }}">{{ $monitor->nombre }}</option>
+                                    @endif
                                 @endforeach
                             </select>
                         </div>
@@ -22,9 +30,12 @@
                         @if ($turnoDoble == true)
                             <div class="col text-center align-self-center"><label
                                 class="form-label datos-turno label-turno">Nombre Monitor 2</label>
-                                <select class="datos-turno" name="nombreMonitor1" id="" style="padding-right: 8px;" wire:model="monitor2">
+                                <select class="datos-turno" name="nombreMonitor2" id="" style="padding-right: 8px;" wire:model="monitor2">
+                                    <option>Seleccione Monitor 2</option>
                                     @foreach ($monitores as $monitor)
-                                            <option value="{{ $monitor->nombre }}">{{ $monitor->nombre }}</option>
+                                            @if ($monitor->nombre != $monitor1)
+                                                <option value="{{ $monitor->nombre }}">{{ $monitor->nombre }}</option>
+                                            @endif
                                     @endforeach
                                 </select>
                             </div>
