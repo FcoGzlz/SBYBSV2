@@ -68,9 +68,9 @@
 </head>
 
 <body>
-    <div class="col-12" style="display: flex; width: 1200px;">
-        <div class="col-6" style="margin-right: -200px; float: right;"><img src="assets/img/logologin.png"></div>
-        <div class="col-6" style="margin-left: -60px; float: left">
+    <div class="col-12" style="display: flex; width: 1700px;">
+        <div class="col-5" style="margin-right: -100px; float: right;"><img src="assets/img/logologin.png"></div>
+        <div class="col-7" style="margin-left: -60px; float: left">
 
                 <div class="col" style="float: left; margin-left: -15px">
                     <label class="col-form-label" style="font-weight: bold">Monitor(es):  </label> <label class="col-form-label" > {{ $nombreMonitor}} </label>
