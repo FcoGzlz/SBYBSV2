@@ -29,20 +29,20 @@ Auth::routes();
 
 Route::get('/', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
 
-Route::get('/solicitudes_clientes', [UAdministradorController::class, 'SolicitudesClientes'])->name('solicitudesClientes');
+// Route::get('/solicitudes_clientes', [UAdministradorController::class, 'SolicitudesClientes'])->name('solicitudesClientes');
 
-Route::group(['middleware' => ['role:UAdministrador']], function () {
-    Route::match(['get', 'post'], '/definir_prioridad', [UAdministradorController::class, 'definirPrioridad'])->name('definirPrioridad');
-    Route::match(['get', 'post'], '/ingresar_solicitud', [UAdminitradorController::class, 'ingresarSolicitud'])->name('ingresarSolicitud');
-    Route::get('/solicitudes_ingresadas', [UAdministradorController::class, 'solicitudesIngresadas'])->name('solicitudesIngresadas');
-    Route::get('/nueva_solicitud', [UAdministradorController::class, 'nuevaSolicitud'])->name('nuevaSolicitud');
-    Route::POST('/agregar_solicitud', [UAdministradorController::class, 'agregarSolicitud'])->name('agregarSolicitud');
-    Route::POST('/detalle_solicitud', [UAdministradorController::class, 'detalleSolicitud'])->name('detalleSolicitud');
-    Route::GET('/editar_solicitud/{solicitud}', [UAdministradorController::class, 'editarSolicitud']);
-    Route::POST('/guardar_solicitud/{solicitud}', [UAdministradorController::class, 'guardarSolicitud']);
-    Route::POST('/eliminar_solicitud', [UAdministradorController::class, 'eliminarSolicitud'])->name('eliminarSolicitud');
-    Route::GET('/reporte', [UAdministradorController::class, 'reporte'])->name('reporte');
-});
+// Route::group(['middleware' => ['role:UAdministrador']], function () {
+//     Route::match(['get', 'post'], '/definir_prioridad', [UAdministradorController::class, 'definirPrioridad'])->name('definirPrioridad');
+//     Route::match(['get', 'post'], '/ingresar_solicitud', [UAdminitradorController::class, 'ingresarSolicitud'])->name('ingresarSolicitud');
+//     Route::get('/solicitudes_ingresadas', [UAdministradorController::class, 'solicitudesIngresadas'])->name('solicitudesIngresadas');
+//     Route::get('/nueva_solicitud', [UAdministradorController::class, 'nuevaSolicitud'])->name('nuevaSolicitud');
+//     Route::POST('/agregar_solicitud', [UAdministradorController::class, 'agregarSolicitud'])->name('agregarSolicitud');
+//     Route::POST('/detalle_solicitud', [UAdministradorController::class, 'detalleSolicitud'])->name('detalleSolicitud');
+//     Route::GET('/editar_solicitud/{solicitud}', [UAdministradorController::class, 'editarSolicitud']);
+//     Route::POST('/guardar_solicitud/{solicitud}', [UAdministradorController::class, 'guardarSolicitud']);
+//     Route::POST('/eliminar_solicitud', [UAdministradorController::class, 'eliminarSolicitud'])->name('eliminarSolicitud');
+//     Route::GET('/reporte', [UAdministradorController::class, 'reporte'])->name('reporte');
+// });
 
 
 

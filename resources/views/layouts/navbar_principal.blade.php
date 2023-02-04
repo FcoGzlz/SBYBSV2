@@ -87,30 +87,17 @@
     <div style="transform: translateY(70px)!important;">
         @yield('content')
     </div>
-    
+
 
     <script src="assetsAdministrador/assets/js/navbar_principal.js"></script>
     <script src="assetsAdministrador/assets/js/jquery.min.js"></script>
     <script src="assetsAdministrador/assets/js/script.min.js"></script>
     <script src="assetsAdministrador/assets/js/bootstrap.min.js"></script>
     <script src="assetsAdministrador/assets/js/jquery.rut.js"></script>
-    <script>
-        $(function() {
-            $("#rut").rut().on('rutValido', function(e, rut, dv) {
-                alert("El rut " + rut + "-" + dv + " es correcto");
-            }, {
-                minimumLength: 7
-            });
-            $("input#rut").rut({
-                formatOn: 'keyup',
-                minimumLength: 8, // validar largo mínimo; default: 2
-                validateOn: 'change' // si no se quiere validar, pasar null
-            });
-        })
-    </script>
-   
+
+
     @livewireScripts
-    
+
 </body>
 
 </html>

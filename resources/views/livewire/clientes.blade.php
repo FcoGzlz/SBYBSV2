@@ -9,7 +9,7 @@
                         <h1>{{ $cliente->nombre }}
                     </div>
                     <div class="col text-uppercase agregarSitioButton">
-                        @if ($menu == false)
+                        @if ($menu == false && $edit == false)
                             <button class="btn btnSbyb" wire:click="menu">Agregar Sitio</button>
                         @endif
                     </div>
@@ -114,63 +114,109 @@
                                             </tr>
                                         </thead>
                                         <tbody style="border-top:none">
-                                            <tr>
-                                                <th scope="row" class="thContacto">Contacto 1</th>
+                                            @if ($sitio!= null && ($sitio->nombre_contacto || $sitio->telefono_contacto || $sitio->email_comtacto) != null)
+                                                <tr>
+                                                    <th scope="row" class="thContacto">Contacto 1</th>
 
-                                                <td>
-                                                    @if ($sitio != null)
-                                                        <label>{{ $sitio->nombre_contacto }}</label>
-                                                    @endif
-                                                </td>
+                                                    <td>
+                                                        @if ($sitio != null)
+                                                            <label>{{ $sitio->nombre_contacto }}</label>
+                                                        @endif
+                                                    </td>
 
-                                                <td>
-                                                    @if ($sitio != null)
-                                                        <label>{{ $sitio->telefono_contacto }}</label>
-                                                    @endif
-                                                </td>
+                                                    <td>
+                                                        @if ($sitio != null)
+                                                            <label>{{ $sitio->telefono_contacto }}</label>
+                                                        @endif
+                                                    </td>
 
-                                                <td>
-                                                    @if ($sitio != null)
-                                                        <label>{{ $sitio->email }}</label>
-                                                    @endif
-                                                </td>
-                                            </tr>
-                                            <tr>
-                                                <th scope="row" class="thContacto">Contacto 2</th>
-                                                <td>
-                                                    @if ($sitio != null)
-                                                        <label>{{ $sitio->nombre_contacto_2 }}</label>
-                                                    @endif
-                                                </td>
-                                                <td>
-                                                    @if ($sitio != null)
-                                                        <label>{{ $sitio->telefono_contacto_2 }}</label>
-                                                    @endif
-                                                </td>
-                                                <td>
-                                                    @if ($sitio != null)
-                                                        <label>{{ $sitio->email_contacto_2 }}</label>
-                                                    @endif
-                                                </td>
-                                            </tr>
-                                            <tr>
-                                                <th scope="row" class="thContacto">Contacto 3</th>
-                                                <td>
-                                                    @if ($sitio != null)
-                                                        <label>{{ $sitio->nombre_contacto_3 }}</label>
-                                                    @endif
-                                                </td>
-                                                <td>
-                                                    @if ($sitio != null)
-                                                        <label>{{ $sitio->telefono_contacto_3 }}</label>
-                                                    @endif
-                                                </td>
-                                                <td>
-                                                    @if ($sitio != null)
-                                                        <label>{{ $sitio->email_contacto_3 }}</label>
-                                                    @endif
-                                                </td>
-                                            </tr>
+                                                    <td>
+                                                        @if ($sitio != null)
+                                                            <label>{{ $sitio->email }}</label>
+                                                        @endif
+                                                    </td>
+                                                </tr>
+                                            @endif
+                                            @if ($sitio!= null && ($sitio->nombre_contacto_2 || $sitio->telefono_contacto_2 || $sitio->email_comtacto_2) != null)
+                                                <tr>
+                                                    <th scope="row" class="thContacto">Contacto 2</th>
+                                                    <td>
+                                                        @if ($sitio != null)
+                                                            <label>{{ $sitio->nombre_contacto_2 }}</label>
+                                                        @endif
+                                                    </td>
+                                                    <td>
+                                                        @if ($sitio != null)
+                                                            <label>{{ $sitio->telefono_contacto_2 }}</label>
+                                                        @endif
+                                                    </td>
+                                                    <td>
+                                                        @if ($sitio != null)
+                                                            <label>{{ $sitio->email_contacto_2 }}</label>
+                                                        @endif
+                                                    </td>
+                                                </tr>
+                                            @endif
+                                            @if ($sitio!= null && ($sitio->nombre_contacto_3 || $sitio->telefono_contacto_3 || $sitio->email_comtacto_3) != null)
+                                                <tr>
+                                                    <th scope="row" class="thContacto">Contacto 3</th>
+                                                    <td>
+                                                        @if ($sitio != null)
+                                                            <label>{{ $sitio->nombre_contacto_3 }}</label>
+                                                        @endif
+                                                    </td>
+                                                    <td>
+                                                        @if ($sitio != null)
+                                                            <label>{{ $sitio->telefono_contacto_3 }}</label>
+                                                        @endif
+                                                    </td>
+                                                    <td>
+                                                        @if ($sitio != null)
+                                                            <label>{{ $sitio->email_contacto_3 }}</label>
+                                                        @endif
+                                                    </td>
+                                                </tr>
+                                            @endif
+                                            @if ($sitio!= null && ($sitio->nombre_contacto_4 || $sitio->telefono_contacto_4 || $sitio->email_comtacto_4) != null)
+                                                <tr>
+                                                    <th scope="row" class="thContacto">Contacto 4</th>
+                                                    <td>
+                                                        @if ($sitio != null)
+                                                            <label>{{ $sitio->nombre_contacto_4 }}</label>
+                                                        @endif
+                                                    </td>
+                                                    <td>
+                                                        @if ($sitio != null)
+                                                            <label>{{ $sitio->telefono_contacto_4 }}</label>
+                                                        @endif
+                                                    </td>
+                                                    <td>
+                                                        @if ($sitio != null)
+                                                            <label>{{ $sitio->email_contacto_4 }}</label>
+                                                        @endif
+                                                    </td>
+                                                </tr>
+                                            @endif
+                                            @if ($sitio!= null && ($sitio->nombre_contacto_5 || $sitio->telefono_contacto_5 || $sitio->email_comtacto_5) != null)
+                                                <tr>
+                                                    <th scope="row" class="thContacto">Contacto 5</th>
+                                                    <td>
+                                                        @if ($sitio != null)
+                                                            <label>{{ $sitio->nombre_contacto_5 }}</label>
+                                                        @endif
+                                                    </td>
+                                                    <td>
+                                                        @if ($sitio != null)
+                                                            <label>{{ $sitio->telefono_contacto_5 }}</label>
+                                                        @endif
+                                                    </td>
+                                                    <td>
+                                                        @if ($sitio != null)
+                                                            <label>{{ $sitio->email_contacto_5 }}</label>
+                                                        @endif
+                                                    </td>
+                                                </tr>
+                                            @endif
                                         </tbody>
 
                                     </table>
@@ -262,6 +308,44 @@
                                 </div>
                                 <div class="row mb-3">
                                     <div class="col">
+                                        <label for="nombreContactonInput4" class="form-label">Nombre de contacto
+                                            4</label>
+                                        <input class="form-control" type="text" wire:model="nombreContacto4Edit"
+                                            class="form-control" id="nombreContactonInput4">
+                                    </div>
+                                    <div class="col">
+                                        <label for="numeroContactoInput4" class="form-label">Número de contacto
+                                            4</label>
+                                        <input class="form-control" type="text" wire:model="telefonoContacto4Edit"
+                                            class="form-control" id="numeroContactoInput4">
+                                    </div>
+                                    <div class="col">
+                                        <label for="emailInput4" class="form-label">Email de contacto 4</label>
+                                        <input class="form-control" type="text" wire:model="emailContacto4Edit"
+                                            class="form-control" id="emailInput4">
+                                    </div>
+                                </div>
+                                <div class="row mb-3">
+                                    <div class="col">
+                                        <label for="nombreContactonInput5" class="form-label">Nombre de contacto
+                                            5</label>
+                                        <input class="form-control" type="text" wire:model="nombreContacto5Edit"
+                                            class="form-control" id="nombreContactonInput5">
+                                    </div>
+                                    <div class="col">
+                                        <label for="numeroContactoInput5" class="form-label">Número de contacto
+                                            5</label>
+                                        <input class="form-control" type="text" wire:model="telefonoContacto5Edit"
+                                            class="form-control" id="numeroContactoInput5">
+                                    </div>
+                                    <div class="col">
+                                        <label for="emailInput5" class="form-label">Email de contacto 5</label>
+                                        <input class="form-control" type="text" wire:model="emailContacto5Edit"
+                                            class="form-control" id="emailInput5">
+                                    </div>
+                                </div>
+                                <div class="row mb-3">
+                                    <div class="col">
                                         <label for="tipoInstitucionInput" class="form-label">Tipo de insitución
                                             (opcional) </label>
                                         <input class="form-control" type="text" wire:model="tipoInstitucionEdit"
@@ -292,7 +376,7 @@
                                 </div>
 
                                 @if ($sitio && $sitio->cctv != null)
-                                    
+
                                 <div class="col-auto">
                                     <div class="btn-edit-background">
                                         <form wire:submit.prevent="eliminarCCTV({{ $sitio->cctv->id }})">
@@ -300,7 +384,7 @@
                                                 class="fas fa-trash-alt"></i></button>
                                         </form>
                                     </div>
-                                   
+
                                 </div>
 
                                 <div class="col-auto">
@@ -642,6 +726,54 @@
                                         <input class="form-control" type="text" wire:model="emailContacto3"
                                             class="form-control" placeholder="Email 3">
                                         @error('emailContacto3')
+                                            <span class="warning">{{ $message }}</span>
+                                        @enderror
+                                    </div>
+
+                                </div>
+                                <div class="row mb-3">
+                                    <div class="col">
+                                        <input class="form-control" type="text" wire:model="nombreContacto4"
+                                            class="form-control" placeholder="Nombre de contacto 4">
+                                        @error('nombreContacto4')
+                                            <span class="warning">{{ $message }}</span>
+                                        @enderror
+                                    </div>
+                                    <div class="col">
+                                        <input class="form-control" type="text" wire:model="telefonoContacto4"
+                                            class="form-control" placeholder="Número de contacto 4">
+                                        @error('telefonoContacto4')
+                                            <span class="warning">{{ $message }}</span>
+                                        @enderror
+                                    </div>
+                                    <div class="col">
+                                        <input class="form-control" type="text" wire:model="emailContacto4"
+                                            class="form-control" placeholder="Email 4">
+                                        @error('emailContacto4')
+                                            <span class="warning">{{ $message }}</span>
+                                        @enderror
+                                    </div>
+
+                                </div>
+                                <div class="row mb-3">
+                                    <div class="col">
+                                        <input class="form-control" type="text" wire:model="nombreContacto5"
+                                            class="form-control" placeholder="Nombre de contacto 5">
+                                        @error('nombreContacto5')
+                                            <span class="warning">{{ $message }}</span>
+                                        @enderror
+                                    </div>
+                                    <div class="col">
+                                        <input class="form-control" type="text" wire:model="telefonoContacto5"
+                                            class="form-control" placeholder="Número de contacto 5">
+                                        @error('telefonoContacto5')
+                                            <span class="warning">{{ $message }}</span>
+                                        @enderror
+                                    </div>
+                                    <div class="col">
+                                        <input class="form-control" type="text" wire:model="emailContacto5"
+                                            class="form-control" placeholder="Email 5">
+                                        @error('emailContacto5')
                                             <span class="warning">{{ $message }}</span>
                                         @enderror
                                     </div>

@@ -13,7 +13,9 @@ class VerifyCsrfToken extends Middleware
      */
     protected $except = [
         'inicio_reporte',
+        'inicio_reporte/*',
         'reporte_turno',
+        'reporte_turno/*',
         'livewire/*',
     ];
 }

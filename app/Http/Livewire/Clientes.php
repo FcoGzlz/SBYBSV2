@@ -22,28 +22,40 @@ class Clientes extends Component
 
     public $nombre;
     public $nombreContacto;
-    public $telefonoContacto;
     public $nombreContacto2;
-    public $telefonoContacto2;
     public $nombreContacto3;
+    public $nombreContacto4;
+    public $nombreContacto5;
+    public $telefonoContacto;
+    public $telefonoContacto2;
     public $telefonoContacto3;
+    public $telefonoContacto4;
+    public $telefonoContacto5;
     public $email;
     public $emailContacto2;
     public $emailContacto3;
+    public $emailContacto4;
+    public $emailContacto5;
     public $ciudad;
     public $direccion;
     public $tipoInstitucion;
 
     public $nombreEdit;
     public $nombreContactoEdit;
-    public $telefonoContactoEdit;
     public $nombreContacto2Edit;
-    public $telefonoContacto2Edit;
     public $nombreContacto3Edit;
+    public $nombreContacto4Edit;
+    public $nombreContacto5Edit;
+    public $telefonoContactoEdit;
+    public $telefonoContacto2Edit;
     public $telefonoContacto3Edit;
+    public $telefonoContacto4Edit;
+    public $telefonoContacto5Edit;
     public $emailEdit;
     public $emailContacto2Edit;
     public $emailContacto3Edit;
+    public $emailContacto4Edit;
+    public $emailContacto5Edit;
     public $ciudadEdit;
     public $direccionEdit;
     public $tipoInstitucionEdit;
@@ -79,14 +91,21 @@ class Clientes extends Component
             'email',
             'emailContacto2',
             'emailContacto3',
+            'emailContacto4',
+            'emailContacto5',
             'ciudad',
             'direccion',
             'tipoInstitucion',
             'nombreContacto',
             'nombreContacto2',
             'nombreContacto3',
+            'nombreContacto4',
+            'nombreContacto5',
             'telefonoContacto2',
-            'telefonoContacto3' );
+            'telefonoContacto3',
+            'telefonoContacto4',
+            'telefonoContacto5',
+        );
     }
 
     protected function resetCamposSitioEdit()
@@ -98,14 +117,21 @@ class Clientes extends Component
             'emailEdit',
             'emailContacto2Edit',
             'emailContacto3Edit',
+            'emailContacto4Edit',
+            'emailContacto5Edit',
             'ciudadEdit',
             'direccionEdit',
             'tipoInstitucionEdit',
             'nombreContactoEdit',
             'nombreContacto2Edit',
             'nombreContacto3Edit',
+            'nombreContacto4Edit',
+            'nombreContacto5Edit',
             'telefonoContacto2Edit',
-            'telefonoContacto3Edit' );
+            'telefonoContacto3Edit',
+            'telefonoContacto4Edit',
+            'telefonoContacto5Edit'
+        );
     }
 
     protected function resetCamposCCTV()
@@ -180,6 +206,12 @@ class Clientes extends Component
             'email' => $this->email,
             'email_contacto_2' => $this->emailContacto2,
             'email_contacto_3' => $this->emailContacto3,
+            'nombre_contacto_4' => $this->nombreContacto4,
+            'telefono_contacto_4' => $this->telefonoContacto4,
+            'email_contacto_4' => $this->emailContacto4,
+            'nombre_contacto_5' => $this->nombreContacto5,
+            'telefono_contacto_5' => $this->telefonoContacto5,
+            'email_contacto_5' => $this->emailContacto5,
             'ciudad' => $this->ciudad,
             'direccion' => $this->direccion,
             'tipo_institucion' => $this->tipoInstitucion,
@@ -210,6 +242,12 @@ class Clientes extends Component
         $this->emailEdit = $sitio->email;
         $this->emailContacto2Edit = $sitio->email_contacto_2;
         $this->emailContacto3Edit = $sitio->email_contacto_3;
+        $this->nombreContacto4Edit = $sitio->nombre_contacto_4;
+        $this->telefonoContacto4Edit = $sitio->telefono_contacto_4;
+        $this->emailContacto4Edit = $sitio->email_contacto_4;
+        $this->nombreContacto5Edit = $sitio->nombre_contacto_5;
+        $this->telefonoContacto5Edit = $sitio->telefono_contacto_5;
+        $this->emailContacto5Edit = $sitio->email_contacto_5;
         $this->ciudadEdit = $sitio->ciudad;
         $this->direccionEdit = $sitio->direccion;
         $this->tipoInstitucionEdit = $sitio->tipo_institucion;
@@ -228,6 +266,12 @@ class Clientes extends Component
         $sitio->email = $this->emailEdit;
         $sitio->email_contacto_2 = $this->emailContacto2Edit;
         $sitio->email_contacto_3 = $this->emailContacto3Edit;
+        $sitio->nombre_contacto_4 = $this->nombreContacto4Edit;
+        $sitio->telefono_contacto_4 = $this->telefonoContacto4Edit;
+        $sitio->email_contacto_4 = $this->emailContacto4Edit;
+        $sitio->nombre_contacto_5 = $this->nombreContacto5Edit;
+        $sitio->telefono_contacto_5 = $this->telefonoContacto5Edit;
+        $sitio->email_contacto_5 = $this->emailContacto5Edit;
         $sitio->ciudad = $this->ciudadEdit;
         $sitio->direccion = $this->direccionEdit;
         $sitio->tipo_institucion = $this->tipoInstitucionEdit;

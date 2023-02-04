@@ -54,7 +54,7 @@ return [
     |
     */
 
-    'asset_url' => 'http://localhost/SBYBSV2/public',
+    'asset_url' => 'http://192.168.2.66/SBYBSV2/public',
 
     /*
     |--------------------------------------------------------------------------
@@ -62,7 +62,7 @@ return [
     |--------------------------------------------------------------------------
     |
     | This value should be used if livewire assets are served from CDN.
-    | Livewire will communicate with an app through this url.}
+    | Livewire will communicate with an app through this url.
     |
     | Examples: "https://my-app.com", "myurl.com/app".
     |

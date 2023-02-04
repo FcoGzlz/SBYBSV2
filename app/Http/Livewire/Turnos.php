@@ -139,19 +139,19 @@ class Turnos extends Component
 
         $pdf->save('../public/archivos/'.$this->nombrePDF);
 
-        // Mail::send('central.mail_test', [
-        //     'comentarios' => $this->turnoBD->comentarios,
-        //     'nombreMonitor' => $this->turnoBD->responsable,
-        //     'turno' => $this->turnoBD->turno,
-        //     'fechaTurno' => $this->fechaTurno
-        // ], function ($message) {
-        //     $message->from('centralmonitoreo@seguridadbyb.cl', 'Central de monitoreo, Seguridad ByB');
-        //     $message->sender('centralmonitoreo@seguridadbyb.cl', 'Central de monitoreo, Seguridad ByB');
-        //     $message->to('dolivos@seguridadbyb.cl', 'Diego Olivos:');
-        //     $message->cc('jbalboa@seguridadbyb.cl', 'Joel Balboa');
-        //     $message->subject('Reporte de monitoreo' . '-' . $this->fechaTurno);
-        //     $message->attach('../public/archivos/' . $this->nombrePDF);
-        // });
+        Mail::send('central.mail_test', [
+            'comentarios' => $this->turnoBD->comentarios,
+            'nombreMonitor' => $this->turnoBD->responsable,
+            'turno' => $this->turnoBD->turno,
+            'fechaTurno' => $this->fechaTurno
+        ], function ($message) {
+            $message->from('centralmonitoreo@seguridadbyb.cl', 'Central de monitoreo, Seguridad ByB');
+            $message->sender('centralmonitoreo@seguridadbyb.cl', 'Central de monitoreo, Seguridad ByB');
+            $message->to('dolivos@seguridadbyb.cl', 'Diego Olivos:');
+            $message->cc('jbalboa@seguridadbyb.cl', 'Joel Balboa');
+            $message->subject('Reporte de monitoreo' . '-' . $this->fechaTurno);
+            $message->attach('../public/archivos/' . $this->nombrePDF);
+        });
 
         $this->turnoBD->get();
         $this->turnoBD->nombre_pdf = $this->nombrePDF;
