@@ -555,6 +555,9 @@
                                                     <label class="col-form-label">{{ $sitio->alarma->id_o_numero }}</label>
                                                 @break
 
+                                                @case('VETTI')
+                                                    <label class="col-form-label labelCardClientes">MAC:&nbsp;</label>
+                                                    <label class="col-form-label">{{ $sitio->alarma->id_o_numero }}</label>
                                                 @default
                                             @endswitch
                                         @endif
@@ -585,7 +588,23 @@
                                                     <label for="numeroIdInput" class="form-label">Número de
                                                         Serie</label>
                                                     <input type="text" class="form-control" id="numeroIdInput"
-                                                        wire:model="numeroIdEdit">
+                                                        wire:model="numeroIdEdit"
+
+                                                        @switch($tipoAlarmaEdit)
+                                                            @case(1)
+                                                                placeholder="Número"
+                                                                @break
+                                                            @case(2)
+                                                                placeholder="ID"
+                                                                @break
+                                                            @case(6)
+                                                                placeholder="MAC"
+                                                                @break
+                                                            @default
+
+                                                        @endswitch
+
+                                                        >
                                                     @error('numeroId')
                                                         <span class="warning">{{ $message }}</span>
                                                     @enderror
@@ -904,9 +923,9 @@
                                                 <div class="col mb-2">
                                                     <select class="form-control" wire:model="tipoAlarma" id="">
                                                         <option value="">Seleccione tipo de alarma</option>
-                                                        @foreach ($tiposAlarma as $tipoAlarma)
-                                                            <option value="{{ $tipoAlarma->id }}">
-                                                                {{ $tipoAlarma->nombre }}
+                                                        @foreach ($tiposAlarma as $ta)
+                                                            <option value="{{ $ta->id }}">
+                                                                {{ $ta->nombre }}
                                                             </option>
                                                         @endforeach
                                                     </select>
@@ -919,7 +938,21 @@
                                             <div class="row form-group">
                                                 <div class="col mb-2">
                                                     <input class="form-control" type="text" wire:model="numeroId"
-                                                        class="form-control" placeholder="Número de serie">
+                                                        class="form-control"
+
+                                                        @switch($tipoAlarma)
+                                                            @case(1)
+                                                                placeholder="Numero"
+                                                                @break
+                                                            @case(2)
+                                                                placeholder="ID"
+                                                                @break
+                                                            @case(6)
+                                                                placeholder="MAC"
+                                                                @break
+                                                            @default
+                                                        @endswitch
+                                                        >
                                                     @error('numeroId')
                                                         <span class="warning">{{ $message }}</span>
                                                     @enderror
